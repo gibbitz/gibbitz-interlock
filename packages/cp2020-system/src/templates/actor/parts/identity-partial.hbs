@@ -1,0 +1,48 @@
+{{systemLog ' IDENTITY | ACTOR | ' this}}
+<article class="fieldset edgerunner-sheet__identity">
+  <div class="legend">Identity</div>
+  {{cp2020-input
+    name='name'
+    value=name
+    type='text'
+    label='cp2020.identity.handle'
+  }}
+  {{#with system.identity}}
+    {{cp2020-input
+      name='system.identity.givenName'
+      value=givenName
+      type='text'
+      label='cp2020.identity.givenName'
+    }}
+    {{cp2020-input
+      name='system.identity.age'
+      value=age
+      type='text'
+      label='cp2020.identity.age'
+    }}
+    {{cp2020-input
+      name='system.identity.gender'
+      value=gender
+      type='text'
+      label='cp2020.identity.gender'
+    }}
+    {{cp2020-input
+      name='system.identity.sexualPreference'
+      value=sexualPreference
+      type='text'
+      label='cp2020.identity.sexualPreference'
+    }}
+    {{cp2020-input
+      name='system.bio.family.ethnicity'
+      value=@root.system.bio.family.ethnicity
+      type='text'
+      label='cp2020.family.ethnicity'
+    }}
+    {{cp2020-input
+      name='system.bio.family.language'
+      value=@root.system.bio.family.language
+      type='text'
+      label='cp2020.family.language'
+    }}
+  {{/with}}
+</article>

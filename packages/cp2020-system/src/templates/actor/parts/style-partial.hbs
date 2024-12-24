@@ -1,0 +1,23 @@
+{{#with system.identity.Style}}
+<article class="fieldset edgerunner-sheet__style">
+  <div class="legend">{{localize 'cp2020.identity.style.title'}}</div>
+  {{cp2020-input
+    name='system.identity.Style.clothes'
+    value=clothes
+    type='text'
+    label='cp2020.identity.style.clothes'
+  }}
+  {{cp2020-input
+    name='system.identity.Style.hair'
+    value=hair
+    type='text'
+    label='cp2020.identity.style.hair'
+  }}
+  {{cp2020-input
+    name='system.identity.Style.affectations'
+    value=affectations
+    type='text'
+    label='cp2020.identity.style.affectations'
+  }}
+</article>
+{{/with}}

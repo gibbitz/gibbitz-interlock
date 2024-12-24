@@ -1,0 +1,49 @@
+{
+  "id": "gibbitz-interlock-cp2020",
+  "title": "Interlock Cyberpunk 2020",
+  "description": "Homebrew of R. Talsorian Games' Cyberpunk 2020 INTERLOCK System",
+  "authors": [
+    {
+      "name": "gibbitz",
+      "discord": "gibbitz"
+    }
+  ],
+  "url": "https://github.com/gibbitz/gibbitz-interlock-cp2020.git",
+  "license": "LICENSE.txt",
+  "readme": "README.md",
+  "bugs": "https://github.com/gibbitz/gibbitz-interlock-cp2020/issues",
+  "changelog": "CHANGELOG.md",
+  "media": [
+    {
+      "type": "setup",
+      "url": "systems/gibbitz-interlock-cp2020/assets/night-city.png",
+      "thumbnail": "systems/gibbitz-interlock-cp2020/assets/night-city.png"
+    }
+  ],
+  "version": "2.0.0",
+  "compatibility": {
+    "minimum": 12,
+    "verified": "12.327"
+  },
+  "esmodules": ["system.js"],
+  "styles": ["css/main.css"],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "packs": [],
+  "packFolders": [],
+  "socket": true,
+  "manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",
+  "download": "This must link to a .zip file of the current version",
+  "background": "systems/gibbitz-interlock-cp2020/assets/night-city.png",
+  "grid": {
+    "distance": 2,
+    "units": "m"
+  },
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "power"
+}

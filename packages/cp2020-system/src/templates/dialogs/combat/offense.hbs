@@ -1,0 +1,60 @@
+{{systemLog ' OFFENSE DIALOG: |' this }}
+<form data-selector="defenseValues">
+{{!-- output weapon data --}}
+{{!-- determine available attack types --}}
+<fieldset>
+  <legend>{{localize 'cp2020.dialogs.offense.attackDetails.legend'}}</legend>
+{{#if isMelee}}
+  {{cp2020-select
+    label="cp2020.selects.martialArts.label"
+    name="maAttackModifier"
+    inverted=true
+    options=MARTIAL_ARTS_MOVES_SELECT_OPTIONS
+  }}
+{{else}}
+  {{cp2020-range
+    label="cp2020.dialogs.offense.attackDetails.rateOfFire"
+    name="roundsFired"
+    inverted=true
+    max=maxRateOfFire
+    min=minRateOfFire
+    step="1"
+    markers=rateOfFire
+    value=minRateOfFire
+  }}
+  {{cp2020-select
+    label="cp2020.dialogs.checks.selects.autoFire.label"
+    name="autoFireType"
+    selector="autoFireType"
+    inverted=true
+    options=AUTO_FIRE_SELECT_OPTIONS
+  }}
+  {{cp2020-range
+    label="cp2020.dialogs.checks.selects.autoFire.label"
+    name="fireZone"
+    selector="fireZone"
+    class="cp2020-hidden"
+    max=20
+    min=3
+  }}
+{{/if}}
+</fieldset>
+{{!-- select attack type --}}
+{{!-- display relevant selections --}}
+
+  {{!-- display for <3 rounds of fire --}}
+  {{#if multipleTargets}}
+    {{cp2020-select
+      label="cp2020.dialogs.checks.selects.target.label"
+      name="targetActorId"
+      inverted=true
+      options=targetOptions
+    }}
+  {{else}}
+    {{cp2020-input
+      name="targetActorId"
+      type='hidden'
+      value=targetActorId
+    }}
+  {{/if}}
+</form>

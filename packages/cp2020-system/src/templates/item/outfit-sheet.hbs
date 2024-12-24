@@ -1,0 +1,27 @@
+{{systemLog ' OUTFIT SHEET | ' this}}
+<form class="{{cssClass}}" autocomplete="off">
+  {{cp2020-outfitHeader
+    name=item.name
+    label="cp2020.items.outfit.label"
+  }}
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-selector="primary-tabs" data-group="primary">
+    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="specs">Specs</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section data-selector="primary-tab-body">
+
+    {{!-- Description Tab --}}
+    <article class="tab" data-group="primary" data-tab="description">
+      {{itemDetails this}}
+    </article>
+
+    {{!-- Details Tab --}}
+    <article class="tab specs" data-group="primary" data-tab="specs">
+      {{outfitSpecs this}}
+    </article>
+  </section>
+</form>

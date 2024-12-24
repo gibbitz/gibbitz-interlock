@@ -1,0 +1,24 @@
+{{systemLog ' OUTFIT PARTIAL | ' this}}
+<li class="item" data-item-id="{{_id}}" data-item-name="{{name}}">
+  <details class="item-roll item-name">
+    <summary>
+      <img class="outfit-item__img" src="{{img}}" title="{{name}}" />
+      {{name}}
+      {{cp2020-checkbox
+        label="cp2020.items.equipped"
+        name="item.system.equipped"
+        value=system.equipped
+      }}
+    </summary>
+    <p>
+      {{{system.description}}}
+    </p>
+    <p>
+      {{system.cost.euroDollars}}/{{system.cost.newYen}}
+    </p>
+    <p>
+      {{system.weight}}
+    </p>
+    <button data-selector="item-delete" data-uuid="{{_id}}">drop</button>
+  </details>
+</li>

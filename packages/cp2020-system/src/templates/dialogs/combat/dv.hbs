@@ -1,0 +1,31 @@
+{{systemLog ' DIFFICULTY VALUE DIALOG: |' this }}
+<form data-selector="difficultyValue">
+  <p>{{defaultDV}}</p>
+  {{cp2020-select
+    label="cp2020.dialogs.dv.overrideRange"
+    name="overrideRange"
+    selector="overrideRange"
+    inverted=true
+    options=overrideDvOptions
+  }}
+  {{cp2020-select
+    label="cp2020.dialogs.dv.modifier"
+    name="modifier"
+    selector="modifier"
+    multiple=true
+    inverted=true
+    options=TO_HIT_MODIFIERS_SELECT_OPTIONS
+  }}
+  {{cp2020-input
+    label="cp2020.dialogs.dv.otherModifier"
+    selector="otherModifier"
+    name="otherModifier"
+    type="number"
+  }}
+  {{cp2020-output
+    label="cp2020.dialogs.dv.outputLabel"
+    selector="dvOutput"
+    name="dvOutput"
+    value=dvData.dv
+  }}
+</form>

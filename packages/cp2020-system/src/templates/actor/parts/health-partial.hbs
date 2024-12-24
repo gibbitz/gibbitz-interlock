@@ -1,0 +1,107 @@
+{{systemLog 'HEALTH | ' this}}
+{{#* inline "statusSlot"}}
+  {{systemLog 'status | ' damage}}
+  <li
+    class="damage-interface__status-slot"
+    data-damage-index="{{number}}"
+    data-damage-type="{{damage.[number].type}}"
+    data-damage-location="{{damage.[number].location}}"
+  ></li>
+{{/inline}}
+
+<section class="edgerunner-sheet__health">
+  <article class="health__damage-interface">
+    <div class="damage-interface__status-block">
+      <header class="damage-interface__status-header">
+        {{localize 'cp2020.health.woundStatuses.light'}}
+      </header>
+      <ul class="damage-interface__status-slots">
+        {{> statusSlot number=0 damage=this.damage}}
+        {{> statusSlot number=1 damage=this.damage}}
+        {{> statusSlot number=2 damage=this.damage}}
+        {{> statusSlot number=3 damage=this.damage}}
+      </ul>
+    </div>
+    <div class="damage-interface__status-block">
+      <header class="damage-interface__status-header">
+        {{localize 'cp2020.health.woundStatuses.serious'}}
+      </header>
+      <ul class="damage-interface__status-slots">
+        {{> statusSlot number=4 damage=this.damage}}
+        {{> statusSlot number=5 damage=this.damage}}
+        {{> statusSlot number=6 damage=this.damage}}
+        {{> statusSlot number=7 damage=this.damage}}
+      </ul>
+    </div>
+    <div class="damage-interface__status-block">
+      <header class="damage-interface__status-header">
+        {{localize 'cp2020.health.woundStatuses.critical'}}
+      </header>
+      <ul class="damage-interface__status-slots">
+        {{> statusSlot number=8 damage=this.damage}}
+        {{> statusSlot number=9 damage=this.damage}}
+        {{> statusSlot number=10 damage=this.damage}}
+        {{> statusSlot number=11 damage=this.damage}}
+      </ul>
+    </div>
+    <div class="damage-interface__status-block">
+      <header class="damage-interface__status-header">
+        {{localize 'cp2020.health.woundStatuses.mortal_0'}}
+      </header>
+      <ul class="damage-interface__status-slots">
+        {{> statusSlot number=12 damage=this.damage}}
+        {{> statusSlot number=13 damage=this.damage}}
+        {{> statusSlot number=14 damage=this.damage}}
+        {{> statusSlot number=15 damage=this.damage}}
+      </ul>
+    </div>
+    <div class="damage-interface__status-block">
+      <header class="damage-interface__status-header">
+        {{localize 'cp2020.health.woundStatuses.mortal_1'}}
+      </header>
+      <ul class="damage-interface__status-slots">
+        {{> statusSlot number=16 damage=this.damage}}
+        {{> statusSlot number=17 damage=this.damage}}
+        {{> statusSlot number=18 damage=this.damage}}
+        {{> statusSlot number=19 damage=this.damage}}
+      </ul>
+    </div>
+    <div class="damage-interface__status-block">
+      <header class="damage-interface__status-header">
+        {{localize 'cp2020.health.woundStatuses.mortal_2'}}
+      </header>
+      <ul class="damage-interface__status-slots">
+        {{> statusSlot number=20 damage=this.damage}}
+        {{> statusSlot number=21 damage=this.damage}}
+        {{> statusSlot number=22 damage=this.damage}}
+        {{> statusSlot number=23 damage=this.damage}}
+      </ul>
+    </div>
+    <div class="damage-interface__status-block">
+      <header class="damage-interface__status-header">
+        {{localize 'cp2020.health.woundStatuses.mortal_3'}}
+      </header>
+      <ul class="damage-interface__status-slots">
+        {{> statusSlot number=24 damage=this.damage}}
+        {{> statusSlot number=25 damage=this.damage}}
+        {{> statusSlot number=26 damage=this.damage}}
+        {{> statusSlot number=27 damage=this.damage}}
+      </ul>
+    </div>
+    <div class="damage-interface__status-block">
+      <header class="damage-interface__status-header">
+        {{localize 'cp2020.health.woundStatuses.mortal_4'}}
+      </header>
+      <ul class="damage-interface__status-slots">
+        {{> statusSlot number=28 damage=this.damage}}
+        {{> statusSlot number=29 damage=this.damage}}
+        {{> statusSlot number=30 damage=this.damage}}
+        {{> statusSlot number=31 damage=this.damage}}
+      </ul>
+    </div>
+  </article>
+  {{cp2020-button
+    label='clear'
+    action='clear-wounds'
+  }}
+</section>

@@ -1,0 +1,37 @@
+<div class="fieldset edgerunner-sheet__status">
+  <div class="legend">Status</div>
+  <article class="status-panel">
+    {{#cp2020-fieldBox}}
+      {{cp2020-progressDetail
+        class="armor__local--bar"
+        max=16
+        min=0
+        value=7
+        name="left-arm"
+      }}
+      {{cp2020-mannequin
+        locationClasses=conditionLocationClasses
+        graphic=graphic
+      }}
+      {{!-- TODO armor outputs --}}
+      {{cp2020-progressDetail
+        class="armor__global--bar"
+        max=36
+        min=0
+        value=27
+        name="overall"
+      }}
+    {{/cp2020-fieldBox}}
+    {{#cp2020-fieldBox}}
+      {{!-- TODO: condition partial --}}
+      {{!-- {{cp2020-progressDetail
+        class="wounds--bar"
+        max=32
+        min=0
+        value=11
+        name="Critical"
+      }} --}}
+      {{health actor.system.health}}
+    {{/cp2020-fieldBox}}
+  </article>
+</div>

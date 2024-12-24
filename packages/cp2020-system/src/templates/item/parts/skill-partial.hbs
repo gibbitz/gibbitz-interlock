@@ -1,0 +1,85 @@
+{{systemLog ' SKILL PARTIAL: | ' this}}
+<li
+  class="item"
+  data-item-id="{{_id}}"
+  data-item-name="{{name}}"
+>
+  <details>
+    <summary>
+      <a class="item-roll item-name">
+        {{name}}
+      </a>
+      <div>
+        {{cp2020-input
+          label="cp2020.items.skill.level"
+          selector='actor.item'
+          uuid=_id
+          key='system.level'
+          type='number'
+          value=this.system.level
+        }}
+      </div>
+      {{#if system.chipLevel}}
+      {{else}}
+        <div>
+          {{cp2020-input
+            label="cp2020.items.skill.ip"
+            selector='actor.item'
+            uuid=_id
+            key='system.ip'
+            render='true'
+            type='number'
+            value=this.system.ip
+          }}
+        </div>
+        <div>
+          <label>{{localize "cp2020.items.skill.levelUp"}}</label>
+          {{system.levelUp}}
+        </div>
+      {{/if}}
+      <div>
+        {{cp2020-checkbox
+          label="cp2020.items.skill.isChipped"
+          selector='actor.item'
+          uuid=_id
+          key='system.chipLevel'
+          render='true'
+          value=this.system.chipLevel
+        }}
+      </div>
+      {{!-- <button
+        data-flavor="{{this.system.flavor}}"
+        data-roll
+        data-uuid="{{_id}}"
+        class="skill__roll die--d-10"
+        aria-label="Roll Check"
+      >
+      </button> --}}
+      {{cp2020-button
+        flavor="{{this.system.flavor}}"
+        roll="true"
+        uuid=_id
+        class="skill__roll d-10"
+        label="Roll Check"
+      }}
+      {{cp2020-button
+        uuid=_id
+        label='Remove Skill'
+        selector='item-delete'
+      }}
+    </summary>
+    <div>
+      {{{system.description}}}
+    </div>
+    <div>
+      {{cp2020-textarea
+        label="cp2020.items.skill.notes"
+        selector='actor.item'
+        uuid=_id
+        key='system.notes'
+        render='true'
+        value=this.system.notes
+      }}
+    </div>
+  </details>
+</li>

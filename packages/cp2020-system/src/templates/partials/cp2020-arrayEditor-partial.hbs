@@ -1,0 +1,37 @@
+{{systemLog ' ARRAY EDITOR | ' this}}
+<span class="field-box {{#if class}}{{class}}{{/if}}">
+  <span class="field-box--inner">
+    <label>
+      <details>
+        <summary>{{#each values}}[{{this}}] {{/each}}</summary>
+        {{#each values}}
+          {{cp2020-input
+            name=(concat @root.name '.' @index)
+            value=this
+            type=@root.type
+            label=@root.childLabel
+          }}
+          {{cp2020-button
+            label=@root.deleteLabel
+            action='delete-row'
+            uuid=@root.uuid
+            key=@index
+            meta=@root.name
+          }}
+        {{/each}}
+        {{cp2020-input
+          type=type
+          selector='new-row'
+          uuid=uuid
+        }}
+        {{cp2020-button
+          label=addLabel
+          action='add-row'
+          meta=name
+          uuid=uuid
+        }}
+      </details>
+      <small>{{localize label}}</small>
+    </label>
+  </span>
+</span>

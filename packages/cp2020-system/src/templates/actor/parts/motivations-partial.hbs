@@ -1,0 +1,35 @@
+{{#with system.identity.Motivations}}
+<article class="fieldset edgerunner-sheet__motivations">
+  <div class="legend">{{localize 'cp2020.identity.motivations.title'}}</div>
+  {{cp2020-input
+    name='system.identity.Motivations.personalityTraits'
+    value=personalityTraits
+    type='text'
+    label='cp2020.identity.motivations.personalityTraits'
+  }}
+  {{cp2020-input
+    name='system.identity.Motivations.feelAboutPeople'
+    value=feelAboutPeople
+    type='text'
+    label='cp2020.identity.motivations.feelAboutPeople'
+  }}
+  {{cp2020-input
+    name='system.identity.Motivations.values.person'
+    value=person
+    type='text'
+    label='cp2020.identity.motivations.values.person'
+  }}
+  {{cp2020-input
+    name='system.identity.Motivations.values.possession'
+    value=possession
+    type='text'
+    label='cp2020.identity.motivations.values.possession'
+  }}
+  {{cp2020-input
+    name='system.identity.Motivations.values.ideals'
+    value=ideals
+    type='text'
+    label='cp2020.identity.motivations.values.ideals'
+  }}
+</article>
+{{/with}}

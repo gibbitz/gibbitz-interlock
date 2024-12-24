@@ -1,0 +1,15 @@
+<span class="field-button--wrapper {{#if class}}{{class}}--wrapper{{/if}}">
+  <button
+    class="cp2020-button {{#if class}}{{class}}{{/if}}"
+    {{#if action}}data-action="{{action}}"{{/if}}
+    {{#if flavor}}data-flavor="{{flavor}}"{{/if}}
+    {{#if selector}}data-selector="{{selector}}"{{/if}}
+    {{#if uuid}}data-uuid="{{uuid}}"{{/if}}
+    {{#if key}}data-key="{{key}}"{{/if}}
+    {{#if meta}}data-meta="{{meta}}"{{/if}}
+    {{#if render}}data-render="{{render}}"{{/if}}
+    {{#if roll}}data-roll{{/if}}
+  >
+    {{localize label}}
+  </button>
+</span>

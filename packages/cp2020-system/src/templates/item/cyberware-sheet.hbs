@@ -1,0 +1,109 @@
+{{systemLog ' Cyberware | ' this}}
+<form class="{{cssClass}}" autocomplete="off">
+  {{cp2020-outfitHeader
+    name=item.name
+    label="cp2020.items.cyberware.label"
+  }}
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-selector="primary-tabs" data-group="primary">
+    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="specs">Specs</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section data-selector="primary-tab-body">
+
+    {{!-- Description Tab --}}
+    <article class="tab" data-group="primary" data-tab="description">
+      {{itemDetails this}}
+    </article>
+
+    {{!-- Specs Tab --}}
+    <article class="tab specs" data-group="primary" data-tab="specs">
+      <div class="row location-list__row">
+        <div class="col mannequin-col">
+          <figure class="mannequin {{locationClasses}}">
+            {{{graphic}}}
+          </figure>
+        </div>
+        <div class="col location-list__col">
+          {{cp2020-select
+            label="cp2020.items.cyberware.location.long"
+            name="system.location"
+            value=item.system.location
+            options=LOCATION_SELECT_OPTIONS
+            multiple=true
+          }}
+        </div>
+      </div>
+      <aside>
+        <div>
+          {{cp2020-checkbox
+            label="cp2020.items.cyberware.equipped"
+            name="system.equipped"
+            value=item.system.equipped
+          }}
+        </div>
+        <div>
+          {{cp2020-input
+            label="cp2020.items.cyberware.humanityCost.long"
+            name="system.humanityCost"
+            type='text'
+            value=item.system.humanityCost
+          }}
+        </div>
+        <div>
+          {{cp2020-input
+            label="cp2020.items.cyberware.humanityLoss.long"
+            name="system.humanityLoss"
+            type='number'
+            value=item.system.humanityLoss
+          }}
+        </div>
+        <div>
+          {{cp2020-input
+            label="cp2020.items.cyberware.surgicalCost.long"
+            name="system.surgicalCost"
+            type='text'
+            value=item.system.surgicalCost
+          }}
+        </div>
+        <div>
+          {{cp2020-input
+            label="cp2020.items.cyberware.slots"
+            name="system.slots"
+            type='number'
+            value=item.system.slots
+          }}
+        </div>
+        <div>
+          {{cp2020-input
+            label="cp2020.items.cyberware.modifierType"
+            name="system.modifierType"
+            type='text'
+            value=item.system.modifierType
+          }}
+        </div>
+        <div>
+          {{cp2020-input
+            label="cp2020.items.cyberware.modifies"
+            name="system.modifies"
+            type='text'
+            value=item.system.modifies
+          }}
+        </div>
+        <div>
+          {{cp2020-input
+            label="cp2020.items.cyberware.modifier"
+            name="system.modifier"
+            type='number'
+            value=item.system.modifier
+          }}
+        </div>
+      </aside>
+      {{outfitEcon this}}
+    </article>
+
+  </section>
+</form>

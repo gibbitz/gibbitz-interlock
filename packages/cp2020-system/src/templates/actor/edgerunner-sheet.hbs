@@ -1,0 +1,33 @@
+{{systemLog ' ACTOR | ' actor}}
+{{systemLog ' ACTOR-SHEET | ' this}}
+
+<form class="edgerunner-sheet crt">
+  <main class="edgerunner-sheet__layout">
+    {{identity actor}}
+    {{portrait actor}}
+    {{stat actor.system.stats}}
+    <section class="edgerunner-sheet__flexible-row fieldset">
+      <nav class="sheet-tabs tabs legend" data-selector="background-tabs" data-group="background">
+        {{!-- Default tab is specified in actor-sheet.js --}}
+        <a class="item" data-tab="background">Background</a>
+        <a class="item" data-tab="combat">Combat</a>
+        <a class="item" data-tab="tasks">Tasks</a>
+        <a class="item" data-tab="inventory">Inventory</a>
+        <a class="item" data-tab="cyberware">Cyberware</a>
+        <a class="item" data-tab="netrunning">Netrunning</a>
+      </nav>
+      <article class="tab" data-tab="background">
+      </article>
+      <article class="tab" data-tab="combat">
+      </article>
+      <article class="tab" data-tab="tasks">
+      </article>
+      <article class="tab" data-tab="inventory">
+      </article>
+      <article class="tab" data-tab="cyberware">
+      </article>
+      <article class="tab" data-tab="netrunning">
+      </article>
+    </section>
+  </main>
+</form>

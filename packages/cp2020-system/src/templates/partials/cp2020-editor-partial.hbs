@@ -1,0 +1,15 @@
+{{systemLog 'EDITOR | ' context target content}}
+<span class="field-box {{#if class}}{{class}}{{/if}}">
+  <span class="field-box--inner">
+    <label for="editor">
+      {{editor
+        content
+        id="editor"
+        target=target
+        engine="prosemirror"
+        editable=editable
+      }}
+      <small>{{localize label}}</small>
+    </label>
+  </span>
+</span>

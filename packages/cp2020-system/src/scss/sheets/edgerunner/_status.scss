@@ -1,0 +1,28 @@
+.edgerunner-sheet__status{
+  .status-panel{
+    display: grid;
+    grid-template-rows: 7fr 3fr;
+    max-height: 100%;
+    .armor__local--bar-label,
+    .armor__global--bar-label {
+      bottom: 1rem;
+      left: 0.3rem;
+      position: absolute;
+      width: 45%;
+    }
+    .armor__local--bar-label {
+      bottom: auto;
+      top: 1rem;
+    }
+    .mannequin {
+      height: 100%;
+      margin: 0;
+      text-align: right;
+
+      svg {
+        height: 100%;
+        display: inline-block;
+      }
+    }
+  }
+}

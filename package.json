@@ -1,0 +1,35 @@
+{
+  "name": "gibbitz-interlock",
+  "version": "1.0.0",
+  "description": "Monorepo for R. Talisorian's Interlock Foundry Virtual Table Top containing systems, compendia and roll tables",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gibbitz/gibbitz-interlock.git"
+  },
+  "keywords": [
+    "Cyberpunk",
+    "2020",
+    "Interlock",
+    "RTG",
+    "R.",
+    "Talisorian",
+    "Games",
+    "Foundry",
+    "VTT"
+  ],
+  "author": "gibbitz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gibbitz/gibbitz-interlock/issues"
+  },
+  "homepage": "https://github.com/gibbitz/gibbitz-interlock#readme",
+  "workspaces": [
+    "packages/cp2020-system",
+    "packages/cp2020-compendia",
+    "packages/cp2020-rolltables"
+  ]
+}

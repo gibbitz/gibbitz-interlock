@@ -1,0 +1,45 @@
+.edgerunner-sheet {
+  &__health {
+    .health {
+      &__damage-interface {
+        column-gap: 0.8rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding-bottom: 1rem;
+        row-gap: 0.8rem;
+      }
+    }
+    .damage-interface {
+      &__status-block{
+        display: flex;
+        flex-direction: column;
+      }
+      &__status-header{
+        flex: 1 1 auto;
+        overflow: hidden;
+        padding-bottom: 0.3rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      &__status-slots{
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+      }
+      &__status-slot{
+        aspect-ratio: 1 / 1;
+        border-bottom: 1px solid;
+        border-left: 1px solid;
+        border-top: 1px solid;
+        flex: 1 1 auto;
+        list-style: none;
+
+        &:last-child {
+          border-right: 1px solid;
+        }
+      }
+    }
+  }
+}

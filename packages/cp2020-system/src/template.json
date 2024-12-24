@@ -1,0 +1,20 @@
+{
+  "Actor": {
+    "types": [
+      "Edgerunner"
+    ]
+  },
+  "Item": {
+    "types": [
+      "Armor",
+      "Cyberdeck",
+      "Cyberware",
+      "Outfit",
+      "Program",
+      "Skill",
+      "Upgrade",
+      "Vehicle",
+      "Weapon"
+    ]
+  }
+}

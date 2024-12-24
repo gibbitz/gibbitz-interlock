@@ -1,0 +1,81 @@
+@use 'sass:list';
+@use '../../partials/variables' as *;
+
+@mixin covered($level) {
+  fill: var(--color-level-#{$level}-highlight);
+  stroke: var(--color-level-#{$level}-light);
+}
+
+$locations: (
+  skull,
+  right-eye,
+  left-eye,
+  face,
+  neck,
+  right-chest,
+  left-chest,
+  right-stomach,
+  left-stomach,
+  right-shoulder,
+  right-upperArm,
+  right-elbow,
+  right-forearm,
+  right-hand,
+  left-shoulder,
+  left-upperArm,
+  left-elbow,
+  left-forearm,
+  left-hand,
+  right-groin,
+  right-hipBone,
+  right-hipJoint,
+  right-thigh,
+  right-knee,
+  right-shin,
+  right-foot,
+  left-groin,
+  left-hipBone,
+  left-hipJoint,
+  left-thigh,
+  left-knee,
+  left-shin,
+  left-foot
+);
+
+.cp2020-armor-sheet,
+.edgerunner-sheet__status {
+  .location-list__row {
+    align-items: stretch;
+    .col {
+      min-width: 200px;
+    }
+  }
+  .location-list__col {
+    .field-box {
+      height: 100%;
+      select {
+        height: calc(100% - 1.5rem);
+        min-height: 200px;
+      }
+    }
+  }
+  .mannequin {
+    path {
+      fill: rgba(#000, 0);
+      stroke: rgba(#000, 0);
+      stroke-width: 2.5px;
+    }
+    #base {
+      fill: $color-graphic-bg-transparent;
+      stroke: $color-text-light-5;
+    }
+  }
+}
+
+@each $location in $locations {
+  @for $level from 1 through 10 {
+    .#{$location}.level-#{$level} ##{$location} {
+      @include covered($level);
+    }
+  }
+}

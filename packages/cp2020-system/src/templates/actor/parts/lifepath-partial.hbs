@@ -1,0 +1,27 @@
+{{systemLog 'BIO | HISTORY | ' this}}
+<article class="fieldset edgerunner-sheet__lifepath">
+  {{!-- <div class="legend">Lifepath</div> --}}
+  <ul class="lifepath__list">
+  {{#each this}}
+    {{systemLog ' LIFEPATH YEAR | ' this}}
+    <li>
+      {{cp2020-input
+        name=(concat 'system.bio.lifepath.' @index '.year')
+        value=year
+        type='text'
+        label='cp2020.lifepath.year'
+      }}
+      {{cp2020-editor
+        content=event
+        target=(concat 'system.bio.lifepath.' @index '.event')
+        editable='true'
+        label="cp2020.lifepath.event"
+      }}
+    </li>
+  {{/each}}
+  </ul>
+  {{cp2020-button
+    label='add'
+    action='add-lifepath-row'
+  }}
+</article>

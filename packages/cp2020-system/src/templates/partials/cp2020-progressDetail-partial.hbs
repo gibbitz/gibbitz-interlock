@@ -1,0 +1,14 @@
+<label class="cp2020-progress-detail {{#if class}}{{class}}-label{{/if}}"">
+  <value>
+    <em>{{value}}</em>/{{max}}
+  </value>
+    {{cp2020-progress
+      value=value
+      max=max
+      min=min
+      class=class
+    }}
+  <small>
+    {{name}}
+  </small>
+</label>

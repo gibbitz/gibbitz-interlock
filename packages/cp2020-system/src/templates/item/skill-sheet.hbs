@@ -1,0 +1,68 @@
+{{systemLog ' SKILL SHEET | ' this}}
+<form class="{{cssClass}}" autocomplete="off">
+  {{cp2020-outfitHeader
+    name=item.name
+    label="cp2020.items.skill.label"
+  }}
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-selector="primary-tabs" data-group="primary">
+    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="details">Details</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section data-selector="primary-tab-body">
+
+    {{!-- Description Tab --}}
+    <article class="tab" data-group="primary" data-tab="description">
+      <div>
+        {{cp2020-input
+        label="cp2020.items.name"
+        name="name"
+        type='text'
+        value=item.name
+        }}
+      </div>
+      <div>
+        {{editor
+        this
+        target="system.description"
+        engine="prosemirror"
+        }}
+      </div>
+    </article>
+
+    {{!-- Details Tab --}}
+    <article class="tab details" data-group="primary" data-tab="details">
+      <aside>
+        <div>
+          {{cp2020-select
+          label="cp2020.items.skill.stat"
+          name="system.stat"
+          value=item.system.stat
+          options=STAT_SELECT_OPTIONS
+          }}
+        </div>
+
+        {{cp2020-input
+        label="cp2020.items.skill.ipMultiplier"
+        name="system.ipMultiplier"
+        type='number'
+        value=item.system.ipMultiplier
+        }}
+        {{cp2020-input
+        label="cp2020.items.skill.flavor"
+        name="flavor"
+        type='text'
+        value=item.flavor
+        }}
+        {{cp2020-textarea
+        label="cp2020.items.skill.notes"
+        name="item.system.notes"
+        value=item.system.notes
+        }}
+      </aside>
+    </article>
+  </section>
+</form>

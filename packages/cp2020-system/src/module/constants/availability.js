@@ -1,0 +1,15 @@
+import { SYSTEM_NAME } from './system'
+
+export const EXCELLENT_AVAILABILITY = 'E'
+export const COMMON_AVAILABILITY = 'C'
+export const POOR_AVAILABILITY = 'P'
+export const RARE_AVAILABILITY = 'R'
+
+export const ITEM_AVAILABILITY_I18N_BASE = `${SYSTEM_NAME}.items.availabilities`
+
+export const ITEM_AVAILABILITIES = [
+  RARE_AVAILABILITY,
+  POOR_AVAILABILITY,
+  COMMON_AVAILABILITY,
+  EXCELLENT_AVAILABILITY
+]

@@ -1,0 +1,45 @@
+{{systemLog ' BIO | SIBLINGS | ' this}}
+<article class="fieldset edgerunner-sheet__siblings">
+  {{!-- <div class="legend">Siblings ({{system.bio.family.siblingCount}})</div> --}}
+  <ul>
+    {{#each system.bio.siblings}}
+    <li>
+      {{cp2020-input
+        name=(concat 'system.bio.siblings.' @index '.name')
+        value=name
+        type='text'
+        label='cp2020.siblings.name'
+      }}
+      {{cp2020-input
+        name=(concat 'system.bio.siblings.' @index '.handle')
+        value=handle
+        type='text'
+        label='cp2020.siblings.handle'
+      }}
+      {{cp2020-input
+        name=(concat 'system.bio.siblings.' @index '.gender')
+        value=gender
+        type='text'
+        label='cp2020.siblings.gender'
+      }}
+      {{cp2020-select
+        label="cp2020.siblings.age"
+        name=(concat 'system.bio.siblings.' @index '.relativeAge')
+        value=relativeAge
+        inverted=true
+        options=@root.RELATIVE_AGE_SELECT_OPTIONS
+      }}
+      {{cp2020-editor
+        content=relationshipNotes
+        target=(concat 'system.bio.siblings.' @index '.relationshipNotes')
+        editable='true'
+        label="cp2020.family.relationshipNotes"
+      }}
+    </li>
+    {{/each}}
+  </ul>
+  {{cp2020-button
+    label='add'
+    action='add-sibling'
+  }}
+</article>

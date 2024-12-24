@@ -1,0 +1,23 @@
+{{#with system.identity.Motivations.values}}
+<article class="fieldset">
+  <div class="legend">{{localize 'cp2020.identity.motivations.values.title'}}</div>
+  {{cp2020-input
+  name='system.identity.Motivations.values.person'
+  value=person
+  type='text'
+  label='cp2020.identity.motivations.values.person'
+  }}
+  {{cp2020-input
+  name='system.identity.Motivations.values.possession'
+  value=possession
+  type='text'
+  label='cp2020.identity.motivations.values.possession'
+  }}
+  {{cp2020-input
+  name='system.identity.Motivations.values.ideals'
+  value=ideals
+  type='text'
+  label='cp2020.identity.motivations.values.ideals'
+  }}
+</article>
+{{/with}}

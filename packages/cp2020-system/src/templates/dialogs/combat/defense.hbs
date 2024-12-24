@@ -1,0 +1,15 @@
+{{systemLog ' DEFENSE DIALOG: |' this }}
+<form data-selector="defenseValues">
+  {{cp2020-select
+    label="cp2020.dialogs.checks.selects.skill.label"
+    name="skillRollFormula"
+    inverted=true
+    options=skillOptions
+  }}
+  {{cp2020-select
+    label="cp2020.dialogs.checks.selects.stat.label"
+    name="statRollFormula"
+    inverted=true
+    options=statOptions
+  }}
+</form>

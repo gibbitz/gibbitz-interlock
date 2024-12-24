@@ -1,0 +1,18 @@
+{{systemLog ' SELECT | ' this}}
+<span class="field-box {{#if class}}{{class}}{{/if}}">
+  <span class="field-box--inner">
+    <label>
+      <select
+        name="{{name}}"
+        data-selector="{{selector}}"
+        data-uuid="{{uuid}}"
+        data-key="{{key}}"
+        data-render="{{render}}"
+        {{#if multiple}}multiple{{/if}}
+      >
+          {{selectOptions options inverted=inverted selected=value}}
+      </select>
+      <small>{{localize label}}</small>
+    </label>
+  </span>
+</span>

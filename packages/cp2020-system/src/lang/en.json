@@ -1,0 +1,690 @@
+{
+  "cp2020": {
+    "stats": {
+      "label": "Stat",
+      "labelPlural": "Stats",
+      "mod": "mod",
+      "base": "base",
+      "damageMod": "dam",
+      "total": "total",
+      "flavor": {
+        "check": "Stat Check",
+        "save": "Stat Save"
+      },
+      "INT": {
+        "short": "INT",
+        "long": "Intelligence"
+      },
+      "REF": {
+        "short": "REF",
+        "long": "Reflexes"
+      },
+      "TECH": {
+        "short": "TECH",
+        "long": "Technical Aptitude"
+      },
+      "CL": {
+        "short": "CL",
+        "long": "Cool"
+      },
+      "ATTR": {
+        "short": "ATTR",
+        "long": "Attractiveness"
+      },
+      "LUCK": {
+        "short": "LUCK",
+        "long": "Luck"
+      },
+      "MA": {
+        "short": "MA",
+        "long": "Movement Allowance"
+      },
+      "BODY": {
+        "short": "BODY",
+        "long": "Body Type"
+      },
+      "EMP": {
+        "short": "EMP",
+        "long": "Empathy"
+      },
+      "REP": {
+        "short": "REP",
+        "long": "Reputation"
+      },
+      "HUM": {
+        "short": "HUM",
+        "long": "Humanity"
+      },
+      "HL": {
+        "short": "HL",
+        "long": "Humanity Loss"
+      },
+      "RUN": {
+        "short": "RUN",
+        "long": "Run"
+      },
+      "LEAP": {
+        "short": "LEAP",
+        "long": "Leap"
+      },
+      "CA": {
+        "short": "CA",
+        "long": "Carry"
+      },
+      "LIFT": {
+        "short": "LIFT",
+        "long": "Lift"
+      },
+      "THRO": {
+        "short": "THRO",
+        "long": "Throw"
+      },
+      "BTM": {
+        "short": "BTM",
+        "long": "Body Type Modifier"
+      },
+      "DAM": {
+        "short": "DM",
+        "long": "Damage Modifier"
+      }
+    },
+    "units": {
+      "short": {
+        "m": "m",
+        "km": "km",
+        "ft": "ft",
+        "g": "g",
+        "kg": "kg",
+        "lb": "lb"
+      },
+      "long": {
+        "singular": {
+          "m": "meter",
+          "km": "kilometer",
+          "ft": "foot",
+          "g": "gram",
+          "kg": "kilogram",
+          "lb": "pound"
+        },
+        "plural": {
+          "m": "meters",
+          "km": "kilometers",
+          "ft": "feet",
+          "g": "grams",
+          "kg": "kilograms",
+          "lb": "pounds"
+        }
+      }
+    },
+    "items": {
+      "name": "Item",
+      "cost": "Cost",
+      "avail": "Availability",
+      "description": "Details",
+      "weight": "Weight",
+      "equipped": "Equipped",
+      "availabilities": {
+        "label": "Availability",
+        "labelPlural": "Availabilities",
+        "C": {
+          "long": "Common",
+          "short": "C"
+        },
+        "E": {
+          "long": "Excellent",
+          "short": "E"
+        },
+        "P": {
+          "long": "Poor",
+          "short": "P"
+        },
+        "R": {
+          "long": "Rare",
+          "short": "R"
+        }
+      },
+      "skill": {
+        "label": "Skill",
+        "labelPlural": "Skills",
+        "nameLabel": "Skill Name",
+        "description": "Details",
+        "notes": "Notes",
+        "source": "Source",
+        "cost": "Cost",
+        "weight": "Weight",
+        "equipped": "Equipped",
+        "level": "Level",
+        "levelUp": "Level Up",
+        "chipLevel": "Chip Level",
+        "isChipped": "Chipped",
+        "ip": "IP",
+        "ipMultiplier": "IP Multiplier",
+        "stat": "Stat",
+        "flavor": "Skill Check"
+      },
+      "armor": {
+        "label": "Armor",
+        "labelPlural": "Armor",
+        "sp": {
+          "long": "Stopping Power",
+          "short": "SP"
+        },
+        "ev": {
+          "long": "Encumbrance Value",
+          "short": "EV"
+        }
+      },
+      "cyberware": {
+        "label": "Cyberware",
+        "labelPlural": "Cyberware",
+        "equipped": "active",
+        "humanityCost": {
+          "long": "Humanity Cost",
+          "short": "HC"
+        },
+        "humanityLoss": {
+          "long": "Humanity Loss",
+          "short": "HL"
+        },
+        "surgicalCost": {
+          "long": "Surgical Cost",
+          "short": "SC"
+        },
+        "slots": "Slots",
+        "modifierType": "Modifier Type",
+        "modifierTypes": {
+          "skill": "Skill",
+          "stat": "Stat"
+        },
+        "modifies": "Modifies",
+        "modifier": "Modifier",
+        "location": {
+          "long": "Location",
+          "short": "Loc"
+        }
+      },
+      "cyberdeck": {
+        "label": "Cyberdeck",
+        "labelPlural": "Cyberdecks",
+        "speed": {
+          "long": "Speed",
+          "short": "SPD"
+        },
+        "memory": {
+          "long": "Memory Units",
+          "short": "MU"
+        },
+        "dataWalls": {
+          "long": "DataWall Strength",
+          "short": "DW"
+        },
+        "codeGates": {
+          "long": "CodeGate Strength",
+          "short": "CG"
+        },
+        "cpu": {
+          "long": "Processor Cores",
+          "short": "CPU"
+        }
+      },
+      "upgrade": {
+        "label": "Upgrade",
+        "labelPlural": "Upgrades",
+        "recipient": {
+          "long": "Modified Item Type",
+          "short": "Modded"
+        },
+        "value": {
+          "long": "Bonus/Penalty",
+          "short": "Delta"
+        },
+        "property": {
+          "long": "Property to Modify",
+          "short": "Prop"
+        }
+      },
+      "program": {
+        "label": "Program",
+        "labelPlural": "Programs",
+        "memory": {
+          "long": "Memory Units",
+          "short": "MU"
+        },
+        "strength": {
+          "long": "Program Strength",
+          "short": "STR"
+        }
+      },
+      "weapon": {
+        "label": "Weapon",
+        "labelPlural": "Weapons",
+        "type": {
+          "long": "Weapon Type",
+          "short": "Type"
+        },
+        "types": {
+          "bow": {
+            "long": "Bow",
+            "short": "Bow"
+          },
+          "melee": {
+            "long": "Melee",
+            "short": "Mel"},
+          "pistol": {
+            "long": "Handgun",
+            "short": "Pistol"
+          },
+          "submachineGun": {
+            "long": "Submachine Gun",
+            "short": "SMG"
+          },
+          "rifle": {
+            "long": "Rifle",
+            "short": "Rifle"
+          },
+          "heavyWeapons": {
+            "long": "Heavy Weapons",
+            "short": "HVY"
+          }
+        },
+        "skill": "skill",
+        "damage": {
+          "long": "Damage",
+          "short": "DAM"
+        },
+        "conceal": {
+          "long": "Concealability",
+          "short": "Conc",
+          "not": {
+            "long": "Not Concealable",
+            "short": "NC"
+          },
+          "longCoat": {
+            "long": "Long Coat Concealable",
+            "short": "LC"
+          },
+          "jacket": {
+            "long": "Jacket Concealable",
+            "short": "J"
+          },
+          "pocket": {
+            "long": "Pocketable",
+            "short": "P"
+          }
+        },
+        "accuracy": {
+          "long": "Accuracy",
+          "short": "Acc"
+        },
+        "range": "Range",
+        "magazine": {
+          "long": "Magazine",
+          "short": "Mag"
+        },
+        "cartridge": {
+          "long": "Cartridge",
+          "short": "Ammo"
+        },
+        "rateOfFire": {
+          "long": "Rate Of Fire",
+          "short": "ROF",
+          "perTurn": "Rounds per Turn",
+          "newRow": "Add Rounds per Turn",
+          "deleteRow": "Remove Entry"
+        },
+        "blastRadius": {
+          "long": "Blast Radius",
+          "short": "BR"
+        }
+      },
+      "outfit": {
+        "label": "Outfit",
+        "labelPlural": "Outfit"
+      },
+      "vehicle": {
+        "label": "Vehicle",
+        "labelPlural": "Vehicles",
+        "acc": {
+          "long": "Acceleration",
+          "short": "ACC"
+        },
+        "dec": {
+          "long": "Deceleration",
+          "short": "DEC"
+        },
+        "crew": "Crew",
+        "passengers": {
+          "long": "Passengers",
+          "short": "Pass"
+        },
+        "range": "Range",
+        "cargo": "Cargo",
+        "maneuver": {
+          "long": "Maneuver",
+          "short": "Man"
+        },
+        "topSpeed": {
+          "long": "Top Speed",
+          "short": "SPD"
+        }
+      }
+    },
+    "hitLocations": {
+      "skull": "skull",
+      "face": "face",
+      "neck": "neck",
+      "right": {
+        "eye": "right eye",
+        "chest": "right chest",
+        "stomach": "right stomach",
+        "hipBone": "right hip bone",
+        "shoulder": "right shoulder",
+        "upperArm": "right upper arm",
+        "elbow": "right elbow",
+        "forearm": "right forearm",
+        "hand": "right hand",
+        "groin": "right groin",
+        "hipJoint": "right hip joint",
+        "thigh": "right thigh",
+        "knee": "right knee",
+        "shin": "right shin",
+        "foot": "right foot"
+      },
+      "left": {
+        "eye": "left eye",
+        "chest": "left chest",
+        "stomach": "left stomach",
+        "hipBone": "left hip bone",
+        "shoulder": "left shoulder",
+        "upperArm": "left upper arm",
+        "elbow": "left elbow",
+        "forearm": "left forearm",
+        "hand": "left hand",
+        "groin": "left groin",
+        "hipJoint": "left hip joint",
+        "thigh": "left thigh",
+        "knee": "left knee",
+        "shin": "left shin",
+        "foot": "left foot"
+      }
+    },
+    "health": {
+      "woundStatuses": {
+        "light": "Light",
+        "serious": "Serious",
+        "critical": "Critical",
+        "mortal_0": "Mortal 0",
+        "mortal_1": "Mortal 1",
+        "mortal_2": "Mortal 2",
+        "mortal_3": "Mortal 3",
+        "mortal_4": "Mortal 4"
+      }
+    },
+    "identity": {
+      "handle": "handle",
+      "givenName": "given name",
+      "role": "role",
+      "age": "age",
+      "gender": "gender",
+      "sexualPreference": "sexual preference",
+      "image": "image",
+      "token": "token",
+      "style": {
+        "title": "style",
+        "clothes": "clothes",
+        "hair": "hair",
+        "affectations": "affectations"
+      },
+      "motivations": {
+        "title": "motivations",
+        "personalityTraits": "personality traits",
+        "feelAboutPeople": "feel about people",
+        "values": {
+          "title": "values",
+          "person": "favorite person",
+          "possession": "favorite possession",
+          "ideals": "ideals"
+        }
+      }
+    },
+    "lifepath": {
+      "label": "Lifepath",
+      "labelPlural": "Lifepath",
+      "year": "year",
+      "event": "event"
+    },
+    "family": {
+      "ethnicity": "ethnicity",
+      "language": "language",
+      "parents": "parent status",
+      "siblingCount": "number of siblings",
+      "ranking": "family rank",
+      "status": "family status",
+      "childhood": "childhood environment",
+      "relationshipNotes": "relationship"
+    },
+    "siblings": {
+      "age": "relative age",
+      "ages": {
+        "younger": "Younger",
+        "older": "older",
+        "twin": "twin"
+      },
+      "gender": "gender",
+      "handle": "handle",
+      "name": "full name",
+      "relationshipNotes": "relationship & notes"
+    },
+    "macro": {
+      "missingItemWarn": "Your edgerunner '{actor}' does not have any {type} with name '{name}', choomb.",
+      "multipleItemsWarn": "Your edgerunner '{actor}' has more than one {type} with name '{name}'. Using the first match...",
+      "noActorSelected": "You gotta point that thing at somebody.",
+      "unownedWarn": "If you don't own it, you can't use it..."
+    },
+    "dialogs": {
+      "skill": {
+        "delete": {
+          "title": "Delete ${1} Skill?",
+          "content": "${1} skill will be deleted and all IP and level data will be lost. Do you wish to proceed?"
+        }
+      },
+      "outfit": {
+        "delete": {
+          "title": "Drop your ${1}?",
+          "content": "${1} will be deleted from your outfit and all upgrades still on it will be lost. Do you wish to proceed?"
+        }
+      },
+      "upgrade": {
+        "delete": {
+          "title": "Drop this ${1}?",
+          "content": "${1} will be deleted from your outfit and uninstalled. You sure?"
+        },
+        "mismatch": "You can't put a ${1} on a ${2}. They don't go together like that.",
+        "unownedUpgrade": "No 5 finger discount. Buy the ${1} first",
+        "missingUpgrade": "If you can imagine it, it doesn't make it real...",
+        "unownedItem": "You gotta pay for the ${1} before you upgrade it...",
+        "slavery": "Trust me ${1} is no upgrade"
+      },
+      "weapon": {
+        "delete": {
+          "title": "Ditch your ${1}?",
+          "content": "Wipe off your fingerprints and ditch the ${1}? All upgrades still installed will be lost."
+        }
+      },
+      "offense": {
+        "title": "${1} attacks ${2} with a ${3}",
+        "action": "Attack ${1}",
+        "attackDetails": {
+          "legend": "Attack Details",
+          "rateOfFire": "Rounds fired"
+        }
+      },
+      "defense": {
+        "title": "Incoming attack from ${1}",
+        "dodge": "Dodge ${1}",
+        "block": "Block ${1}",
+        "defend": "Defend yourself from ${1}"
+      },
+      "dv": {
+        "title": "Determine DV for ${1} attack",
+        "action": "Set DV",
+        "range": "Token range: ${1}",
+        "defaultDv": "Default DV: ${1} for range ${2}m (${3})",
+        "overrideRange": "Range override",
+        "overridePrompt": "Select a range to overide default",
+        "modifier": "Select a modifier",
+        "otherModifier": "Discretionary modifier",
+        "outputLabel": "Current DV"
+      },
+      "checks": {
+        "selects": {
+          "range": {
+            "label": "Range (by DV)"
+          },
+          "target": {
+            "label": "Choose a single target"
+          },
+          "skill": {
+            "label": "Select the appropriate Skill"
+          },
+          "stat": {
+            "label": "Select the fallback Stat"
+          },
+          "autoFire": {
+            "label": "Zone of fire",
+            "direct": "Direct Fire",
+            "spray": "Suppressive Fire"
+          }
+        }
+      }
+    },
+    "errors": {
+      "communication": "Error recieved from ${1}: ${2}"
+    },
+    "selects": {
+      "martialArts": {
+        "label": "Martial Arts Move",
+        "strike": "Strike",
+        "punch": "Punch",
+        "kick": "Kick",
+        "disarm": "Disarm",
+        "sweep": "Sweep",
+        "block": "Block",
+        "dodge": "Dodge",
+        "grapple": "Grapple",
+        "throw": "Throw",
+        "hold": "Hold",
+        "choke": "Choke",
+        "escape": "Escape",
+        "ram": "Ram"
+      },
+      "ranges" : {
+        "label": "Range",
+        "pointBlank": "Point Blank (Touching to 1m)",
+        "close": "Close ${1}m",
+        "medium": "Medium ${1}m",
+        "long": "Long ${1}m",
+        "extreme": "Extreme ${1}m"
+      },
+      "modifiers": {
+        "toHit": {
+          "label": "To Hit Modifiers",
+          "prompt": "Select a to hit modifier",
+          "immoble":"Target immobile",
+          "largeTarget":"Large target",
+          "smallTarget":"Small target",
+          "noTurret":"Vehicle mounted, no turret",
+          "movingTarget10":"Moving Target REF > 10",
+          "movingTarget12":"Moving Target REF > 12",
+          "movingTarget14":"Moving Target REF > 14",
+          "fastDraw":"Fast draw / Snapshot",
+          "ambush":"Ambush 5",
+          "calledShot":"Aimed shot at body location",
+          "indirectFire":"Ricochet or indirectfire",
+          "blinded":"Blinded bylight or dust",
+          "silhouetted":"Target silhoutted",
+          "turning":"Turning to face target",
+          "akimbo":"Using two weapons",
+          "running":"Firing while running",
+          "oneHanded":"Firing shoulder arm from hip",
+          "turret":"Turret mounted weapon",
+          "tinyTarget":"Tiny target",
+          "aiming1":"Aiming (1 round)",
+          "aiming2":"Aiming (2 rounds)",
+          "aiming3":"Aiming (3 rounds)",
+          "laserSight":"Laser Sight",
+          "teleSightExt":"Telescopic Sight (Extreme range)",
+          "teleSightMed":"Telescopic Sight (Medium range)",
+          "ironSights":"Targeting Scope",
+          "smartgun":"Smartgun",
+          "smartgoggles":"Smartgoggles",
+          "3rndBurst":"Three Round Burst (Close / Medium)",
+          "fullAutoClose":"Full Auto, Close 1 for every 10 rnds",
+          "fullAutoOther":"Full Auto, all other -1 for every 10 rnds"
+        },
+        "difficulty": {
+          "label": "Difficulty Modifier",
+          "prompt": "Select a difficulty modifier",
+          "complexRepair": "Complex Repair",
+          "veryComplex": "Very Complex Repair",
+          "neverDone": "“It’s Never Been Done Before”",
+          "wrongParts": "Don’t have the right parts",
+          "wrongTools": "Don’t have the right tools",
+          "unfamiliar": "Unfamiliar tools, weapon or vehicle",
+          "stress": "Under stress",
+          "attack": "Under attack",
+          "siege": "Under siege",
+          "wounded1": "Wounded",
+          "wounded2": "Wounded",
+          "wounded3": "Wounded",
+          "drunk": "Drunk, drugged or tired",
+          "hostile": "Hostile Environment",
+          "veryHostile": "Very Hostile Environment",
+          "noInstructions": "Lack of instructions for task",
+          "kibbitzing": "All the other characters are “kibbitzing” while you’re trying to do the task",
+          "haveNotDone": "Has never performed this task before",
+          "difficultAcrobatics": "Difficult Acrobatics involved",
+          "veryDifficultAcrobatics": "Very Difficult Acrobatics involved",
+          "impossibleAcrobatics": "Impossible Acrobatics involved",
+          "hiddenInfo": "Information hidden, secret or obscure",
+          "wellHiddenItem": "Well-hidden clue, secret door, panel, etc.",
+          "complexProgram": "Complex program",
+          "veryComplexProgram": "Very complex program",
+          "complexLock": "Complex lock",
+          "veryComplexLock": "Very complex lock",
+          "targetOnGuard": "Target on guard or alerted",
+          "hiLight": "Brightly lit area",
+          "lowLight": "Insufficient light",
+          "pitchDark": "Pitch Blackness",
+          "observed": "Trying to perform secretive task while under observation"
+        }
+      },
+      "skillDifficulties": {
+        "label": "Difficulty",
+        "prompt": "Select a Difficulty",
+        "easy": "Easy",
+        "average": "Average",
+        "difficult": "Difficult",
+        "veryDifficult": "Very Difficult",
+        "nearlyImpossible": "Nearly Impossible"
+      }
+    },
+    "sidebar":{
+      "imports": {
+        "title": "Import CP2020 System Data",
+        "skills": "Import Skill Data",
+        "outfit": "Import Outfit Data",
+        "weapons": "Import Weapon Data",
+        "armor": "Import Armor Data",
+        "cyberdecks": "Import Cyberdeck Data",
+        "programs": "Import Program Data",
+        "vehicles": "Import Vehicle Data"
+      }
+    },
+    "SheetLabels": {
+      "Item": "Outfit Sheet",
+      "Weapon": "Weapon Sheet",
+      "Cyberware": "Cyberware Sheet"
+    }
+  }
+}

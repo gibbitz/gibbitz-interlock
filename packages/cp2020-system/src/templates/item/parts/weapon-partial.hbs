@@ -1,0 +1,22 @@
+{{systemLog ' WEAPON | ' this}}
+<li class="item" data-item-id="{{_id}}" data-item-name="{{name}}">
+  <a
+    data-selector="item-edit"
+    data-uuid="{{_id}}"
+    title="edit"
+  >
+    {{name}}
+  </a>
+  {{cp2020-button
+    class="weapon__roll"
+    uuid=_id
+    roll=true
+    selector='item-roll'
+    label='fire'
+  }}
+  {{cp2020-button
+    uuid=_id
+    label='delete'
+    selector='item-delete'
+  }}
+</li>

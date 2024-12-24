@@ -1,0 +1,19 @@
+<aside>
+  {{outfitEcon this}}
+  {{!-- TODO: conditionally display this in sheets --}}
+  <div>
+    {{cp2020-checkbox
+    label="cp2020.items.equipped"
+    name="system.equipped"
+    value=item.system.equipped
+    }}
+  </div>
+  <div>
+    {{cp2020-input
+    label="cp2020.items.weight"
+    name="system.weight"
+    type='number'
+    value=item.system.weight
+    }}
+  </div>
+</aside>

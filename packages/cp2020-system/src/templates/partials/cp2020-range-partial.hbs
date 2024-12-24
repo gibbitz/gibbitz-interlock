@@ -1,0 +1,40 @@
+<span class="field-box {{#if class}}{{class}}{{/if}}">
+  <span class="field-box--inner">
+    <label for="{{name}}Range">
+      <input
+        name="{{name}}"
+        id="{{name}}Range"
+        value="{{value}}"
+        max="{{max}}"
+        min="{{min}}"
+        data-selector="{{selector}}"
+        data-uuid="{{uuid}}"
+        data-key="{{key}}"
+        data-render="{{render}}"
+        {{#if step}}
+          step="{{step}}"
+        {{/if}}
+        type="range"
+        oninput="document.querySelector('[name={{name}}Output]').value=document.querySelector('[name={{name}}]').value"
+        {{#if markers}}
+          list="{{name}}Markers"
+        {{/if}}
+      />
+      <output
+        name="{{name}}Output"
+        for="{{name}}Range"
+      >
+        {{value}}
+      </output>
+
+      {{#if markers}}
+        <datalist id="{{name}}Markers">
+          {{#each markers}}
+            <option value="{{this}}" label="{{@key}}"></option>
+          {{/each}}
+        </datalist>
+      {{/if}}
+      <small>{{localize label}}</small>
+    </label>
+  </span>
+</span>

@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "module": "ES6",
+    "target": "ES6",
+    "baseUrl": "./src",
+    "paths": {
+      "@constants": ["./module/constants/index.js"],
+      "@constants/*": ["./module/constants/*"],
+      "@data": ["./data/index.js"],
+      "@data/*": ["./data/*"],
+      "@documents": ["./module/documents/index.js"],
+      "@documents/*": ["./module/documents/*"],
+      "@models": ["./module/data/index.js"],
+      "@models/*": ["./module/data/*"],
+      "@packs": ["./packs/index.js"],
+      "@packs/*": ["./packs/*"],
+      "@utils": ["./module/utils/index.js"],
+      "@utils/*": ["./module/utils/*"]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

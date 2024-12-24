@@ -1,0 +1,105 @@
+@use 'variables' as *;
+
+input[type='text'],
+input[type='number'],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+input[type="search"],
+select,
+textarea {
+  @extend %input;
+}
+
+textarea {
+  font-family: $font-primary;
+  font-size: $font-size-14;
+}
+
+select {
+  option {
+    background-color: $color-bg;
+    &[selected] {
+      background-color: $color-level-10-transparent;
+    }
+  }
+  &[multiple] {
+    width: 100%;
+    margin-bottom: 0.3rem;
+  }
+}
+
+.prosemirror {
+  overflow: visible;
+  font-family: $font-small;
+  menu {
+    button{
+      @extend %crt-hover;
+      @extend %inverted-color;
+      background-color: transparent;
+
+      &:hover {
+        color: $color-text-light-0;
+      }
+
+      &.active {
+        background-color: transparent;
+        color: $color-shadow-primary;
+
+        &:hover {
+          color: $color-text-hyperlink;
+        }
+      }
+    }
+
+    .pm-dropdown {
+      @extend %input;
+      color: $color-text-light-7;
+      padding-left: 0.5em;
+
+      ul {
+        @extend %background;
+        border-color: $color-field-border;
+      }
+
+      li:hover,
+      li:focus {
+        background-color: $color-field-bg-focus;
+      }
+
+      &:hover,
+      &:focus {
+        color: $color-text-hyperlink;
+        i {
+            color: $color-shadow-primary;
+          }
+      }
+    }
+
+  }
+  // for some reason this is absolutely positioned in a flex element preventing it from growing
+  .editor-container .editor-content {
+    position: relative;
+    color: $color-text-light-0;
+  }
+}
+
+.field-box {
+  @extend %box;
+  background-color: $color-field-bg;
+
+  &:hover,
+  &:focus-within {
+    background-color: $color-field-bg-focus;
+  }
+
+  &--inner {
+    @extend %inner-box;
+    label > small {
+      font-family: $font-small;
+      letter-spacing: 0.2em;
+      display: block;
+      color: $color-text-light-7;
+    }
+  }
+}

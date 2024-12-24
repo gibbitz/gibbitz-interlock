@@ -1,0 +1,20 @@
+.edgerunner-sheet__siblings {
+  > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > li {
+      display: grid;
+      grid-template-columns: 5fr 2fr;
+      .field-box {
+        grid-column: auto / span 2;
+
+        &:nth-child(3),
+        &:nth-child(4) {
+          grid-column: auto / span 1;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "module": "ES6",
+    "target": "ES6",
+    "baseUrl": "./src",
+    "paths": {
+      "@actorListeners": ["./module/sheets/listeners/actor/index.js"],
+      "@actorListeners/*": ["./module/sheets/listeners/actor/*"],
+      "@assets": ["./assets/index.js"],
+      "@assets/*": ["./assets/*"],
+      "@constants": ["./module/constants/index.js"],
+      "@constants/*": ["./module/constants/*"],
+      "@data": ["./data/index.js"],
+      "@data/*": ["./data/*"],
+      "@documents": ["./module/documents/index.js"],
+      "@documents/*": ["./module/documents/*"],
+      "@effects": ["./module/effects/index.js"],
+      "@effects/*": ["./module/effects/*"],
+      "@itemListeners": ["./module/sheets/listeners/item/index.js"],
+      "@itemListeners/*": ["./module/sheets/listeners/item/*"],
+      "@models": ["./module/data/index.js"],
+      "@models/*": ["./module/data/*"],
+      "@packs": ["./packs/index.js"],
+      "@packs/*": ["./packs/*"],
+      "@rolls": ["./module/rolls/index.js"],
+      "@rolls/*": ["./module/rolls/*"],
+      "@sheets": ["./module/sheets/index.js"],
+      "@sheets/*": ["./module/sheets/*"],
+      "@templates": ["./templates/index.js"],
+      "@templates/*": ["./templates/*"],
+      "@utils": ["./module/utils/index.js"],
+      "@utils/*": ["./module/utils/*"]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

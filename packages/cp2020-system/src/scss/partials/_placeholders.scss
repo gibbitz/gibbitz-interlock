@@ -1,0 +1,125 @@
+@use 'variables' as *;
+@use 'effects' as *;
+
+%field {
+  padding: 0.2rem;
+}
+
+%background {
+  background-color: $color-bg-transparent;
+  background-image: none;
+  backdrop-filter: blur(2rem);
+}
+
+%inverted-color {
+  color: $color-text-light-7;
+}
+
+%input {
+  color: $color-text-light-0;
+  font-weight: 600;
+  border: 0;
+  background: none;
+  letter-spacing: 0.2em;
+  padding-left: 0;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+%cornered {
+  border: 1px solid $color-field-corners;
+  content: '';
+  display: block;
+  filter: blur(0.7px);
+  height: $box-spacing-value * 2;
+  position: absolute;
+  width: $box-spacing-value * 2;
+  z-index: 0;
+}
+
+%box {
+  position: relative;
+  border: 1px solid $color-field-border;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: $box-spacing;
+  min-height: 0;
+  padding: ($box-spacing-value * 2);
+  transition: background-color .6s ease-out;
+  width: calc(100% - #{($box-spacing-value * 2)}); // adjust for margin
+  z-index: 0;
+
+  &::after {
+    @extend %cornered;
+    border-left: 0;
+    border-top: 0;
+    bottom: -1px;
+    right: -1px;
+  }
+
+  &::before {
+    @extend %cornered;
+    border-bottom: 0;
+    border-right: 0;
+    left: -1px;
+    top: -1px;
+  }
+}
+
+%inner-box {
+  display: block;
+  height: 100%;
+
+  &::before {
+    @extend %cornered;
+    border-bottom: 0;
+    border-left: 0;
+    right: -1px;
+    top: -1px;
+  }
+
+  &::after {
+    @extend %cornered;
+    border-right: 0;
+    border-top: 0;
+    bottom: -1px;
+    left: -1px;
+  }
+}
+
+%custom-scrollbars {
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: $color-border-dark-4 $color-bg;
+
+  /* Chrome, Edge, and Safari */
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $color-bg;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-border-dark-4;
+    border-radius: 0;
+    border: 1px inset $color-bg;
+  }
+}
+
+%die-base {
+  @extend %crt-hover;
+  color: $color-text-light-7;
+  font-size: 2em;
+  transition: color 0.2s;
+  &:hover {
+    color: $color-text-light-0;
+  }
+  &::after {
+    display: inline-block;
+    content: 'j'
+  }
+}

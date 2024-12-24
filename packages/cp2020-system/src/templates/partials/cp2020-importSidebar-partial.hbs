@@ -1,0 +1,8 @@
+<aside class="{{#if class}}{{class}}{{/if}}">
+  <h2>{{localize 'cp2020.sidebar.imports.title'}}</h2>
+  <div>
+    {{#each this.importers}}
+      <button data-selector="{{@key}}">{{localize this.name}}</button>
+    {{/each}}
+  </div>
+</aside>

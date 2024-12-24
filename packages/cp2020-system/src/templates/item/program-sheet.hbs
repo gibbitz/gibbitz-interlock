@@ -1,0 +1,45 @@
+{{systemLog ' PROGRAM | ' this}}
+<form class="{{cssClass}}" autocomplete="off">
+  {{cp2020-outfitHeader
+    name=item.name
+    label="cp2020.items.program.label"
+  }}
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-selector="primary-tabs" data-group="primary">
+    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="specs">Specs</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section data-selector="primary-tab-body">
+
+    {{!-- Description Tab --}}
+    <article class="tab" data-group="primary" data-tab="description">
+      {{itemDetails this}}
+    </article>
+
+    {{!-- Specs Tab --}}
+    <article class="tab specs" data-group="primary" data-tab="specs">
+      <aside>
+        <div>
+          {{cp2020-input
+            label="cp2020.items.program.strength.long"
+            name="system.strength"
+            type='number'
+            value=item.system.strength
+          }}
+        </div>
+        <div>
+          {{cp2020-input
+            label="cp2020.items.program.memory.long"
+            name="system.memory"
+            type='number'
+            value=item.system.memory
+          }}
+        </div>
+        {{outfitEcon this}}
+      </aside>
+    </article>
+  </section>
+</form>

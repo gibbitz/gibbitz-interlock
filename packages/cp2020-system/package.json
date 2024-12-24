@@ -1,0 +1,109 @@
+{
+  "name": "@gibbitz-interlock/cp2020-system",
+  "version": "1.0.0",
+  "description": "System Rules and Sheet for R. Talisorian Games' Cyberpunk 2020 in Foundry Virtual Table Top (VTT)",
+  "main": "system.js",
+  "scripts": {
+    "test": "jest --verbose",
+    "test:coverage": "jest --coverage",
+    "build:data": "node --experimental-specifier-resolution=node build-scripts/update-data.js && cd src && cpy data ../generator && cd -",
+    "build:css": "sass --source-map src/scss/main.scss dist/gibbitz-interlock-cp2020/css/main.css",
+    "build:js": "rollup -c",
+    "build:css:release": "sass --no-source-map --style=compressed src/scss/main.scss dist/gibbitz-interlock-cp2020/css/main.css",
+    "build": "run-s clean build:data copy build:js build:css:release",
+    "clean": "rimraf dist/gibbitz-interlock-cp2020",
+    "copy:clone": "cd src && cpy ** !scss ../dist/gibbitz-interlock-cp2020 && cd -",
+    "copy": "cd src && cpy assets lang data templates *.json ../dist/gibbitz-interlock-cp2020 && cd -",
+    "dev": "run-s build && npm-watch & fvtt launch",
+    "generate": "node --experimental-specifier-resolution=node generator/src/index.js",
+    "generate:debug": "node --experimental-specifier-resolution=node --inspect-brk generator/src/index.js"
+  },
+  "peerDependencies": {
+    "@foundryvtt/foundryvtt-cli": "1.0.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.23.0",
+    "@babel/preset-env": "^7.23.2",
+    "@rollup/plugin-alias": "^5.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "babel-jest": "^29.7.0",
+    "cpy-cli": "^5.0.0",
+    "jest": "^29.7.0",
+    "npm-run-all": "^4.1.5",
+    "npm-watch": "^0.11.0",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.5.1",
+    "rollup-plugin-string": "^3.0.0",
+    "sass": "^1.69.4"
+  },
+  "watch": {
+    "copy": {
+      "patterns": "src/**",
+      "ignore": [
+        "src/scss/**",
+        "src/module/**",
+        "src/utils/**",
+        "src/constants/**"
+      ],
+      "extensions": "json,hbs,db"
+    },
+    "build:css": {
+      "patterns": [
+        "./src/scss/**"
+      ],
+      "extensions": "scss"
+    },
+    "build:js": {
+      "patterns": "src/**",
+      "extensions": "js,mjs"
+    }
+  },
+  "jest": {
+    "testMatch": [
+      "**/?(*.)+(test).(c)js"
+    ],
+    "transform": {
+      "^.+\\.js?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!node-fetch)"
+    ]
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "@babel/plugin-transform-modules-commonjs"
+        ]
+      }
+    },
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gibbitz/gibbitz-interlock.git"
+  },
+  "keywords": [
+    "Cyberpunk 2020",
+    "Interlock",
+    "R. Talisorian Games",
+    "RTG",
+    "Foundry VTT",
+    "FVTT",
+    "System"
+  ],
+  "author": "gibbitz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gibbitz/gibbitz-interlock/issues"
+  },
+  "homepage": "https://github.com/gibbitz/gibbitz-interlock/cp2020-system#readme"
+}
