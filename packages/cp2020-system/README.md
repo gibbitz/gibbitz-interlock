@@ -3,10 +3,10 @@ A FoundryVTT system for Cyberpunk 2020 carrying from work done in fork https://g
 
 ## Running locally
 ### Node
-Requirements for the buildsystem are outlined in the [root package documentation](../../README.md). Be sure you can meet those requirements before attempting to run this code
+Requirements for the buildsystem are outlined in the [root package documentation](../../README.md#requirements). Be sure you can meet those requirements before attempting to run this code.
 
 #### Installing
-Before running the package, be sure to install nodejs dependencies see the [root package documentation](../../README.md) for details. Running the install scripts from the root package ensures interoperability of your local system and modules.
+Before running the package, be sure to install nodejs dependencies see the [root package documentation](../../README.md#installing-dependencies) for details. Running the install scripts from the root package ensures interoperability of your local system and modules.
 
 #### Development Builds
 After install, to run the system in development mode, use:
