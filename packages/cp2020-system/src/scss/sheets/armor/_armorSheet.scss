@@ -1,5 +1,5 @@
 @use 'sass:list';
-@use '../../partials/variables' as *;
+@use '../../partials/variables' as vars;
 
 @mixin covered($level) {
   fill: var(--color-level-#{$level}-highlight);
@@ -41,41 +41,44 @@ $locations: (
   left-shin,
   left-foot
 );
+@use '../../partials/variables' as vars;
 
-.cp2020-armor-sheet,
-.edgerunner-sheet__status {
-  .location-list__row {
-    align-items: stretch;
-    .col {
-      min-width: 200px;
+#{vars.$system-name} {
+  .cp2020-armor-sheet,
+  .edgerunner-sheet__status {
+    .location-list__row {
+      align-items: stretch;
+      .col {
+        min-width: 200px;
+      }
     }
-  }
-  .location-list__col {
-    .field-box {
-      height: 100%;
-      select {
-        height: calc(100% - 1.5rem);
-        min-height: 200px;
+    .location-list__col {
+      .field-box {
+        height: 100%;
+        select {
+          height: calc(100% - 1.5rem);
+          min-height: 200px;
+        }
+      }
+    }
+    .mannequin {
+      path {
+        fill: rgba(#000, 0);
+        stroke: rgba(#000, 0);
+        stroke-width: 2.5px;
+      }
+      #base {
+        fill: vars.$color-graphic-bg-transparent;
+        stroke: vars.$color-text-light-5;
       }
     }
   }
-  .mannequin {
-    path {
-      fill: rgba(#000, 0);
-      stroke: rgba(#000, 0);
-      stroke-width: 2.5px;
-    }
-    #base {
-      fill: $color-graphic-bg-transparent;
-      stroke: $color-text-light-5;
-    }
-  }
-}
 
-@each $location in $locations {
-  @for $level from 1 through 10 {
-    .#{$location}.level-#{$level} ##{$location} {
-      @include covered($level);
+  @each $location in $locations {
+    @for $level from 1 through 10 {
+      .#{$location}.level-#{$level} ##{$location} {
+        @include covered($level);
+      }
     }
   }
 }

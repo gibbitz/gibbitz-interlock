@@ -1,41 +1,44 @@
-.legend {
-  font-size: $font-size-16;
-  text-transform: uppercase;
-  text-indent: calc(2px + 0.3em);
-  letter-spacing: 0.2em;
-  padding-top: 1.2em;
-  color: $color-text-light-5;
-}
-
-.fieldset {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid $color-field-border;
-  padding: 0.5em 0.3em 0.3em;
-  position: relative;
-
+@use 'variables' as vars;
+#{vars.$system-name} {
   .legend {
-    position: absolute;
-    padding-top: 0;
-    top: calc(0px - $font-size-16 - 0.25em);
+    font-size: vars.$font-size-16;
+    text-transform: uppercase;
+    text-indent: calc(2px + 0.3em);
+    letter-spacing: 0.2em;
+    padding-top: 1.2em;
+    color: vars.$color-text-light-5;
   }
 
-  &:has(> .legend) {
-    margin-top: calc($font-size-16 + 1.2em);
-  }
-}
+  .fieldset {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid vars.$color-field-border;
+    padding: 0.5em 0.3em 0.3em;
+    position: relative;
 
-.row {
-  display: flex;
-  flex-direction: row;
-  align-content: space-between;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.col {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1;
-  padding: 0.25rem;
+    .legend {
+      position: absolute;
+      padding-top: 0;
+      top: calc(0px - vars.$font-size-16 - 0.25em);
+    }
+
+    &:has(> .legend) {
+      margin-top: calc(vars.$font-size-16 + 1.2em);
+    }
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    padding: 0.25rem;
+  }
 }

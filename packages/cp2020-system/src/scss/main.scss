@@ -1,22 +1,21 @@
-@use 'partials/variables' as *;
-@use 'partials/placeholders';
-// @use 'partials/mixins';
-@import 'partials/dynamicProperties';
-
-.system-gibbitz-interlock-cp2020 {
-  @import 'partials/reset';
-  @import 'system';
-  @import 'utils';
-  @import 'partials/forms';
-  @import 'partials/layout';
-  @import 'partials/effects';
-  @import 'sheets/armor/armorSheet';
-  @import 'sheets/edgerunner/portrait';
-  @import 'sheets/edgerunner/stats';
-  @import 'sheets/edgerunner/siblings';
-  @import 'sheets/edgerunner/identity';
-  @import 'sheets/edgerunner/status';
-  @import 'sheets/edgerunner/health';
-  @import 'sheets/edgerunner/lifepath';
-  @import 'sheets/edgerunner/edgerunner';
+@forward 'partials/variables';
+@forward 'partials/placeholders';
+@forward 'partials/mixins';
+@use 'partials/dynamicProperties';
+@use 'partials/reset';
+@use 'system';
+@use 'utils';
+@use 'partials/forms';
+@use 'partials/layout';
+@use 'partials/effects';
+@use 'sheets/armor/armorSheet';
+@use 'sheets/edgerunner/portrait';
+@use 'sheets/edgerunner/stats';
+@use 'sheets/edgerunner/siblings';
+@use 'sheets/edgerunner/identity';
+@use 'sheets/edgerunner/status';
+@use 'sheets/edgerunner/health';
+@use 'sheets/edgerunner/lifepath';
+@use 'sheets/edgerunner/edgerunner';
+.system-cp2020-system {
 }

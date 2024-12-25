@@ -1,5 +1,7 @@
-.system-gibbitz-interlock-cp2020 {
-  .cp2020-hidden {
+@use 'partials/variables' as vars;
+
+#{vars.$system-name} {
+  &--hidden {
     display: none;
   }
 }

@@ -3,6 +3,41 @@
   "version": "1.0.0",
   "description": "Mulitple Rolltables and generator for R. Talisorian Games' Cyberpunk 2020 in Foundry Virtual Table Top (VTT) that pulls tabular data from the google sheets API into data usable as rolltables",
   "main": "index.js",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gibbitz/gibbitz-interlock.git"
+  },
+  "keywords": [
+    "Cyberpunk 2020",
+    "Interlock",
+    "R. Talisorian Games",
+    "RTG",
+    "Foundry VTT",
+    "FVTT",
+    "Rolltables"
+  ],
+  "author": "gibbitz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gibbitz/gibbitz-interlock/issues"
+  },
+  "homepage": "https://github.com/gibbitz/gibbitz-interlock#readme",
+  "scripts": {
+    "test": "jest --verbose",
+    "test:coverage": "jest --coverage",
+    "build:data": "node --experimental-specifier-resolution=node build-scripts/update-data.js && cd src && cpy data ../generator && cd -",
+    "build:css": "sass --source-map src/scss/main.scss dist/gibbitz-interlock-cp2020/css/main.css",
+    "build:js": "rollup -c",
+    "build:css:release": "sass --no-source-map --style=compressed src/scss/main.scss dist/gibbitz-interlock-cp2020/css/main.css",
+    "build": "run-s clean build:data copy build:js build:css:release",
+    "clean": "rimraf dist/gibbitz-interlock-cp2020",
+    "copy:clone": "cd src && cpy ** !scss ../dist/gibbitz-interlock-cp2020 && cd -",
+    "copy": "cd src && cpy assets lang data templates *.json ../dist/gibbitz-interlock-cp2020 && cd -",
+    "dev": "run-s build && npm-watch & fvtt launch",
+    "generate": "node --experimental-specifier-resolution=node generator/src/index.js",
+    "generate:debug": "node --experimental-specifier-resolution=node --inspect-brk generator/src/index.js"
+  },
   "peerDependencies": {
     "@foundryvtt/foundryvtt-cli": "1.0.1"
   },
@@ -71,39 +106,5 @@
     "presets": [
       "@babel/preset-env"
     ]
-  },
-  "scripts": {
-    "test": "jest --verbose",
-    "test:coverage": "jest --coverage",
-    "build:data": "node --experimental-specifier-resolution=node build-scripts/update-data.js && cd src && cpy data ../generator && cd -",
-    "build:css": "sass --source-map src/scss/main.scss dist/gibbitz-interlock-cp2020/css/main.css",
-    "build:js": "rollup -c",
-    "build:css:release": "sass --no-source-map --style=compressed src/scss/main.scss dist/gibbitz-interlock-cp2020/css/main.css",
-    "build": "run-s clean build:data copy build:js build:css:release",
-    "clean": "rimraf dist/gibbitz-interlock-cp2020",
-    "copy:clone": "cd src && cpy ** !scss ../dist/gibbitz-interlock-cp2020 && cd -",
-    "copy": "cd src && cpy assets lang data templates *.json ../dist/gibbitz-interlock-cp2020 && cd -",
-    "dev": "run-s build && npm-watch & fvtt launch",
-    "generate": "node --experimental-specifier-resolution=node generator/src/index.js",
-    "generate:debug": "node --experimental-specifier-resolution=node --inspect-brk generator/src/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gibbitz/gibbitz-interlock.git"
-  },
-  "keywords": [
-    "Cyberpunk 2020",
-    "Interlock",
-    "R. Talisorian Games",
-    "RTG",
-    "Foundry VTT",
-    "FVTT",
-    "Rolltables"
-  ],
-  "author": "gibbitz",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/gibbitz/gibbitz-interlock/issues"
-  },
-  "homepage": "https://github.com/gibbitz/gibbitz-interlock#readme"
+  }
 }

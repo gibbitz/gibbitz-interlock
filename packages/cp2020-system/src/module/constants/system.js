@@ -1,9 +1,8 @@
-export const SYSTEM_NAME = 'cp2020'
-export const SYSTEM_PROJECT_NAME = `gibbitz-interlock-${SYSTEM_NAME}`
+export const SYSTEM_NAME = 'cp2020-system'
+export const SYSTEM_PROJECT_NAME = SYSTEM_NAME
 
-export const DATA_IMPORT_BASE_PATH = `/systems/${SYSTEM_PROJECT_NAME}/data/`
-export const GRAPHIC_ASSETS_IMPORT_BASE_PATH = `/systems/${SYSTEM_PROJECT_NAME}/assets/graphics/`
-export const ICON_ASSETS_IMPORT_BASE_PATH = `/systems/${SYSTEM_PROJECT_NAME}/assets/icons/`
+export const GRAPHIC_ASSETS_IMPORT_BASE_PATH = `/systems/${SYSTEM_NAME}/assets/graphics/`
+export const ICON_ASSETS_IMPORT_BASE_PATH = `/systems/${SYSTEM_NAME}/assets/icons/`
 
 /** Token pattern used by replaceStringTokens
  * the number 1 is replaced with the index+1 of the parameters
@@ -26,11 +25,6 @@ export const EMIT_DEFENSE = 'EMIT_DEFENSE'
 export const EMIT_CHECK = 'EMIT_CHECK'
 export const EMIT_DV = 'EMIT_DV'
 export const EMIT_ERROR = 'EMIT_ERROR'
-
-export const SKILLS_COMPENDIUM_PACK_NAME = `${SYSTEM_PROJECT_NAME}.skills`
-export const SKILLS_COMPENDIUM_DATA_PATH = `${DATA_IMPORT_BASE_PATH}skills.json`
-export const ARMOR_COMPENDIUM_PACK_NAME = `${SYSTEM_PROJECT_NAME}.armor`
-export const ARMOR_COMPENDIUM_DATA_PATH = `${DATA_IMPORT_BASE_PATH}armor.json`
 
 // TODO: Avoid using this if possible
 // anti-pattern global CONFIG variable injection (see gibbitz-interlock-cp2020.js)

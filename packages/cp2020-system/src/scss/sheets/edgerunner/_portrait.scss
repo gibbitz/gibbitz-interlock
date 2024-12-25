@@ -1,28 +1,33 @@
-.edgerunner-sheet__portrait {
-  margin: calc($font-size-16 + 1.2em) 0 0;
-  position: relative;
-  min-height: 303px;
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  background: $color-border-dark;
-  overflow: hidden;
+@use '../../partials/variables' as vars;
+@use '../../partials/placeholders' as *;
 
-  &:hover {
-    figcaption {
-      opacity: 1;
+#{vars.$system-name} {
+  .edgerunner-sheet__portrait {
+    margin: calc(vars.$font-size-16 + 1.2em) 0 0;
+    position: relative;
+    min-height: 303px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    background: vars.$color-border-dark;
+    overflow: hidden;
+
+    &:hover {
+      figcaption {
+        opacity: 1;
+      }
     }
-  }
 
-  figcaption {
-    @extend %background;
-    opacity: 0;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    text-align: right;
-    padding: 0.4rem 1rem;
-    transition: opacity 0.2s ease-in-out;
+    figcaption {
+      @extend %background;
+      opacity: 0;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      text-align: right;
+      padding: 0.4rem 1rem;
+      transition: opacity 0.2s ease-in-out;
+    }
   }
 }

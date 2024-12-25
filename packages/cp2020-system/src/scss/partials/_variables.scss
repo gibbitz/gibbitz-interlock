@@ -1,4 +1,6 @@
 @use "sass:list";
+$system-name: ".system-cp2020-system";
+
 // color vars set dynamic props for scss shorthand
 $color-text-light-highlight: var(--color-text-light-highlight);
 $color-text-light-heading: var(--color-text-light-heading);

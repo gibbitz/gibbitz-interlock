@@ -3,10 +3,13 @@ Mulitple Compendia and generator for R. Talisorian Games' Cyberpunk 2020 in Foun
 
 ## TODO:
   * Determine how to make a module for a compendia
+  * this may be just a utility to import data from sheets
   * Update naming conventions if required
   * Rework code in current structure
   * Add buttons to control panel/sidebar to update data
   * Add button/modal to control panel/sidebar to add new compendia from a sheet
+
+
 
 ## Running locally
 ### Node

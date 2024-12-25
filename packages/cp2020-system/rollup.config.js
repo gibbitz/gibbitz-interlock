@@ -1,9 +1,10 @@
 import resolve from '@rollup/plugin-node-resolve';
 import alias from '@rollup/plugin-alias';
 import { string } from "rollup-plugin-string";
-import { SYSTEM_PROJECT_NAME } from './src/module/constants/system.js'
+import { SYSTEM_NAME } from './src/module/constants/system.js'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { readFile } from 'fs/promises';
 
 const isProd = process.env.NODE_ENV === 'production'
 const rootDir = path.resolve(
@@ -14,25 +15,30 @@ const customResolver = resolve({
   extensions: ['.js', '.json', '.scss', '.css']
 })
 
+const { compilerOptions: { paths, baseUrl }} = JSON.parse(
+  await readFile(
+    new URL('./jsconfig.json', import.meta.url)
+  )
+);
+
+// generate path aliases from jsconfig file compilerOptions.paths where the aliases are for folders
+
+const baseDir = path.resolve(rootDir, baseUrl)
+const entries = Object.keys(paths).reduce(
+  (aliases, key) => {
+    if (key.indexOf('/*') !== -1) {
+      aliases[key.replace('/*', '')] = path.resolve(baseDir, paths[key][0].replace('/*', ''))
+    }
+    return aliases
+  }
+  , {}
+)
+
 export default (async () => ({
-  input: `src/module/${SYSTEM_PROJECT_NAME}.js`,
+  input: `src/module/${SYSTEM_NAME}.js`,
 	plugins: [
     alias({
-      entries: {
-        '@actorListeners': path.resolve(rootDir, 'src/module/sheets/listeners/actor'),
-        '@assets': path.resolve(rootDir, 'src/assets'),
-        '@constants': path.resolve(rootDir, 'src/module/constants'),
-        '@data': path.resolve(rootDir, 'src/data'),
-        '@documents': path.resolve(rootDir, 'src/module/documents'),
-        '@effects': path.resolve(rootDir, 'src/module/effects'),
-        '@itemListeners': path.resolve(rootDir, 'src/module/sheets/listeners/item'),
-        '@models': path.resolve(rootDir, 'src/module/data'),
-        '@packs': path.resolve(rootDir, 'src/packs'),
-        '@rolls': path.resolve(rootDir, 'src/module/rolls'),
-        '@sheets': path.resolve(rootDir, 'src/module/sheets'),
-        '@templates': path.resolve(rootDir, 'src/templates'),
-        '@utils': path.resolve(rootDir, 'src/module/utils'),
-      },
+      entries,
       customResolver
     }),
 		resolve(),
@@ -42,7 +48,7 @@ export default (async () => ({
 		isProd && (await import('@rollup/plugin-terser')).default()
 	],
 	output: {
-    file: `dist/${SYSTEM_PROJECT_NAME}/system.js`,
+    file: `dist/${SYSTEM_NAME}/system.js`,
     sourcemap: isProd ? false : 'inline',
 		format: 'esm'
 	},

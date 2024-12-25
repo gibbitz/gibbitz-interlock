@@ -1,105 +1,107 @@
 @use 'sass:list';
-@import 'partials/variables';
-@import 'partials/mixins';
-
-@font-face {
-  font-family: 'Aldrich';
-  src: url(https://fonts.gstatic.com/s/aldrich/v10/MCoTzAn-1s3IGyJMVacY3w.woff2) format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Share Tech Mono';
-  src: url(https://fonts.gstatic.com/s/sharetechmono/v9/J7aHnp1uDWRBEqV98dVQztYldFcLowEF.woff2) format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'd10';
-  src: url('/systems/gibbitz-interlock-cp2020/assets/fonts/d10.woff') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'd6';
-  src: url('/systems/gibbitz-interlock-cp2020/assets/fonts/d6.woff') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-* {
-  @extend %custom-scrollbars;
-}
-
-.chat-message.whisper {
-  @extend %background;
-  @extend %inverted-color;
-}
-.window-header {
-  font-family: $font-small;
-  font-size: $font-size-11;
-}
-.window-content {
-  @extend %background;
-  @extend %inverted-color;
-}
-
-.die {
-  &--d-6 {
-    @extend %die-base;
-    font-family: 'd6';
+@use 'partials/variables' as vars;
+@use 'partials/mixins';
+@use 'partials/placeholders' as *;
+#{vars.$system-name} {
+  @font-face {
+    font-family: 'Aldrich';
+    src: url(https://fonts.gstatic.com/s/aldrich/v10/MCoTzAn-1s3IGyJMVacY3w.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
   }
 
-  &--d-10 {
-    @extend %die-base;
+  @font-face {
+    font-family: 'Share Tech Mono';
+    src: url(https://fonts.gstatic.com/s/sharetechmono/v9/J7aHnp1uDWRBEqV98dVQztYldFcLowEF.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
     font-family: 'd10';
+    src: url('/systems/cp2020-system/assets/fonts/d10.woff') format('woff2');
+    font-weight: normal;
+    font-style: normal;
   }
 
-}
-@include die-variations('.die--d-10');
-@include die-variations('.die--d-6');
-
-.cp2020-button {
-  @extend %crt-hover;
-  background: $color-level-info-inactive;
-  color: $color-bg;
-  display: inline-block;
-  padding: 0.3rem 1rem;
-  transition: color 0.2s, background-color 0.3s;
-  width: auto;
-  &:hover {
-    color: $color-text-light-0;
-    background: $color-level-info-active;
+  @font-face {
+    font-family: 'd6';
+    src: url('/systems/cp2020-system/assets/fonts/d6.woff') format('woff2');
+    font-weight: normal;
+    font-style: normal;
   }
-}
 
-.cp2020-progress {
-  @include progress-bar($color-level-5);
-  width: 100%;
-  @for $level from 1 through 10{
-    &.level-#{$level} {
-      @include progress-bar(list.nth($light-color-levels, $level));
+  * {
+    @extend %custom-scrollbars;
+  }
+
+  .chat-message.whisper {
+    @extend %background;
+    @extend %inverted-color;
+  }
+  .window-header {
+    font-family: vars.$font-small;
+    font-size: vars.$font-size-11;
+  }
+  .window-content {
+    @extend %background;
+    @extend %inverted-color;
+  }
+
+  .die {
+    &--d-6 {
+      @extend %die-base;
+      font-family: 'd6';
+    }
+
+    &--d-10 {
+      @extend %die-base;
+      font-family: 'd10';
+    }
+
+  }
+  @include mixins.die-variations('.die--d-10');
+  @include mixins.die-variations('.die--d-6');
+
+  .cp2020-button {
+    @extend %crt-hover;
+    background: vars.$color-level-info-inactive;
+    color: vars.$color-bg;
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    transition: color 0.2s, background-color 0.3s;
+    width: auto;
+    &:hover {
+      color: vars.$color-text-light-0;
+      background: vars.$color-level-info-active;
     }
   }
-}
 
-.cp2020-progress-detail {
-  display: grid;
-  grid-template-rows: 1fr;
-  label {
-
-   > value {
-      text-align: right;
+  .cp2020-progress {
+    @include mixins.progress-bar(vars.$color-level-5);
+    width: 100%;
+    @for $level from 1 through 10{
+      &.level-#{$level} {
+        @include mixins.progress-bar(list.nth(vars.$light-color-levels, $level));
+      }
     }
-   > small {
-      display: flex;
-      font-size: $font-size-11;
-      letter-spacing: 0.1rem;
-      text-align: left;
-      text-transform: lowercase;
+  }
+
+  .cp2020-progress-detail {
+    display: grid;
+    grid-template-rows: 1fr;
+    label {
+
+    > value {
+        text-align: right;
+      }
+    > small {
+        display: flex;
+        font-size: vars.$font-size-11;
+        letter-spacing: 0.1rem;
+        text-align: left;
+        text-transform: lowercase;
+      }
     }
   }
 }

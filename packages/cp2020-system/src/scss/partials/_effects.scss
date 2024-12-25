@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use 'variables' as vars;
 
 // below inspiried by Alec Lownes & Lucas Bebber
 // https: //aleclownes.com/2017/02/01/crt-display.html
@@ -42,17 +43,19 @@ $rgb-magenta: rgba(255, 0, 80, 0.3);
   z-index: 2;
 }
 
-// classname for opt-in/out
-.crt{
-  &::before {
-    @extend %crt-psuedo;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    background-size: 100% 2px, 3px 100%;
-  }
-  &::after {
-    @extend %crt-psuedo;
-    background: rgba(18, 16, 16, 0.1);
-    opacity: 0;
-    animation: flicker 0.15s infinite;
+#{vars.$system-name} {
+  // classname for opt-in/out
+  .crt{
+    &::before {
+      @extend %crt-psuedo;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      background-size: 100% 2px, 3px 100%;
+    }
+    &::after {
+      @extend %crt-psuedo;
+      background: rgba(18, 16, 16, 0.1);
+      opacity: 0;
+      animation: flicker 0.15s infinite;
+    }
   }
 }

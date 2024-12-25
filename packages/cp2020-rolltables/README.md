@@ -3,6 +3,7 @@ Mulitple Rolltables and generator for R. Talisorian Games' Cyberpunk 2020 in Fou
 
 ## TODO:
   * Determine how to make a module for a rolltables
+  * Consume data fetching utils from compendia?
   * Update naming conventions if required
   * Rework code in current structure
   * Add Macros to make rolls
