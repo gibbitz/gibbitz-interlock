@@ -1,22 +1,30 @@
 {{systemLog ' WEAPON | ' this}}
-<li class="item" data-item-id="{{_id}}" data-item-name="{{name}}">
-  <a
-    data-selector="item-edit"
-    data-uuid="{{_id}}"
-    title="edit"
-  >
-    {{name}}
-  </a>
-  {{cp2020-button
-    class="weapon__roll"
-    uuid=_id
-    roll=true
-    selector='item-roll'
-    label='fire'
-  }}
-  {{cp2020-button
-    uuid=_id
-    label='delete'
-    selector='item-delete'
-  }}
-</li>
+{{#if this.length}}
+  {{#cp2020-sectionBox title='Weapons' class='item-list__wrapper'}}
+    <ul class="item-list item-list--weapons">
+      {{#each this}}
+        <li class="item item--weapon" data-item-id="{{_id}}" data-item-name="{{name}}">
+          <a
+            data-selector="item-edit"
+            data-uuid="{{_id}}"
+            title="edit"
+          >
+            {{name}}
+          </a>
+          {{cp2020-button
+            class="weapon__roll"
+            uuid=_id
+            roll=true
+            selector='item-roll'
+            label='fire'
+          }}
+          {{cp2020-button
+            uuid=_id
+            label='delete'
+            selector='item-delete'
+          }}
+        </li>
+      {{/each}}
+    </ul>
+  {{/cp2020-sectionBox}}
+{{/if}}

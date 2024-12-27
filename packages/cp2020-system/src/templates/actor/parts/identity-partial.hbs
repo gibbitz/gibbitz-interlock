@@ -3,46 +3,46 @@
   <div class="legend">Identity</div>
   {{cp2020-input
     name='name'
-    value=name
+    value=actor.name
     type='text'
-    label='cp2020.identity.handle'
+    label=(concat constants.SYSTEM_NAME '.identity.handle')
   }}
-  {{#with system.identity}}
+  {{#with actor.system.identity}}
     {{cp2020-input
       name='system.identity.givenName'
       value=givenName
       type='text'
-      label='cp2020.identity.givenName'
+      label=(concat ../constants.SYSTEM_NAME '.identity.givenName')
     }}
     {{cp2020-input
       name='system.identity.age'
       value=age
       type='text'
-      label='cp2020.identity.age'
+      label=(concat ../constants.SYSTEM_NAME '.identity.age')
     }}
     {{cp2020-input
       name='system.identity.gender'
       value=gender
       type='text'
-      label='cp2020.identity.gender'
+      label=(concat ../constants.SYSTEM_NAME '.identity.gender')
     }}
     {{cp2020-input
       name='system.identity.sexualPreference'
       value=sexualPreference
       type='text'
-      label='cp2020.identity.sexualPreference'
+      label=(concat ../constants.SYSTEM_NAME '.identity.sexualPreference')
     }}
     {{cp2020-input
       name='system.bio.family.ethnicity'
       value=@root.system.bio.family.ethnicity
       type='text'
-      label='cp2020.family.ethnicity'
+      label=(concat ../constants.SYSTEM_NAME '.family.ethnicity')
     }}
     {{cp2020-input
       name='system.bio.family.language'
       value=@root.system.bio.family.language
       type='text'
-      label='cp2020.family.language'
+      label=(concat ../constants.SYSTEM_NAME '.family.language')
     }}
   {{/with}}
 </article>

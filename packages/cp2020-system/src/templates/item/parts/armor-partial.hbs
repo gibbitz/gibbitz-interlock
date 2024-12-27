@@ -1,7 +1,15 @@
-{{!-- TODO: accept full location list with armor coverage --}}
 {{systemLog ' ARMOR PARTIAL | ' this}}
-<li class="item" data-item-id="{{_id}}" data-item-name="{{this.name}}">
-  <a class="item-roll item-name">
-    {{this.name}} : {{this.location}}
-  </a>
-</li>
+{{#if this.length}}
+  {{#cp2020-sectionBox title='Armor' class='item-list__wrapper'}}
+    {{!-- TODO: manequin --}}
+    <ul class="item-list item-list--armor">
+      {{#each this}}
+        <li class="item" data-item-id="{{_id}}" data-item-name="{{this.name}}">
+          <a class="item-roll item-name">
+            {{this.name}} : {{this.location}}
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  {{/cp2020-sectionBox}}
+{{/if}}

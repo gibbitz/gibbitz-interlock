@@ -1,5 +1,23 @@
-<li class="item" data-item-id="{{_id}}" data-item-name="{{this.name}}">
-  <a class="item-roll item-name">
-    {{this.name}}
-  </a>
-</li>
+{{systemLog ' CYBERWARE PARTIAL | ' this}}
+{{#if this.length}}
+  {{#cp2020-sectionBox title='Cyberware' class='item-list__wrapper'}}
+    <ul class="item-list item-list--cyberware">
+      {{#each this}}
+        <li
+          class="item item--cyberware"
+          data-item-id="{{_id}}"
+          data-item-name="{{this.name}}"
+        >
+          <a
+            class="item--label"
+            data-selector="item-edit"
+            data-uuid="{{_id}}"
+            title="edit"
+          >
+            {{this.name}}
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  {{/cp2020-sectionBox}}
+{{/if}}

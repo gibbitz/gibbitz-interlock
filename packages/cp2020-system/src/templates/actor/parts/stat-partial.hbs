@@ -2,6 +2,7 @@
 <article class="fieldset edgerunner-sheet__stats">
   <div class="legend">Stats</div>
   {{#each this}}
+  {{#unless (eq @key 'constants')}}
     {{systemLog ' STAT | ' @key}}
     {{#cp2020-fieldBox class=(concat 'edgerunner__stat--level-' scaleValue)}}
       <details class="edgerunner__stat--inner">
@@ -61,5 +62,6 @@
         {{/if}}
       </div>
     {{/cp2020-fieldBox}}
+    {{/unless}}
   {{/each}}
 </article>

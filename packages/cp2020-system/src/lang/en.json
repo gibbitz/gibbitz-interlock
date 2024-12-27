@@ -1,5 +1,5 @@
 {
-  "cp2020": {
+  "cp2020-system": {
     "stats": {
       "label": "Stat",
       "labelPlural": "Stats",
@@ -451,7 +451,8 @@
       "label": "Lifepath",
       "labelPlural": "Lifepath",
       "year": "year",
-      "event": "event"
+      "event": "event",
+      "none": "Inexperienced N00b."
     },
     "family": {
       "ethnicity": "ethnicity",
@@ -470,6 +471,7 @@
         "older": "older",
         "twin": "twin"
       },
+      "none": "Only child.",
       "gender": "gender",
       "handle": "handle",
       "name": "full name",

@@ -1,5 +1,14 @@
-<li class="item" data-item-id="{{_id}}" data-item-name="{{this.name}}">
-  <a class="item-roll item-name">
-    {{this.name}}
-  </a>
-</li>
+{{systemLog ' CYBERDECKS PARTIAL | ' this}}
+{{#if this.length}}
+  {{#cp2020-sectionBox title='Cyberdecks' class='item-list__wrapper'}}
+    <ul class="item-list item-list--cyberdecks">
+      {{#each this}}
+        <li class="item item--cyberdecks" data-item-id="{{_id}}" data-item-name="{{this.name}}">
+          <a class="item-roll item-name">
+            {{this.name}}
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  {{/cp2020-sectionBox}}
+{{/if}}

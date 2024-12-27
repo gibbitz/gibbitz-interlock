@@ -2,7 +2,7 @@
 <form class="{{cssClass}}" autocomplete="off">
   {{cp2020-outfitHeader
     name=item.name
-    label="cp2020.items.outfit.label"
+    label=(concat @root.constants.SYSTEM_NAME '.items.outfit.label')
   }}
 
   {{!-- Sheet Tab Navigation --}}

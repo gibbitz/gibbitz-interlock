@@ -2,7 +2,7 @@
 <form class="{{cssClass}}" autocomplete="off">
   {{cp2020-outfitHeader
     name=item.name
-    label="cp2020.items.program.label"
+    label=(concat @root.constants.SYSTEM_NAME '.items.program.label')
   }}
 
   {{!-- Sheet Tab Navigation --}}
@@ -24,7 +24,7 @@
       <aside>
         <div>
           {{cp2020-input
-            label="cp2020.items.program.strength.long"
+            label=(concat @root.constants.SYSTEM_NAME '.items.program.strength.long')
             name="system.strength"
             type='number'
             value=item.system.strength
@@ -32,7 +32,7 @@
         </div>
         <div>
           {{cp2020-input
-            label="cp2020.items.program.memory.long"
+            label=(concat @root.constants.SYSTEM_NAME '.items.program.memory.long')
             name="system.memory"
             type='number'
             value=item.system.memory

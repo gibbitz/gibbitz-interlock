@@ -2,7 +2,7 @@
 <form autocomplete="off" class="{{SYSTEM_NAME}}-armor-sheet {{cssClass}}">
   {{cp2020-outfitHeader
     name=item.name
-    label="cp2020.items.armor.label"
+    label=(concat @root.constants.SYSTEM_NAME '.items.armor.label')
   }}
 
   <nav class="sheet-tabs tabs" data-selector="primary-tabs" data-group="primary">
@@ -26,10 +26,10 @@
       </div>
       <div class="col location-list__col">
         {{cp2020-select
-        label="cp2020.items.cyberware.location.long"
+        label=(concat @root.constants.SYSTEM_NAME '.items.cyberware.location.long')
         name="system.locations"
         value=item.system.locations
-        options=LOCATION_SELECT_OPTIONS
+        options=@root.constants.LOCATION_SELECT_OPTIONS
         multiple=true
         }}
       </div>
@@ -38,13 +38,13 @@
   <article class="fieldset tab" data-group="primary" data-tab="specs">
     <div class="col">
       {{cp2020-input
-      label="cp2020.items.armor.sp.long"
+      label=(concat @root.constants.SYSTEM_NAME '.items.armor.sp.long')
       name="system.sp"
       type='number'
       value=item.system.sp
       }}
       {{cp2020-input
-      label="cp2020.items.armor.ev.long"
+      label=(concat @root.constants.SYSTEM_NAME '.items.armor.ev.long')
       name="system.ev"
       type='number'
       value=item.system.ev

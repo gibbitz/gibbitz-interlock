@@ -2,7 +2,7 @@
   <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
   <div>
     {{cp2020-input
-    label="cp2020.items.name"
+    label=(concat @root.constants.SYSTEM_NAME '.items.name')
     name="name"
     type='text'
     value=item.name

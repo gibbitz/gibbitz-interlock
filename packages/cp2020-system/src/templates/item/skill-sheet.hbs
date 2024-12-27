@@ -2,7 +2,7 @@
 <form class="{{cssClass}}" autocomplete="off">
   {{cp2020-outfitHeader
     name=item.name
-    label="cp2020.items.skill.label"
+    label=(concat @root.constants.SYSTEM_NAME '.items.skill.label')
   }}
 
   {{!-- Sheet Tab Navigation --}}
@@ -18,7 +18,7 @@
     <article class="tab" data-group="primary" data-tab="description">
       <div>
         {{cp2020-input
-        label="cp2020.items.name"
+        label=(concat @root.constants.SYSTEM_NAME '.items.name')
         name="name"
         type='text'
         value=item.name
@@ -36,29 +36,30 @@
     {{!-- Details Tab --}}
     <article class="tab details" data-group="primary" data-tab="details">
       <aside>
+        {{systemLog ' SKILL STAT | ' @root.constants.SYSTEM_NAME  }}
         <div>
           {{cp2020-select
-          label="cp2020.items.skill.stat"
+          label=(concat @root.constants.SYSTEM_NAME '.items.skill.stat')
           name="system.stat"
           value=item.system.stat
-          options=STAT_SELECT_OPTIONS
+          options=@root.constants.STAT_SELECT_OPTIONS
           }}
         </div>
 
         {{cp2020-input
-        label="cp2020.items.skill.ipMultiplier"
+        label=(concat @root.constants.SYSTEM_NAME '.items.skill.ipMultiplier')
         name="system.ipMultiplier"
         type='number'
         value=item.system.ipMultiplier
         }}
         {{cp2020-input
-        label="cp2020.items.skill.flavor"
+        label=(concat @root.constants.SYSTEM_NAME '.items.skill.flavor')
         name="flavor"
         type='text'
         value=item.flavor
         }}
         {{cp2020-textarea
-        label="cp2020.items.skill.notes"
+        label=(concat @root.constants.SYSTEM_NAME '.items.skill.notes')
         name="item.system.notes"
         value=item.system.notes
         }}

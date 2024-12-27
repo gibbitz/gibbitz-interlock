@@ -13,7 +13,7 @@
   <article class="health__damage-interface">
     <div class="damage-interface__status-block">
       <header class="damage-interface__status-header">
-        {{localize 'cp2020.health.woundStatuses.light'}}
+        {{localize (concat @root.constants.SYSTEM_NAME '.health.woundStatuses.light')}}
       </header>
       <ul class="damage-interface__status-slots">
         {{> statusSlot number=0 damage=this.damage}}
@@ -24,7 +24,7 @@
     </div>
     <div class="damage-interface__status-block">
       <header class="damage-interface__status-header">
-        {{localize 'cp2020.health.woundStatuses.serious'}}
+        {{localize (concat @root.constants.SYSTEM_NAME '.health.woundStatuses.serious')}}
       </header>
       <ul class="damage-interface__status-slots">
         {{> statusSlot number=4 damage=this.damage}}
@@ -35,7 +35,7 @@
     </div>
     <div class="damage-interface__status-block">
       <header class="damage-interface__status-header">
-        {{localize 'cp2020.health.woundStatuses.critical'}}
+        {{localize (concat @root.constants.SYSTEM_NAME '.health.woundStatuses.critical')}}
       </header>
       <ul class="damage-interface__status-slots">
         {{> statusSlot number=8 damage=this.damage}}
@@ -46,7 +46,7 @@
     </div>
     <div class="damage-interface__status-block">
       <header class="damage-interface__status-header">
-        {{localize 'cp2020.health.woundStatuses.mortal_0'}}
+        {{localize (concat @root.constants.SYSTEM_NAME '.health.woundStatuses.mortal_0')}}
       </header>
       <ul class="damage-interface__status-slots">
         {{> statusSlot number=12 damage=this.damage}}
@@ -57,7 +57,7 @@
     </div>
     <div class="damage-interface__status-block">
       <header class="damage-interface__status-header">
-        {{localize 'cp2020.health.woundStatuses.mortal_1'}}
+        {{localize (concat @root.constants.SYSTEM_NAME '.health.woundStatuses.mortal_1')}}
       </header>
       <ul class="damage-interface__status-slots">
         {{> statusSlot number=16 damage=this.damage}}
@@ -68,7 +68,7 @@
     </div>
     <div class="damage-interface__status-block">
       <header class="damage-interface__status-header">
-        {{localize 'cp2020.health.woundStatuses.mortal_2'}}
+        {{localize (concat @root.constants.SYSTEM_NAME '.health.woundStatuses.mortal_2')}}
       </header>
       <ul class="damage-interface__status-slots">
         {{> statusSlot number=20 damage=this.damage}}
@@ -79,7 +79,7 @@
     </div>
     <div class="damage-interface__status-block">
       <header class="damage-interface__status-header">
-        {{localize 'cp2020.health.woundStatuses.mortal_3'}}
+        {{localize (concat @root.constants.SYSTEM_NAME '.health.woundStatuses.mortal_3')}}
       </header>
       <ul class="damage-interface__status-slots">
         {{> statusSlot number=24 damage=this.damage}}
@@ -90,7 +90,7 @@
     </div>
     <div class="damage-interface__status-block">
       <header class="damage-interface__status-header">
-        {{localize 'cp2020.health.woundStatuses.mortal_4'}}
+        {{localize (concat @root.constants.SYSTEM_NAME '.health.woundStatuses.mortal_4')}}
       </header>
       <ul class="damage-interface__status-slots">
         {{> statusSlot number=28 damage=this.damage}}

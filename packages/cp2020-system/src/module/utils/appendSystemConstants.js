@@ -29,21 +29,24 @@ import { translateObjectKeys } from './i18n/translateObjectKeys'
  * @param {Localization} i18n the i18n class that provides the localize function
  * @returns {Object}
  */
-export const appendSystemConstants = (context, i18n) => ({
-  ...context,
-  SYSTEM_NAME,
-  MARTIAL_ARTS_MOVES_SELECT_OPTIONS: translateObjectKeys(i18n, MARTIAL_ARTS_MOVES_OPTIONS),
-  AUTO_FIRE_SELECT_OPTIONS: translateObjectKeys(i18n, AUTO_FIRE_OPTIONS),
-  ITEM_AVAILABILITIES_SELECT_OPTIONS: buildAvailabilitiesSelectOptions(i18n),
-  WEAPON_CONCEALABILITY_SELECT_OPTIONS: buildConcealabilitySelectOptions(i18n),
-  WEAPON_TYPE_SELECT_OPTIONS: buildWeaponTypeSelectOptions(i18n),
-  CYBERWEAR_MODIFIER_TYPE_SELECT_OPTIONS: buildCyberwearModifierOptions(i18n),
-  LOCATION_SELECT_OPTIONS: buildLocationOptions(i18n),
-  STAT_SELECT_OPTIONS: buildStatSelectOptions(i18n),
-  RELATIVE_AGE_SELECT_OPTIONS: buildRelativeAgeSelectOptions(i18n),
-  ITEM_TYPES_SELECT_OPTIONS: buildItemTypeSelectOptions(i18n),
-  SKILL_DV_SELECT_OPTIONS: translateObjectKeys(i18n, SKILL_DV),
-  SKILL_MODIFIER_SELECT_OPTIONS: translateObjectKeys(i18n, SKILL_MODIFIERS),
-  TO_HIT_DV_SELECT_OPTIONS: translateObjectKeys(i18n, TO_HIT_DV),
-  TO_HIT_MODIFIERS_SELECT_OPTIONS: translateObjectKeys(i18n, TO_HIT_MODIFIERS)
-})
+export const appendSystemConstants = (context, i18n) => {
+  // mutation of instance to work-around prototype limitation config of HBS
+  context.constants =  {
+    SYSTEM_NAME,
+    MARTIAL_ARTS_MOVES_SELECT_OPTIONS: translateObjectKeys(i18n, MARTIAL_ARTS_MOVES_OPTIONS),
+    AUTO_FIRE_SELECT_OPTIONS: translateObjectKeys(i18n, AUTO_FIRE_OPTIONS),
+    ITEM_AVAILABILITIES_SELECT_OPTIONS: buildAvailabilitiesSelectOptions(i18n),
+    WEAPON_CONCEALABILITY_SELECT_OPTIONS: buildConcealabilitySelectOptions(i18n),
+    WEAPON_TYPE_SELECT_OPTIONS: buildWeaponTypeSelectOptions(i18n),
+    CYBERWEAR_MODIFIER_TYPE_SELECT_OPTIONS: buildCyberwearModifierOptions(i18n),
+    LOCATION_SELECT_OPTIONS: buildLocationOptions(i18n),
+    STAT_SELECT_OPTIONS: buildStatSelectOptions(i18n),
+    RELATIVE_AGE_SELECT_OPTIONS: buildRelativeAgeSelectOptions(i18n),
+    ITEM_TYPES_SELECT_OPTIONS: buildItemTypeSelectOptions(i18n),
+    SKILL_DV_SELECT_OPTIONS: translateObjectKeys(i18n, SKILL_DV),
+    SKILL_MODIFIER_SELECT_OPTIONS: translateObjectKeys(i18n, SKILL_MODIFIERS),
+    TO_HIT_DV_SELECT_OPTIONS: translateObjectKeys(i18n, TO_HIT_DV),
+    TO_HIT_MODIFIERS_SELECT_OPTIONS: translateObjectKeys(i18n, TO_HIT_MODIFIERS)
+  }
+  return context
+}

@@ -45,10 +45,10 @@ import{
 import { ITEM_DOCUMENT_TYPES } from './constants/item-types';
 
 console.log('LOADED')
-registerHandlebarsHelpers()
 
 Hooks.on('init', function () {
   systemLog(`> Initializing ${SYSTEM_PROJECT_NAME}`)
+  registerHandlebarsHelpers(game.i18n)
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
   game.gibbitzinterlockcp2020 = {

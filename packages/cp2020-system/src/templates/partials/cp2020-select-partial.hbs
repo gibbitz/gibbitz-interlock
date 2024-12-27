@@ -10,7 +10,12 @@
         data-render="{{render}}"
         {{#if multiple}}multiple{{/if}}
       >
+        {{!-- catch undefined options errors from selectOptions helper --}}
+        {{#if options}}
           {{selectOptions options inverted=inverted selected=value}}
+        {{else}}
+          <option>NO OPTIONS PROVIDED</option>
+        {{/if}}
       </select>
       <small>{{localize label}}</small>
     </label>

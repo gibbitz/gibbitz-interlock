@@ -1,27 +1,30 @@
 {{systemLog 'BIO | HISTORY | ' this}}
-<article class="fieldset edgerunner-sheet__lifepath">
-  {{!-- <div class="legend">Lifepath</div> --}}
-  <ul class="lifepath__list">
-  {{#each this}}
-    {{systemLog ' LIFEPATH YEAR | ' this}}
-    <li>
-      {{cp2020-input
-        name=(concat 'system.bio.lifepath.' @index '.year')
-        value=year
-        type='text'
-        label='cp2020.lifepath.year'
-      }}
-      {{cp2020-editor
-        content=event
-        target=(concat 'system.bio.lifepath.' @index '.event')
-        editable='true'
-        label="cp2020.lifepath.event"
-      }}
-    </li>
-  {{/each}}
-  </ul>
+{{#cp2020-sectionBox title='Lifepath' class='lifepath__wrapper'}}
+  {{#if this.length}}
+    <ul class="lifepath__list">
+      {{#each this}}
+        {{systemLog ' LIFEPATH YEAR | ' this}}
+        <li class="lifepath__event">
+          {{cp2020-input
+            name=(concat 'system.bio.lifepath.' @index '.year')
+            value=year
+            type='text'
+            label=(concat constants.SYSTEM_NAME '.lifepath.year')
+          }}
+          {{cp2020-editor
+            content=event
+            target=(concat 'system.bio.lifepath.' @index '.event')
+            editable='true'
+            label=(concat constants.SYSTEM_NAME '.lifepath.event')
+          }}
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <div class="lifepath__empty">{{localize (concat constants.SYSTEM_NAME '.lifepath.none')}}</div>
+  {{/if}}
   {{cp2020-button
     label='add'
     action='add-lifepath-row'
   }}
-</article>
+{{/cp2020-sectionBox}}

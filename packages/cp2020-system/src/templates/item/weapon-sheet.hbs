@@ -2,7 +2,7 @@
 <form class="{{cssClass}}" autocomplete="off">
   {{cp2020-outfitHeader
   name=item.name
-  label="cp2020.items.weapon.label"
+  label=(concat @root.constants.SYSTEM_NAME '.items.weapon.label')
   }}
 
   {{!-- Sheet Tab Navigation --}}
@@ -26,25 +26,25 @@
       <aside>
         <div>
           {{cp2020-select
-            label="cp2020.items.weapon.type.long"
+            label=(concat @root.constants.SYSTEM_NAME '.items.weapon.type.long')
             name="system.type"
             value=item.system.type
-            options=WEAPON_TYPE_SELECT_OPTIONS
+            options=@root.constants.WEAPON_TYPE_SELECT_OPTIONS
           }}
           {{cp2020-input
-            label="cp2020.items.weapon.damage.long"
+            label=(concat @root.constants.SYSTEM_NAME '.items.weapon.damage.long')
             name="system.damage"
             type="text"
             value=item.system.damage
           }}
           {{cp2020-select
-            label="cp2020.items.weapon.conceal.long"
+            label=(concat @root.constants.SYSTEM_NAME '.items.weapon.conceal.long')
             name="system.concealability"
             value=item.system.concealability
-            options=WEAPON_CONCEALABILITY_SELECT_OPTIONS
+            options=@root.constants.WEAPON_CONCEALABILITY_SELECT_OPTIONS
           }}
           {{cp2020-input
-            label="cp2020.items.weapon.accuracy.long"
+            label=(concat @root.constants.SYSTEM_NAME '.items.weapon.accuracy.long')
             name="system.accuracy"
             type='number'
             value=item.system.accuracy
@@ -55,25 +55,25 @@
         {{!-- TODO: Show/hide based on type --}}
         <div>
           {{cp2020-input
-            label="cp2020.items.weapon.range"
+            label=(concat @root.constants.SYSTEM_NAME '.items.weapon.range')
             name="system.range"
             type='number'
             value=item.system.range
           }}
           {{cp2020-input
-            label="cp2020.items.weapon.magazine.long"
+            label=(concat @root.constants.SYSTEM_NAME '.items.weapon.magazine.long')
             name="system.magazine"
             type='number'
             value=item.system.magazine
           }}
           {{cp2020-input
-            label="cp2020.items.weapon.cartridge.long"
+            label=(concat @root.constants.SYSTEM_NAME '.items.weapon.cartridge.long')
             name="system.cartridge"
             type='text'
             value=item.system.cartridge
           }}
           {{!--cp2020-input
-            label="cp2020.items.weapon.rateOfFire.long"
+            label=(concat @root.constants.SYSTEM_NAME '.items.weapon.rateOfFire.long')
             name="system.rateOfFire"
             type='text'
             value=item.system.rateOfFire
@@ -82,16 +82,16 @@
             name='system.rateOfFire'
             type='number'
             uuid=item._id
-            label="cp2020.items.weapon.rateOfFire.long"
-            childLabel="cp2020.items.weapon.rateOfFire.perTurn"
-            addLabel="cp2020.items.weapon.rateOfFire.newRow"
-            deleteLabel="cp2020.items.weapon.rateOfFire.deleteRow"
+            label=(concat @root.constants.SYSTEM_NAME '.items.weapon.rateOfFire.long')
+            childLabel=(concat @root.constants.SYSTEM_NAME '.items.weapon.rateOfFire.perTurn')
+            addLabel=(concat @root.constants.SYSTEM_NAME '.items.weapon.rateOfFire.newRow')
+            deleteLabel=(concat @root.constants.SYSTEM_NAME '.items.weapon.rateOfFire.deleteRow')
             values=item.system.rateOfFire
           }}
         </div>
         <div>
           {{cp2020-input
-            label="cp2020.items.weapon.blastRadius.long"
+            label=(concat @root.constants.SYSTEM_NAME '.items.weapon.blastRadius.long')
             name="system.blastRadius"
             type='number'
             value=item.system.blastRadius

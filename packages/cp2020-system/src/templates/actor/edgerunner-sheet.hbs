@@ -1,9 +1,8 @@
-{{systemLog ' ACTOR | ' actor}}
-{{systemLog ' ACTOR-SHEET | ' this}}
+{{systemLog ' ACTOR SHEET | ' this}}
 
 <form class="edgerunner-sheet crt">
   <main class="edgerunner-sheet__layout">
-    {{identity actor}}
+    {{identity this}}
     {{portrait actor}}
     {{stat actor.system.stats}}
     <section class="edgerunner-sheet__flexible-row fieldset">
@@ -16,18 +15,32 @@
         <a class="item" data-tab="cyberware">Cyberware</a>
         <a class="item" data-tab="netrunning">Netrunning</a>
       </nav>
-      <article class="tab" data-tab="background">
-      </article>
-      <article class="tab" data-tab="combat">
-      </article>
-      <article class="tab" data-tab="tasks">
-      </article>
-      <article class="tab" data-tab="inventory">
-      </article>
-      <article class="tab" data-tab="cyberware">
-      </article>
-      <article class="tab" data-tab="netrunning">
-      </article>
+      <section data-selector="background-tab-body">
+        <article class="tab" data-tab="background">
+            {{family actor.system.bio.family}}
+            {{siblings actor.system.bio.siblings}}
+            {{lifepath actor.system.bio.lifepath}}
+        </article>
+        <article class="tab" data-tab="combat">
+          {{health actor.system.health}}
+          {{armor actor.itemTypes.Armor}}
+          {{weapon actor.itemTypes.Weapon}}
+        </article>
+        <article class="tab" data-tab="tasks">
+          {{skill actor.itemTypes.Skill}}
+        </article>
+        <article class="tab" data-tab="inventory">
+          {{outfit actor.itemTypes.Outfit}}
+          {{weapon actor.itemTypes.Weapon}}
+        </article>
+        <article class="tab" data-tab="cyberware">
+          {{cyberware actor.itemTypes.Cyberware}}
+        </article>
+        <article class="tab" data-tab="netrunning">
+          {{cyberdeck actor.itemTypes.Cyberdeck}}
+          {{program actor.itemTypes.Program}}
+        </article>
+      </section>
     </section>
   </main>
 </form>

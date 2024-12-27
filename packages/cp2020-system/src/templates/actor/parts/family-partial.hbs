@@ -1,30 +1,27 @@
 {{systemLog ' BIO | FAMILY | ' this}}
-<article class="fieldset edgerunner-sheet__family">
-  <div class="legend">Family</div>
-  {{#with system}}
-    {{cp2020-input
-      name='system.bio.family.parents'
-      value=bio.family.parents
-      type='text'
-      label='cp2020.family.parents'
-    }}
-    {{cp2020-input
-      name='system.bio.family.ranking'
-      value=bio.family.ranking
-      type='text'
-      label='cp2020.family.ranking'
-    }}
-    {{cp2020-input
-      name='system.bio.family.status'
-      value=bio.family.status
-      type='text'
-      label='cp2020.family.status'
-    }}
-    {{cp2020-input
-      name='system.bio.family.childhood'
-      value=bio.family.childhood
-      type='text'
-      label='cp2020.family.childhood'
-    }}
-  {{/with}}
-</article>
+{{#cp2020-sectionBox title='Family' class='edgerunner-sheet__family'}}
+  {{cp2020-input
+    name='system.bio.family.parents'
+    value=parents
+    type='text'
+    label=(concat @root.constants.SYSTEM_NAME '.family.parents')
+  }}
+  {{cp2020-input
+    name='system.bio.family.ranking'
+    value=ranking
+    type='text'
+    label=(concat @root.constants.SYSTEM_NAME '.family.ranking')
+  }}
+  {{cp2020-input
+    name='system.bio.family.status'
+    value=status
+    type='text'
+    label=(concat @root.constants.SYSTEM_NAME '.family.status')
+  }}
+  {{cp2020-input
+    name='system.bio.family.childhood'
+    value=childhood
+    type='text'
+    label=(concat @root.constants.SYSTEM_NAME '.family.childhood')
+  }}
+{{/cp2020-sectionBox}}
