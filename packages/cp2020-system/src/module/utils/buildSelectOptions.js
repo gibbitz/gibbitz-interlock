@@ -19,20 +19,30 @@ import {
   WEAPON_TYPES,
   WEAPON_TYPE_I18N_BASE,
   WOUND_TYPES,
-  WOUND_TYPES_I18N_BASE
+  WOUND_TYPES_I18N_BASE,
+  SYSTEM_NAME
 } from '@constants'
+
+const insertDefaultOption = (i18n, options) => ({
+  [i18n.localize(`${SYSTEM_NAME}.selects.default`)] : undefined,
+  ...options
+})
 
 /**
  * builds key value pairs of the localized sibling relative age (younger|older|twin)
+ * inserts an undefined option as initial value
  * for use as select <option/>s
  * @param {Localization} i18n the i18n class that provides the localize function
  * @returns {Object} key -> value pairs like `{ Younger: 1 }`
  */
 export const buildRelativeAgeSelectOptions = (i18n) =>
-  translateObjectKeysFromValues(
+  insertDefaultOption(
     i18n,
-    RELATIVE_AGE_VALUES,
-    (_val, index) => `${RELATIVE_AGE_I18N_BASE}.${RELATIVE_AGE_KEYS[index]}`
+    translateObjectKeysFromValues(
+      i18n,
+      RELATIVE_AGE_VALUES,
+      (_val, index) => `${RELATIVE_AGE_I18N_BASE}.${RELATIVE_AGE_KEYS[index]}`
+    )
   )
 
 /**
@@ -42,10 +52,13 @@ export const buildRelativeAgeSelectOptions = (i18n) =>
  * @returns {Object} key -> value pairs like `{ C: 'Common' }`
  */
 export const buildAvailabilitiesSelectOptions = (i18n) =>
-  translateObjectValuesFromKeys(
+  insertDefaultOption(
     i18n,
-    ITEM_AVAILABILITIES,
-    (val) => `${ITEM_AVAILABILITY_I18N_BASE}.${val}.long`
+    translateObjectValuesFromKeys(
+      i18n,
+      ITEM_AVAILABILITIES,
+      (val) => `${ITEM_AVAILABILITY_I18N_BASE}.${val}.long`
+    )
   )
 
 /**
@@ -55,10 +68,13 @@ export const buildAvailabilitiesSelectOptions = (i18n) =>
  * @returns {Object} key -> value pairs like `{ longCoat: 'Long Coat' }`
  */
 export const buildConcealabilitySelectOptions = (i18n) =>
-  translateObjectKeysFromValues(
+  insertDefaultOption(
     i18n,
-    WEAPON_CONCEALABILITIES,
-    (val) => `${WEAPON_CONCEALABILITY_I18N_BASE}.${val}.long`
+    translateObjectKeysFromValues(
+      i18n,
+      WEAPON_CONCEALABILITIES,
+      (val) => `${WEAPON_CONCEALABILITY_I18N_BASE}.${val}.long`
+    )
   )
 
 /**
@@ -68,10 +84,13 @@ export const buildConcealabilitySelectOptions = (i18n) =>
  * @returns {Object} key -> value pairs of localized name and internal name
  */
 export const buildCyberwearModifierOptions = (i18n) =>
-  translateObjectKeysFromValues(
+  insertDefaultOption(
     i18n,
-    MODIFIER_TYPES,
-    (val) => `${CYBERWEAR_MODIFIER_TYPE_I18N_BASE}.${val}`
+    translateObjectKeysFromValues(
+      i18n,
+      MODIFIER_TYPES,
+      (val) => `${CYBERWEAR_MODIFIER_TYPE_I18N_BASE}.${val}`
+    )
   )
 
 /**
@@ -81,17 +100,23 @@ export const buildCyberwearModifierOptions = (i18n) =>
  * @returns {Object} key -> value pairs of name and abbreviation
  */
 export const buildLocationOptions = (i18n) =>
-  translateObjectValuesFromKeys(
+  insertDefaultOption(
     i18n,
-    HIT_LOCATIONS,
-    (val) => `${HIT_LOCATION_I18N_BASE}.${val}`
+    translateObjectValuesFromKeys(
+      i18n,
+      HIT_LOCATIONS,
+      (val) => `${HIT_LOCATION_I18N_BASE}.${val}`
+    )
   )
 
 export const buildWoundTypeOptions = (i18n) =>
-  translateObjectValuesFromKeys(
+  insertDefaultOption(
     i18n,
-    WOUND_TYPES,
-    (val) => `${WOUND_TYPES_I18N_BASE}.${val}`
+    translateObjectValuesFromKeys(
+      i18n,
+      WOUND_TYPES,
+      (val) => `${WOUND_TYPES_I18N_BASE}.${val}`
+    )
   )
 
 /**
@@ -101,10 +126,13 @@ export const buildWoundTypeOptions = (i18n) =>
  * @returns {Object} key -> value pairs of name and abbreviation
  */
 export const buildStatSelectOptions = (i18n) =>
-  translateObjectValuesFromKeys(
+  insertDefaultOption(
     i18n,
-    CORE_STATS,
-    (val) => `${STATS_I18N_BASE}.${val}.long`
+    translateObjectValuesFromKeys(
+      i18n,
+      CORE_STATS,
+      (val) => `${STATS_I18N_BASE}.${val}.long`
+    )
   )
 
 /**
@@ -114,10 +142,13 @@ export const buildStatSelectOptions = (i18n) =>
  * @returns {Object} key -> value pairs like `{ heavyWeapons: 'Heavy Weapons' }`
  */
 export const buildWeaponTypeSelectOptions = (i18n) =>
-  translateObjectKeysFromValues(
+  insertDefaultOption(
     i18n,
-    WEAPON_TYPES,
-    (val) => `${WEAPON_TYPE_I18N_BASE}.${val}.long`
+    translateObjectKeysFromValues(
+      i18n,
+      WEAPON_TYPES,
+      (val) => `${WEAPON_TYPE_I18N_BASE}.${val}.long`
+    )
   )
 /**
  * builds key value pairs of the localized Item Document Types (Outfit, Weapon, Cyberware, etc.)
@@ -126,8 +157,11 @@ export const buildWeaponTypeSelectOptions = (i18n) =>
  * @returns {Object} key -> value pairs like `{ heavyWeapons: 'Heavy Weapons' }`
  */
 export const buildItemTypeSelectOptions = (i18n) =>
-  translateObjectKeysFromValues(
+  insertDefaultOption(
     i18n,
-    Object.values(ITEM_DOCUMENT_TYPES),
-    (val) => `${ITEM_I18N_BASE}.${(val?.toLowerCase())}.label`
+    translateObjectKeysFromValues(
+      i18n,
+      Object.values(ITEM_DOCUMENT_TYPES),
+      (val) => `${ITEM_I18N_BASE}.${(val?.toLowerCase())}.label`
+    )
   )

@@ -577,6 +577,7 @@
       "communication": "Error recieved from ${1}: ${2}"
     },
     "selects": {
+      "default": "Select One",
       "martialArts": {
         "label": "Martial Arts Move",
         "strike": "Strike",

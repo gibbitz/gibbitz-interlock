@@ -36,6 +36,7 @@ export const createFormDialog = async ({
   template,
   title,
   label = 'submit',
+  modal = true,
   onSubmit = (data) => data,
   render = () => {}
 }) => {
@@ -52,6 +53,7 @@ export const createFormDialog = async ({
       title,
     },
     content,
+    modal,
     buttons: [
       {
         action: 'one',
