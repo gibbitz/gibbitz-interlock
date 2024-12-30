@@ -3,7 +3,7 @@
 #{vars.$system-name} {
   .edgerunner-sheet__stats {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   .edgerunner__stat {
     &--level-0 ,

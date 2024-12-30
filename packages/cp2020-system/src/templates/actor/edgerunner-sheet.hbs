@@ -4,7 +4,7 @@
   <main class="edgerunner-sheet__layout">
     {{identity this}}
     {{portrait actor}}
-    {{stat actor.system.stats}}
+    {{stat coreStats}}
     <section class="edgerunner-sheet__flexible-row fieldset">
       <nav class="sheet-tabs tabs legend" data-selector="background-tabs" data-group="background">
         {{!-- Default tab is specified in actor-sheet.js --}}
@@ -17,23 +17,28 @@
       </nav>
       <section data-selector="background-tab-body">
         <article class="tab" data-tab="background">
+            {{stat backgroundStats}}
             {{family actor.system.bio.family}}
             {{siblings actor.system.bio.siblings}}
             {{lifepath actor.system.bio.lifepath}}
         </article>
         <article class="tab" data-tab="combat">
+          {{stat combatStats}}
           {{health actor.system.health}}
           {{armor actor.itemTypes.Armor}}
           {{weapon actor.itemTypes.Weapon}}
         </article>
         <article class="tab" data-tab="tasks">
+          {{stat taskStats}}
           {{skill actor.itemTypes.Skill}}
         </article>
         <article class="tab" data-tab="inventory">
+          {{stat inventoryStats}}
           {{outfit actor.itemTypes.Outfit}}
           {{weapon actor.itemTypes.Weapon}}
         </article>
         <article class="tab" data-tab="cyberware">
+          {{stat cyberwareStats}}
           {{cyberware actor.itemTypes.Cyberware}}
         </article>
         <article class="tab" data-tab="netrunning">

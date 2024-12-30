@@ -1,4 +1,5 @@
 import {
+  SYSTEM_NAME,
   BTM_VALUES,
   CORE_STATS,
   DERIVED_STATS,
@@ -84,110 +85,110 @@ export class Edgerunner extends foundry.abstract.TypeDataModel {
       stats: new SchemaField({
         int: new SchemaField(
           statFields(
-            game.i18n.localize('cp2020.stats.INT.long'),
-            game.i18n.localize('cp2020.stats.INT.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.INT.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.INT.short`)
           )
         ),
         ref: new SchemaField(
           statFields(
-            game.i18n.localize('cp2020.stats.REF.long'),
-            game.i18n.localize('cp2020.stats.REF.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.REF.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.REF.short`)
           )
         ),
         tech: new SchemaField(
           statFields(
-            game.i18n.localize('cp2020.stats.TECH.long'),
-            game.i18n.localize('cp2020.stats.TECH.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.TECH.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.TECH.short`)
           )
         ),
         cl: new SchemaField(
           statFields(
-            game.i18n.localize('cp2020.stats.CL.long'),
-            game.i18n.localize('cp2020.stats.CL.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.CL.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.CL.short`)
           )
         ),
         attr: new SchemaField(
           statFields(
-            game.i18n.localize('cp2020.stats.ATTR.long'),
-            game.i18n.localize('cp2020.stats.ATTR.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.ATTR.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.ATTR.short`)
           )
         ),
         luck: new SchemaField(
           statFields(
-            game.i18n.localize('cp2020.stats.LUCK.long'),
-            game.i18n.localize('cp2020.stats.LUCK.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.LUCK.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.LUCK.short`)
           )
         ),
         ma: new SchemaField(
           statFields(
-            game.i18n.localize('cp2020.stats.MA.long'),
-            game.i18n.localize('cp2020.stats.MA.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.MA.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.MA.short`)
           )
         ),
         body: new SchemaField(
           statFields(
-            game.i18n.localize('cp2020.stats.BODY.long'),
-            game.i18n.localize('cp2020.stats.BODY.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.BODY.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.BODY.short`)
           )
         ),
         emp: new SchemaField(
           statFields(
-            game.i18n.localize('cp2020.stats.EMP.long'),
-            game.i18n.localize('cp2020.stats.EMP.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.EMP.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.EMP.short`)
           )
         ),
         rep: new SchemaField(
           simpleRollableStatFields(
-            game.i18n.localize('cp2020.stats.REP.long'),
-            game.i18n.localize('cp2020.stats.REP.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.REP.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.REP.short`)
           )
         ),
         hum: new SchemaField(
           simpleStatFields(
-            game.i18n.localize('cp2020.stats.HUM.long'),
-            game.i18n.localize('cp2020.stats.HUM.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.HUM.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.HUM.short`)
           )
         ),
         run: new SchemaField(
           simpleStatFields(
-            game.i18n.localize('cp2020.stats.RUN.long'),
-            game.i18n.localize('cp2020.stats.RUN.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.RUN.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.RUN.short`)
           )
         ),
         leap: new SchemaField(
           simpleStatFields(
-            game.i18n.localize('cp2020.stats.LEAP.long'),
-            game.i18n.localize('cp2020.stats.LEAP.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.LEAP.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.LEAP.short`)
           )
         ),
         ca: new SchemaField(
           simpleStatFields(
-            game.i18n.localize('cp2020.stats.CA.long'),
-            game.i18n.localize('cp2020.stats.CA.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.CA.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.CA.short`)
           )
         ),
         lift: new SchemaField(
           simpleStatFields(
-            game.i18n.localize('cp2020.stats.LIFT.long'),
-            game.i18n.localize('cp2020.stats.LIFT.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.LIFT.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.LIFT.short`)
           )
         ),
         thro: new SchemaField(
           simpleStatFields(
-            game.i18n.localize('cp2020.stats.THRO.long'),
-            game.i18n.localize('cp2020.stats.THRO.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.THRO.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.THRO.short`)
           )
         ),
         btm: new SchemaField(
           simpleStatFields(
-            game.i18n.localize('cp2020.stats.BTM.long'),
-            game.i18n.localize('cp2020.stats.BTM.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.BTM.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.BTM.short`)
           )
         ),
         dam: new SchemaField(
           simpleStatFields(
-            game.i18n.localize('cp2020.stats.DAM.long'),
-            game.i18n.localize('cp2020.stats.DAM.short')
+            game.i18n.localize(`${SYSTEM_NAME}.stats.DAM.long`),
+            game.i18n.localize(`${SYSTEM_NAME}.stats.DAM.short`)
           )
         ),
       }),

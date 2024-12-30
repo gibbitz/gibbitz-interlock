@@ -21,7 +21,7 @@
               value="{{natural}}"
             >
             <small>
-              {{localize 'cp2020.stats.base'}}
+              {{localize (concat @root.constants.SYSTEM_NAME '.stats.base')}}
             </small>
           </label>
           <label class="stat__component">
@@ -31,7 +31,7 @@
               value="{{modifier}}"
             >
             <small>
-              {{localize 'cp2020.stats.mod'}}
+              {{localize (concat @root.constants.SYSTEM_NAME '.stats.mod')}}
             </small>
           </label>
         </div>{{/if}}
@@ -46,7 +46,7 @@
       <div class="stat__buttons-row">
         {{#if rollFormula}}
         <button
-          data-flavor="[{{localize 'cp2020.stats.flavor.check'}}] {{name}}"
+          data-flavor="[{{localize (concat @root.constants.SYSTEM_NAME '.stats.flavor.check')}}] {{name}}"
           data-roll-formula="{{rollFormula}}"
           data-selector="stat-roll"
           class="stat__roll die--d-10">
@@ -54,7 +54,7 @@
         {{/if}}
         {{#if saveFormula}}
         <button
-          data-flavor="[{{localize 'cp2020.stats.flavor.save'}}] {{name}}"
+          data-flavor="[{{localize (concat @root.constants.SYSTEM_NAME '.stats.flavor.save')}}] {{name}}"
           data-roll-formula="{{saveFormula}}"
           data-selector="stat-roll"
           class="stat__roll die--d-10 die--d-10--save">

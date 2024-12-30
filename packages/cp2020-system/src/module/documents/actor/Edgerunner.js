@@ -56,4 +56,12 @@ export class Edgerunner extends Actor {
     })
   }
 
+  async wound(damage) {
+
+  }
+
+  async heal(damage) {
+
+  }
+
 }

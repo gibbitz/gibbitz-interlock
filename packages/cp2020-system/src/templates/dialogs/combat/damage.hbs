@@ -1,0 +1,20 @@
+{{systemLog ' DAMAGE DIALOG: |' this }}
+<form data-selector="damageValues">
+  {{cp2020-select
+    label=(concat @root.constants.SYSTEM_NAME '.items.cyberware.location.long')
+    name='hitLocation'
+    options=@root.constants.LOCATION_SELECT_OPTIONS
+  }}
+
+  {{cp2020-select
+    label=(concat @root.constants.SYSTEM_NAME '.health.woundTypes.label')
+    name='woundType'
+    options=@root.constants.WOUND_TYPE_SELECT_OPTIONS
+  }}
+
+  {{cp2020-input
+    label=(concat @root.constants.SYSTEM_NAME '.health.damage.label')
+    name='damage'
+    type='number'
+  }}
+</form>

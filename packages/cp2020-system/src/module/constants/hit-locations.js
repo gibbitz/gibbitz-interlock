@@ -40,7 +40,8 @@ export const WEIGHTED_HIT_LOCATIONS = {
 }
 
 export const HIT_LOCATIONS = Object.keys(WEIGHTED_HIT_LOCATIONS)
-export const WOUND_TYPES = ['bruise', 'penetrating']
+export const WOUND_TYPES_I18N_BASE = `${SYSTEM_NAME}.health.woundTypes`
+export const WOUND_TYPES = ['none', 'bruise', 'penetrating']
 export const WOUND_STATUSES = [
   'light',
   'serious',

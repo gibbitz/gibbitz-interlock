@@ -15,7 +15,8 @@ import {
   buildRelativeAgeSelectOptions,
   buildStatSelectOptions,
   buildWeaponTypeSelectOptions,
-  buildItemTypeSelectOptions
+  buildItemTypeSelectOptions,
+  buildWoundTypeOptions
 } from '@utils/buildSelectOptions'
 import { translateObjectKeys } from './i18n/translateObjectKeys'
 
@@ -40,6 +41,7 @@ export const appendSystemConstants = (context, i18n) => {
     WEAPON_TYPE_SELECT_OPTIONS: buildWeaponTypeSelectOptions(i18n),
     CYBERWEAR_MODIFIER_TYPE_SELECT_OPTIONS: buildCyberwearModifierOptions(i18n),
     LOCATION_SELECT_OPTIONS: buildLocationOptions(i18n),
+    WOUND_TYPE_SELECT_OPTIONS: buildWoundTypeOptions(i18n),
     STAT_SELECT_OPTIONS: buildStatSelectOptions(i18n),
     RELATIVE_AGE_SELECT_OPTIONS: buildRelativeAgeSelectOptions(i18n),
     ITEM_TYPES_SELECT_OPTIONS: buildItemTypeSelectOptions(i18n),

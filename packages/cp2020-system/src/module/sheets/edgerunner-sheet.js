@@ -25,6 +25,7 @@ import {
 } from './listeners/item/registerArrayManipulationClicks';
 import { registerRollFormulaClick } from './listeners/registerRollFormulaClick';
 import { registerRollClick } from './listeners/registerRollClick';
+import { registerHealthClick } from '@actorListeners';
 
 
 /**
@@ -72,7 +73,63 @@ export class EdgerunnerSheet extends ActorSheet {
 
     // Add the actor's data to context.data for easier access, as well as flags.
     const { data: { system, flags } = {} } = context;
-
+    // separate stats to display in different places in the UI
+    const { stats: {
+      int,
+      ref,
+      tech,
+      cl,
+      attr,
+      luck,
+      ma,
+      body,
+      emp,
+      rep,
+      hum,
+      run,
+      leap,
+      ca,
+      lift,
+      thro,
+      btm,
+      dam
+    }} = system
+    const coreStats = {
+      int,
+      ref,
+      tech,
+      cl,
+      attr,
+      luck,
+      ma,
+      body,
+      emp
+    }
+    const backgroundStats = {
+      rep
+    }
+    const combatStats = {
+      btm,
+      dam,
+      run,
+      leap,
+      thro
+    }
+    const taskStats = {
+      run,
+      leap,
+      ca,
+      lift,
+      thro
+    }
+    const inventoryStats = {
+      ca,
+      lift,
+    }
+    const cyberwareStats = {
+      emp,
+      hum,
+    }
     // Add roll data for TinyMCE editors.
     const rollData = context.actor.getRollData();
 
@@ -93,7 +150,13 @@ export class EdgerunnerSheet extends ActorSheet {
       system,
       flags,
       rollData,
-      effects
+      effects,
+      coreStats,
+      backgroundStats,
+      combatStats,
+      taskStats,
+      inventoryStats,
+      cyberwareStats
     }, game.i18n)
     systemLog(' EDGERUNNER SHEET: getData ', sheetData)
     return sheetData
@@ -150,6 +213,11 @@ export class EdgerunnerSheet extends ActorSheet {
     html.find('[data-roll]')
       .click(
         registerRollClick(this)
+      )
+
+    html.find('[data-health]')
+      .click(
+        registerHealthClick(this)
       )
 
     // TODO: deal with this....

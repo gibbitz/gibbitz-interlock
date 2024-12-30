@@ -17,7 +17,9 @@ import {
   WEAPON_CONCEALABILITIES,
   WEAPON_CONCEALABILITY_I18N_BASE,
   WEAPON_TYPES,
-  WEAPON_TYPE_I18N_BASE
+  WEAPON_TYPE_I18N_BASE,
+  WOUND_TYPES,
+  WOUND_TYPES_I18N_BASE
 } from '@constants'
 
 /**
@@ -83,6 +85,13 @@ export const buildLocationOptions = (i18n) =>
     i18n,
     HIT_LOCATIONS,
     (val) => `${HIT_LOCATION_I18N_BASE}.${val}`
+  )
+
+export const buildWoundTypeOptions = (i18n) =>
+  translateObjectValuesFromKeys(
+    i18n,
+    WOUND_TYPES,
+    (val) => `${WOUND_TYPES_I18N_BASE}.${val}`
   )
 
 /**

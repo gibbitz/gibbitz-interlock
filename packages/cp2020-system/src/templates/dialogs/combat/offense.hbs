@@ -6,14 +6,14 @@
   <legend>{{localize 'cp2020.dialogs.offense.attackDetails.legend'}}</legend>
 {{#if isMelee}}
   {{cp2020-select
-    label="cp2020.selects.martialArts.label"
+    label=concat(@root.constants.SYSTEM_NAME '.selects.martialArts.label')
     name="maAttackModifier"
     inverted=true
-    options=MARTIAL_ARTS_MOVES_SELECT_OPTIONS
+    options=@root.constants.MARTIAL_ARTS_MOVES_SELECT_OPTIONS
   }}
 {{else}}
   {{cp2020-range
-    label="cp2020.dialogs.offense.attackDetails.rateOfFire"
+    label=concat(@root.constants.SYSTEM_NAME '.dialogs.offense.attackDetails.rateOfFire')
     name="roundsFired"
     inverted=true
     max=maxRateOfFire
@@ -23,14 +23,14 @@
     value=minRateOfFire
   }}
   {{cp2020-select
-    label="cp2020.dialogs.checks.selects.autoFire.label"
+    label=concat(@root.constants.SYSTEM_NAME '.dialogs.checks.selects.autoFire.label')
     name="autoFireType"
     selector="autoFireType"
     inverted=true
-    options=AUTO_FIRE_SELECT_OPTIONS
+    options=@root.constants.AUTO_FIRE_SELECT_OPTIONS
   }}
   {{cp2020-range
-    label="cp2020.dialogs.checks.selects.autoFire.label"
+    label=concat(@root.constants.SYSTEM_NAME '.dialogs.checks.selects.autoFire.label')
     name="fireZone"
     selector="fireZone"
     class="system-cp2020-system--hidden"
@@ -45,7 +45,7 @@
   {{!-- display for <3 rounds of fire --}}
   {{#if multipleTargets}}
     {{cp2020-select
-      label="cp2020.dialogs.checks.selects.target.label"
+      label=concat(@root.constants.SYSTEM_NAME '.dialogs.checks.selects.target.label')
       name="targetActorId"
       inverted=true
       options=targetOptions

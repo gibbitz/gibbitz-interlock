@@ -12,8 +12,9 @@ $col-width: minmax(15rem, 1fr);
     .edgerunner-sheet {
       &__layout {
         display: grid;
-        grid-template-columns: repeat(6, minmax(15rem, 1fr));
-        grid-template-rows: 25rem 1fr;
+        // grid-template-columns: repeat(4, minmax(15rem, 1fr));
+        grid-template-columns: minmax(15rem, 1fr) auto minmax(15rem, 1fr);
+        grid-template-rows: 24.7rem auto;
         grid-gap: 0.4rem;
       }
       &__identity {
@@ -25,7 +26,7 @@ $col-width: minmax(15rem, 1fr);
         grid-row: 1;
       }
       &__stats {
-        grid-column: 4 / span 3;
+        grid-column: 4;
         grid-row: 1;
       }
       &__flexible-row {
@@ -66,9 +67,18 @@ $col-width: minmax(15rem, 1fr);
   }
 
   @container edgerunner (max-width: 770px) {
-    .edgerunner-sheet__layout {
-      display: grid;
-      grid-template-columns: 1fr;
+    .edgerunner-sheet{
+      &__layout {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      &__identity,
+      &__portrait,
+      &__stats,
+      &__flexible-row {
+        grid-column: 1;
+        grid-row: auto;
+      }
     }
   }
 

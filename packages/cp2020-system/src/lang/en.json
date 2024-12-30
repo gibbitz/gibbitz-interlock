@@ -409,6 +409,9 @@
       }
     },
     "health": {
+      "damage": {
+        "label": "Damage"
+      },
       "woundStatuses": {
         "light": "Light",
         "serious": "Serious",
@@ -418,6 +421,12 @@
         "mortal_2": "Mortal 2",
         "mortal_3": "Mortal 3",
         "mortal_4": "Mortal 4"
+      },
+      "woundTypes": {
+        "label": "Wound Type",
+        "none": "Unharmed",
+        "bruise": "Blunt Force",
+        "penetrating": "Penetrating"
       }
     },
     "identity": {
@@ -537,6 +546,10 @@
         "modifier": "Select a modifier",
         "otherModifier": "Discretionary modifier",
         "outputLabel": "Current DV"
+      },
+      "damage": {
+        "title": "${1}'s Health",
+        "action": "Capture Damage"
       },
       "checks": {
         "selects": {
