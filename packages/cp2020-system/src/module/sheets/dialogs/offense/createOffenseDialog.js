@@ -1,4 +1,5 @@
 import { OFFENSE_DIALOG_PATH } from '@constants/handlebars'
+import { SYSTEM_NAME } from '@constants'
 import {
   createFormDialog,
   systemLog,
@@ -6,27 +7,29 @@ import {
   determineWeaponRanges
 } from '@utils'
 
-export const createOffenseDialog = async (context) => {
+// return a promise here to simulate the wait function on v1 Dialog
+export const createOffenseDialog = async (context) => new Promise((resolve) => {
+  const targetName = Object.keys(context.targetOptions)[0]
 
   const title = replaceStringTokens(
-    game.i18n.localize('cp2020.dialogs.offense.title'),
+    game.i18n.localize(`${SYSTEM_NAME}.dialogs.offense.title`),
     context.actor.name,
-    Object.keys(context.targetOptions)[0],
+    targetName,
     context.name
   )
 
   const label = replaceStringTokens(
-    game.i18n.localize('cp2020.dialogs.offense.action'),
+    game.i18n.localize(`${SYSTEM_NAME}.dialogs.offense.action`),
     Object.keys(context.targetOptions)[0]
   )
 
-  const render = (_dialog, DOM) => {
-    systemLog('offense render |', context, DOM)
-    const firezoneSelector = DOM.querySelector('[data-selector="fireZone"]')
-    DOM.querySelector('[data-selector="autoFireType"]')
+  const render = (dialog) => {
+    systemLog('offense render |', context, dialog)
+    const firezoneSelector = dialog.querySelector('[data-selector="fireZone"]')
+    dialog.querySelector('[data-selector="autoFireType"]')
       .addEventListener('change', (event) => {
         Array.from(
-          DOM.querySelectorAll('.field-box')
+          dialog.querySelectorAll('.field-box')
         )
           .filter(node => node.contains(firezoneSelector))[0]
           .classList.toggle('cp2020-hidden')
@@ -52,16 +55,18 @@ export const createOffenseDialog = async (context) => {
       : getDVDataByRange(targetRange, rangeDVs)
     const output = { isOpposedRoll, dvData, targetRange, ...data }
     systemLog('OFFENSE SUBMITS | ', output)
+    resolve(output)
     return output
   }
 
-  return createFormDialog({
-    context,
+  createFormDialog({
+    context: { targetName, ...context },
     template: OFFENSE_DIALOG_PATH,
     title,
     label,
     onSubmit,
     render,
+    closeOnSubmit: true,
     resizeable: true
   })
-}
+})

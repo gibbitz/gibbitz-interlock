@@ -3,6 +3,7 @@ import { SYSTEM_NAME } from './system'
 export const WEAPON_I18N_BASE = `${SYSTEM_NAME}.items.weapon`
 export const WEAPON_TYPE_I18N_BASE = `${WEAPON_I18N_BASE}.types`
 
+// corresponds with skillnames
 export const MELEE = "melee"
 export const PISTOL = "pistol"
 export const SMG = "submachineGun"

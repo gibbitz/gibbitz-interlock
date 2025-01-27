@@ -16,7 +16,8 @@ import {
   buildStatSelectOptions,
   buildWeaponTypeSelectOptions,
   buildItemTypeSelectOptions,
-  buildWoundTypeOptions
+  buildWoundTypeOptions,
+  buildHealthActionTypeOptions
 } from '@utils/buildSelectOptions'
 import { translateObjectKeys } from './i18n/translateObjectKeys'
 
@@ -48,7 +49,8 @@ export const appendSystemConstants = (context, i18n) => {
     SKILL_DV_SELECT_OPTIONS: translateObjectKeys(i18n, SKILL_DV),
     SKILL_MODIFIER_SELECT_OPTIONS: translateObjectKeys(i18n, SKILL_MODIFIERS),
     TO_HIT_DV_SELECT_OPTIONS: translateObjectKeys(i18n, TO_HIT_DV),
-    TO_HIT_MODIFIERS_SELECT_OPTIONS: translateObjectKeys(i18n, TO_HIT_MODIFIERS)
+    TO_HIT_MODIFIERS_SELECT_OPTIONS: translateObjectKeys(i18n, TO_HIT_MODIFIERS),
+    HEALTH_ACTION_SELECT_OPTIONS: buildHealthActionTypeOptions(i18n)
   }
   return context
 }

@@ -1,15 +1,32 @@
-{{#cp2020-fieldBox class=class}}
-    <label>
-      <input
-        name="{{name}}"
-        value="{{value}}"
-        type="{{type}}"
-        data-selector="{{selector}}"
-        data-uuid="{{uuid}}"
-        data-key="{{key}}"
-        data-meta="{{meta}}"
-        data-render="{{render}}"
-      />
-      <small>{{localize label}}</small>
-    </label>
-{{/cp2020-fieldBox}}
+{{#ifEquals type 'hidden'}}
+
+  <input
+    name="{{name}}"
+    value="{{value}}"
+    type="{{type}}"
+    data-selector="{{selector}}"
+    data-uuid="{{uuid}}"
+    data-key="{{key}}"
+    data-meta="{{meta}}"
+    data-render="{{render}}"
+  />
+
+{{else}}
+
+  {{#cp2020-fieldBox class=class}}
+      <label>
+        <input
+          name="{{name}}"
+          value="{{value}}"
+          type="{{type}}"
+          data-selector="{{selector}}"
+          data-uuid="{{uuid}}"
+          data-key="{{key}}"
+          data-meta="{{meta}}"
+          data-render="{{render}}"
+        />
+        <small>{{localize label}}</small>
+      </label>
+  {{/cp2020-fieldBox}}
+
+{{/ifEquals}}

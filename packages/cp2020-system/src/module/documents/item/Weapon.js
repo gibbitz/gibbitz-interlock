@@ -31,6 +31,7 @@ export class Weapon extends Cp2020BaseItem {
     const weaponSkill = skills.filter(skillItem => skillItem.name === skill)[0]
     // TODO: make dynamic -- lookup type and get related skill then lookup stat
     const skillStat = 'ref'
+    // should be in getRollData for the skill
     const skillRoll = weaponSkill?.rollFormula
     const rollFormula = skillRoll
       ? `${skillRoll} + ${accuracy}`

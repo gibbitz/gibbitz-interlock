@@ -1,4 +1,6 @@
+import { SAVE_TYPES } from '@constants';
 import { systemLog } from '@utils'
+import { determineHealthSave } from '@utils/determineHealthSave';
 
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
@@ -14,7 +16,8 @@ export class Edgerunner extends Actor {
    */
   prepareDerivedData() {
     const actorData = this;
-    const flags = actorData?.flags.gibbitzinterlockcp2020 || {};
+    // const flags = actorData?.flags.gibbitzinterlockcp2020 || {};
+    return this
   }
 
   /**
@@ -56,12 +59,24 @@ export class Edgerunner extends Actor {
     })
   }
 
-  async wound(damage) {
-
+  async wound(points, { type, location }) {
+    const freshWound = new Array(parseInt(points, 10))
+      .fill({ type, location })
+    const damage = [...(this.system.health.damage || []), ...freshWound ]
+    await this.update({
+      'system.health': {
+        damage
+      }
+    })
   }
 
-  async heal(damageCount) {
-
+  async heal(points) {
+    const damage = this.system.health.damage?.slice(points)
+    await this.update({
+      'system.health': {
+        damage
+      }
+    })
   }
 
 }

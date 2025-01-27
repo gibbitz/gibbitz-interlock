@@ -1,8 +1,11 @@
 {
 	"folders": [
-		{
-			"path": "."
-		}
+    {
+      "path": "."
+    },
+    {
+      "path": "../../../../Applications/FoundryVTT-12.327/resources/app"
+    }
   ],
   "settings": {
     "search.exclude": {

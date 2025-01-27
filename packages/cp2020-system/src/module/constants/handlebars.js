@@ -31,7 +31,6 @@ const itemPartials = [
   'weapon'
 ]
 const actorPartials = [
-  'bio',
   'family',
   'health',
   'identity',

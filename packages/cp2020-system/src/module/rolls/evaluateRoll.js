@@ -15,13 +15,13 @@ export const evaluateRoll = async (rollData) => {
   const roll = new Roll(rollFormula, actor)
   const rollInfo = await roll.evaluate()
   let IP = 0
-  systemLog(' ROLL RESULTS |', rollInfo.dice[0].results)
+  systemLog(' ROLL RESULTS |', rollInfo.dice[0]?.results)
 
-  const isFumble = rollInfo.dice[0].results[0].result === 1
+  const isFumble = rollInfo.dice[0]?.results[0].result === 1
   systemLog(' FUMBLED? | ', isFumble)
   // TODO roll on the fumble table & hold value for IP
 
-  const isCrit = rollInfo.dice[0].results
+  const isCrit = rollInfo.dice[0]?.results
     .filter(({ exploded }) => exploded).length > 0
   systemLog(' EXPLODED? |', isCrit)
   // use total to determine DV difference for IP

@@ -1,6 +1,9 @@
 import {
   replaceStringTokens,
 } from '@utils';
+import {
+  SYSTEM_NAME
+} from '@constants'
 
 // TODO: Flesh out documentation here -- need examples
 
@@ -24,11 +27,11 @@ export const registerItemDeleteClick = (edgerunnerSheet) => async (event) => {
   const { type = ITEM_DOCUMENT_TYPES.OUTFIT, name } = item
   const localizeTypeKey = type?.toLowerCase()
   const content = replaceStringTokens(
-    game.i18n.localize(`cp2020.dialogs.${localizeTypeKey}.delete.content`),
+    game.i18n.localize(`${SYSTEM_NAME}.dialogs.${localizeTypeKey}.delete.content`),
     name
   )
   const title = replaceStringTokens(
-    game.i18n.localize(`cp2020.dialogs.${localizeTypeKey}.delete.title`),
+    game.i18n.localize(`${SYSTEM_NAME}.dialogs.${localizeTypeKey}.delete.title`),
     name
   )
   const render = () => console.log('render delete modal callback called')

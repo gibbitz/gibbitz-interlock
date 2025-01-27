@@ -1,4 +1,5 @@
 import {
+  SYSTEM_NAME,
   EMIT_OPPOSED_ATTACK,
   EMIT_REQUEST_ATTACK_DV,
   EMIT_DEFENSE,
@@ -47,7 +48,7 @@ export const initSocketListeners = () => {
     EMIT_ERROR,
     async (payload) => {
       const sender = game.users.get(makeResponse(payload).sender).name
-      notify(game.i18n.localize('cp2020.errors.communication'), sender, payload.defense.error)
+      notify(game.i18n.localize(`${SYSTEM_NAME}.errors.communication`), sender, payload.defense.error)
     }
   )
 

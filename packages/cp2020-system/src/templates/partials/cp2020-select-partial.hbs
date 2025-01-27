@@ -4,10 +4,11 @@
     <label>
       <select
         name="{{name}}"
-        data-selector="{{selector}}"
-        data-uuid="{{uuid}}"
-        data-key="{{key}}"
-        data-render="{{render}}"
+        {{#if action}}data-action={{action}}{{/if}}
+        {{#if selector}}data-selector="{{selector}}"{{/if}}
+        {{#if uuid}}data-uuid="{{uuid}}"{{/if}}
+        {{#if key}}data-key="{{key}}"{{/if}}
+        {{#if render}}data-render="{{render}}"{{/if}}
         {{#if multiple}}multiple{{/if}}
       >
         {{!-- catch undefined options errors from selectOptions helper --}}

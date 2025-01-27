@@ -1,4 +1,5 @@
-const MA_MOVES_BASE_BATH = 'cp2020.selects.martialArts'
+import { SYSTEM_NAME } from './system'
+const MA_MOVES_BASE_BATH = `${SYSTEM_NAME}.selects.martialArts`
 export const STRIKE = 'strike'
 export const PUNCH = 'punch'
 export const KICK = 'kick'

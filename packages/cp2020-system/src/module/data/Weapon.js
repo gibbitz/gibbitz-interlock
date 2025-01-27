@@ -1,14 +1,15 @@
-import { Upgrade } from '@documents/item/Upgrade';
-import { weaponSchema, rangedSchema, explosiveSchema } from "./oufitSchema";
-import { Outfit } from "./Outfit";
-import { determineWeaponRanges } from '@utils';
+import { Upgrade } from '@documents/item/Upgrade'
+import { MELEE } from '@constants'
+import { weaponSchema, rangedSchema, explosiveSchema } from "./oufitSchema"
+import { Outfit } from "./Outfit"
+import { determineWeaponRanges } from '@utils'
 
-const { StringField, ObjectField } = foundry.data.fields;
+const { StringField, ObjectField } = foundry.data.fields
 
 export class Weapon extends Outfit {
 
   static defineSchema() {
-    const schema = super.defineSchema();
+    const schema = super.defineSchema()
     return {
       ...schema,
       ...weaponSchema(),
@@ -23,11 +24,18 @@ export class Weapon extends Outfit {
 
   prepareDerivedData() {
     // Build the formula dynamically using string interpolation
-    const { skill, damage, accuracy } = this;
+    const { type, damage, accuracy } = this
+    const skill = type ? type : MELEE
     // TODO: determine if weapon is melee and add damage bonus roll string if so
-    const strBonus = 0
-    this.damageRoll = `${damage}+${strBonus}`
-    this.hitRoll = `1d10+@skills.get(${skill}).total+${accuracy}`
+    const strBonus = type === MELEE
+      ? '@stats.get(dam).total'
+      : 0
+    const ownerHasSkill = this.parent.parent.collections.skills?.get(skill)
+    const rollBase = ownerHasSkill
+      ? `@skills.get(${skill}).rollFormula`
+      : '1d10 + @stats.get(ref).total'
+    this.damageRoll = `${damage} + ${strBonus}`
+    this.hitRoll = `${rollBase} + ${accuracy}`
     this.rangeDVs = determineWeaponRanges(this.range)
   }
 }

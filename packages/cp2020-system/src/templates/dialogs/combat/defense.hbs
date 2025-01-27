@@ -1,13 +1,13 @@
 {{systemLog ' DEFENSE DIALOG: |' this }}
 <form data-selector="defenseValues">
   {{cp2020-select
-    label=concat(@root.constants.SYSTEM_NAME '.dialogs.checks.selects.skill.label')
+    label=(concat @root.constants.SYSTEM_NAME '.dialogs.checks.selects.skill.label')
     name="skillRollFormula"
     inverted=true
     options=skillOptions
   }}
   {{cp2020-select
-    label=concat(@root.constants.SYSTEM_NAME '.dialogs.checks.selects.stat.label')
+    label=(concat @root.constants.SYSTEM_NAME '.dialogs.checks.selects.stat.label')
     name="statRollFormula"
     inverted=true
     options=statOptions

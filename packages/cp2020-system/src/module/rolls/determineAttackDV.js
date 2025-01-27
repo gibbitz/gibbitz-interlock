@@ -1,6 +1,6 @@
 import { createAttackDvDialog } from '@sheets/dialogs/defense/createAttackDvDialog'
 import { emitters } from '@utils/sockets'
-import { TO_HIT_DV } from '@constants'
+import { TO_HIT_DV, SYSTEM_NAME } from '@constants'
 import { systemLog, replaceStringTokens } from '@utils'
 
 const { emitError, emitDefend } = emitters
@@ -8,7 +8,7 @@ const { emitError, emitDefend } = emitters
 export const determineAttackDV = async (attackPayload) => {
   const {attack: {dvData, rollData, targetRange}} = attackPayload
   const defaultDV = replaceStringTokens(
-    game.i18n.localize('cp2020.dialogs.dv.defaultDv'),
+    game.i18n.localize(`${SYSTEM_NAME}.dialogs.dv.defaultDv`),
     dvData.dv,
     (Math.round(targetRange*100)/100),
     dvData.name
@@ -22,7 +22,7 @@ export const determineAttackDV = async (attackPayload) => {
       )]: TO_HIT_DV[key]
     }), {})
   const overrideDvOptions = {
-    [game.i18n.localize('cp2020.dialogs.dv.overridePrompt')]: '',
+    [game.i18n.localize(`${SYSTEM_NAME}.dialogs.dv.overridePrompt`)]: '',
     ...DvOptions
   }
   systemLog('DETERMINE_ATTACK_DV | ', attackPayload, overrideDvOptions)

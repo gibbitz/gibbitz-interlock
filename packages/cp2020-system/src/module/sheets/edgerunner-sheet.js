@@ -127,8 +127,7 @@ export class EdgerunnerSheet extends ActorSheet {
       lift,
     }
     const cyberwareStats = {
-      emp,
-      hum,
+      hum
     }
     // Add roll data for TinyMCE editors.
     const rollData = context.actor.getRollData();

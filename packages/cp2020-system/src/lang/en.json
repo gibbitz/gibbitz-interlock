@@ -410,7 +410,9 @@
     },
     "health": {
       "damage": {
-        "label": "Damage"
+        "label": "Points of Damage",
+        "heal": "Heal",
+        "wound": "Take Damage"
       },
       "woundStatuses": {
         "light": "Light",
@@ -427,6 +429,11 @@
         "none": "Unharmed",
         "bruise": "Blunt Force",
         "penetrating": "Penetrating"
+      },
+      "actionTypes": {
+        "label": "action",
+        "wound": "Take Damage",
+        "heal": "Heal"
       }
     },
     "identity": {
@@ -549,7 +556,18 @@
       },
       "damage": {
         "title": "${1}'s Health",
-        "action": "Capture Damage"
+        "action": "Capture Damage",
+        "errors": {
+          "required": "Fill out the fields or cancel. You're wasting my time.",
+          "heal": {
+            "damage": "How much better do you feel?"
+          },
+          "wound": {
+            "hitLocation": "Where's it hurt?",
+            "woundType": "Are you bleeding or bruised?",
+            "damage": "How much worse do you feel?"
+          }
+        }
       },
       "checks": {
         "selects": {

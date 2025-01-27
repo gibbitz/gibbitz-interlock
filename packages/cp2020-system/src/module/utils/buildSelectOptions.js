@@ -20,7 +20,9 @@ import {
   WEAPON_TYPE_I18N_BASE,
   WOUND_TYPES,
   WOUND_TYPES_I18N_BASE,
-  SYSTEM_NAME
+  SYSTEM_NAME,
+  HEALTH_ACTION_TYPES,
+  HEALTH_ACTION_TYPES_I18N_BASE
 } from '@constants'
 
 const insertDefaultOption = (i18n, options) => ({
@@ -118,6 +120,13 @@ export const buildWoundTypeOptions = (i18n) =>
       (val) => `${WOUND_TYPES_I18N_BASE}.${val}`
     )
   )
+
+export const buildHealthActionTypeOptions = (i18n) =>
+    translateObjectValuesFromKeys(
+      i18n,
+      HEALTH_ACTION_TYPES,
+      (val) => `${HEALTH_ACTION_TYPES_I18N_BASE}.${val}`
+   )
 
 /**
  * builds key value pairs of the localized Core Stat name and the internal Stat abbreviation

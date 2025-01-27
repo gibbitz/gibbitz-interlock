@@ -2,14 +2,14 @@
 <form data-selector="difficultyValue">
   <p>{{defaultDV}}</p>
   {{cp2020-select
-    label=concat(@root.constants.SYSTEM_NAME '.dialogs.dv.overrideRange')
+    label=(concat @root.constants.SYSTEM_NAME '.dialogs.dv.overrideRange')
     name="overrideRange"
     selector="overrideRange"
     inverted=true
     options=overrideDvOptions
   }}
   {{cp2020-select
-    label=concat(@root.constants.SYSTEM_NAME '.dialogs.dv.modifier')
+    label=(concat @root.constants.SYSTEM_NAME '.dialogs.dv.modifier')
     name="modifier"
     selector="modifier"
     multiple=true
@@ -17,15 +17,20 @@
     options=@root.constants.TO_HIT_MODIFIERS_SELECT_OPTIONS
   }}
   {{cp2020-input
-    label=concat(@root.constants.SYSTEM_NAME '.dialogs.dv.otherModifier')
+    label=(concat @root.constants.SYSTEM_NAME '.dialogs.dv.otherModifier')
     selector="otherModifier"
     name="otherModifier"
     type="number"
   }}
   {{cp2020-output
-    label=concat(@root.constants.SYSTEM_NAME '.dialogs.dv.outputLabel')
+    label=(concat @root.constants.SYSTEM_NAME '.dialogs.dv.outputLabel')
     selector="dvOutput"
     name="dvOutput"
     value=dvData.dv
+  }}
+  {{cp2020-button
+    label=(concat @root.constants.SYSTEM_NAME '.dialogs.dv.action')
+    selector='offense-submit'
+    type="submit"
   }}
 </form>

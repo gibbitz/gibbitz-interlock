@@ -1,4 +1,6 @@
 import { appendSystemConstants } from '@utils/appendSystemConstants'
+import { InterlockFormDialog } from '@sheets/dialogs/InterlockFormDialog'
+import { getSerializedFormDataFromEvent } from './getSerializedFormDataFromEvent'
 
 /**
  * @callback FormDialogSubmissionHandler
@@ -36,36 +38,45 @@ export const createFormDialog = async ({
   template,
   title,
   label = 'submit',
-  modal = true,
+  validate = (data) => '',
   onSubmit = (data) => data,
-  render = () => {}
+  render = (element) => {},
+  closeOnSubmit = false,
+  resizeable = false,
+  ...rest
 }) => {
-  const content = await renderTemplate(
+
+  const formHandler = (evt) => {
+    const formData = getSerializedFormDataFromEvent(evt)
+    const errorMessage = validate(formData)
+    if (errorMessage) {
+      evt.preventDefault()
+      ui.notifications.error(errorMessage)
+    }
+    onSubmit(formData, evt)
+    if (closeOnSubmit) {
+      formDialog.close()
+    }
+  }
+
+  const formDialog = new InterlockFormDialog({
     template,
-    appendSystemConstants({
-      ...context
-    }, game.i18n)
-  )
-  // return Dialog.wait({
-  return foundry.applications.api.DialogV2.wait({
-    window: {
-      resizable: true,
-      title,
+    context: appendSystemConstants(context, game.i18n),
+    tag: "form",
+    form: {
+      handler: formHandler,
+      submitOnChange: false,
+      closeOnSubmit
     },
-    content,
-    modal,
-    buttons: [
-      {
-        action: 'one',
-        label,
-        callback: (_pointerEvent, _button, dialog) => {
-          const formdata = Object.fromEntries(
-            new FormData(dialog.querySelector('form')).entries()
-          )
-          return onSubmit(formdata)
-        }
-      }
-    ],
-    render
+    window: {
+      title,
+      resizeable
+    },
+    actions: {
+      damageType: (...args) => console.log('DT', ...args)
+    }
   })
+
+  return formDialog.render(true).then(appWindow => render(appWindow.element))
+
 }

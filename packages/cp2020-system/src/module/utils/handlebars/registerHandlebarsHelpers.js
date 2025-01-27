@@ -1,8 +1,14 @@
-import { systemLog, rangeToDiscreteLevels, repeatHandlebarsHelper, healthUIHandlebarsHelper } from '@utils'
+import {
+  systemLog,
+  rangeToDiscreteLevels,
+  repeatHandlebarsHelper,
+  replaceStringTokens
+} from '@utils'
 import { fieldBox, sectionBox } from '@templates/partials/blocks'
 import { HBS_TEMPLATE_HELPER_PARAMS } from '@constants/handlebars'
 import { SYSTEM_NAME } from '@constants/system'
 import { appendSystemConstants } from '@utils'
+import { ifEquals } from './utils/ifEquals'
 
 const constants = {
   SYSTEM_NAME
@@ -31,7 +37,9 @@ const registerHelperFromPartialPath = (i18n, partialName, partialPath) =>
 export const registerHandlebarsHelpers = (i18n) => {
   // allows access to logging in the template files
   Handlebars.registerHelper('systemLog', systemLog)
+  Handlebars.registerHelper('replaceStringTokens', replaceStringTokens)
   Handlebars.registerHelper('rangeToDiscreteLevels', rangeToDiscreteLevels)
+  Handlebars.registerHelper('ifEquals', ifEquals)
   // partials that are blocks are not possible with hbs syntax as helpers
   // NOTE **NO** BLOCK HELPERS CAN USE ARROW SYNTAX -- DYNAMIC `this` IS *REQUIRED*
   // -- I  guess there are reasons why no one uses handlebars anymore

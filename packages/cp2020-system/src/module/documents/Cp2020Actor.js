@@ -26,5 +26,7 @@ export class Cp2020Actor extends Actor {
     this.getRollData = character.getRollData
     this.addLifeEvent = character.addLifeEvent
     this.addSibling = character.addSibling
+    this.wound = character.wound
+    this.heal = character.heal
   }
 }

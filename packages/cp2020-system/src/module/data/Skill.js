@@ -1,5 +1,7 @@
 import { systemLog } from '@utils'
 import { metaSchema, skillSchema } from './oufitSchema'
+import { SYSTEM_NAME } from '@constants'
+
 export class Skill extends foundry.abstract.TypeDataModel {
 // extend ItemMeta
   static defineSchema() {
@@ -19,7 +21,9 @@ export class Skill extends foundry.abstract.TypeDataModel {
     // apply if equipped
     // notify if not equipped at time of roll
     this.rollFormula = rollFormula
+    const longStatLabel = `${SYSTEM_NAME}.stats.${this.stat}.long`
+    const flavorLabel = `${SYSTEM_NAME}.items.skill.flavor`
     this.flavor = this.flavor
-      || `[${game.i18n.localize('cp2020.stats.'+this.stat+'.long')} ${game.i18n.localize('cp2020.items.skill.flavor')}] ${this.parent.name}`
+      || `[${game.i18n.localize(longStatLabel)} ${game.i18n.localize(flavorLabel)}] ${this.parent.name}`
   }
 }

@@ -1,15 +1,15 @@
 import { createDamageDialog } from '@sheets/dialogs/defense/createDamageDialog'
 
 export const registerHealthClick = (edgerunnerSheet) => async (_event) => {
-  createDamageDialog(edgerunnerSheet.actor).then((data) => {
-    debugger
+  createDamageDialog(edgerunnerSheet.actor).then((app) => {
+    console.log(app)
   }).catch((err) => {
-    debugger
+    console.error(err)
   })
   // use current target and target to determine the number of wounds to create or remove
   // determine heal or wound
   // determine wound type
   // await edgerunnerSheet.actor.wound()
   // await edgerunnerSheet.actor.heal()
-  edgerunnerSheet.render(true)
+  // edgerunnerSheet.render(true)
 }

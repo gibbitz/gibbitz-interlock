@@ -1,20 +1,41 @@
 {{systemLog ' DAMAGE DIALOG: |' this }}
 <form data-selector="damageValues">
   {{cp2020-select
-    label=(concat @root.constants.SYSTEM_NAME '.items.cyberware.location.long')
-    name='hitLocation'
-    options=@root.constants.LOCATION_SELECT_OPTIONS
+    selector='health-action-type'
+    label=(concat @root.constants.SYSTEM_NAME '.health.actionTypes.label')
+    name='healthAction'
+    action='damageType'
+    options=@root.constants.HEALTH_ACTION_SELECT_OPTIONS
   }}
 
-  {{cp2020-select
-    label=(concat @root.constants.SYSTEM_NAME '.health.woundTypes.label')
-    name='woundType'
-    options=@root.constants.WOUND_TYPE_SELECT_OPTIONS
-  }}
+  <div
+    data-selector="health-wound-fields"
+  >
+
+    {{cp2020-select
+      label=(concat @root.constants.SYSTEM_NAME '.items.cyberware.location.long')
+      name='hitLocation'
+      options=@root.constants.LOCATION_SELECT_OPTIONS
+    }}
+
+    {{cp2020-select
+      label=(concat @root.constants.SYSTEM_NAME '.health.woundTypes.label')
+      name='woundType'
+      options=@root.constants.WOUND_TYPE_SELECT_OPTIONS
+    }}
+
+  </div>
 
   {{cp2020-input
     label=(concat @root.constants.SYSTEM_NAME '.health.damage.label')
     name='damage'
     type='number'
   }}
+
+  {{cp2020-button
+    label=(concat @root.constants.SYSTEM_NAME '.health.damage.wound')
+    selector='health-submit'
+    type="submit"
+  }}
+
 </form>

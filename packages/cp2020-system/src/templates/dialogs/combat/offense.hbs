@@ -1,51 +1,56 @@
 {{systemLog ' OFFENSE DIALOG: |' this }}
-<form data-selector="defenseValues">
+<form
+  data-selector="defenseValues"
+  class="offense-dialog"
+>
 {{!-- output weapon data --}}
-{{!-- determine available attack types --}}
-<fieldset>
-  <legend>{{localize 'cp2020.dialogs.offense.attackDetails.legend'}}</legend>
-{{#if isMelee}}
-  {{cp2020-select
-    label=concat(@root.constants.SYSTEM_NAME '.selects.martialArts.label')
-    name="maAttackModifier"
-    inverted=true
-    options=@root.constants.MARTIAL_ARTS_MOVES_SELECT_OPTIONS
-  }}
-{{else}}
-  {{cp2020-range
-    label=concat(@root.constants.SYSTEM_NAME '.dialogs.offense.attackDetails.rateOfFire')
-    name="roundsFired"
-    inverted=true
-    max=maxRateOfFire
-    min=minRateOfFire
-    step="1"
-    markers=rateOfFire
-    value=minRateOfFire
-  }}
-  {{cp2020-select
-    label=concat(@root.constants.SYSTEM_NAME '.dialogs.checks.selects.autoFire.label')
-    name="autoFireType"
-    selector="autoFireType"
-    inverted=true
-    options=@root.constants.AUTO_FIRE_SELECT_OPTIONS
-  }}
-  {{cp2020-range
-    label=concat(@root.constants.SYSTEM_NAME '.dialogs.checks.selects.autoFire.label')
-    name="fireZone"
-    selector="fireZone"
-    class="system-cp2020-system--hidden"
-    max=20
-    min=3
-  }}
-{{/if}}
-</fieldset>
+{{#cp2020-sectionBox
+  title=(localize (concat @root.constants.SYSTEM_NAME '.dialogs.offense.attackDetails.legend'))
+  class='offense-dialog__fields'
+}}
+  {{!-- determine available attack types --}}
+  {{#if isMelee}}
+    {{cp2020-select
+      label=(concat @root.constants.SYSTEM_NAME '.selects.martialArts.label')
+      name="maAttackModifier"
+      inverted=true
+      options=@root.constants.MARTIAL_ARTS_MOVES_SELECT_OPTIONS
+    }}
+  {{else}}
+    {{cp2020-range
+      label=(concat @root.constants.SYSTEM_NAME '.dialogs.offense.attackDetails.rateOfFire')
+      name="roundsFired"
+      inverted=true
+      max=maxRateOfFire
+      min=minRateOfFire
+      step="1"
+      markers=rateOfFire
+      value=minRateOfFire
+    }}
+    {{cp2020-select
+      label=(concat @root.constants.SYSTEM_NAME '.dialogs.checks.selects.autoFire.label')
+      name="autoFireType"
+      selector="autoFireType"
+      inverted=true
+      options=@root.constants.AUTO_FIRE_SELECT_OPTIONS
+    }}
+    {{cp2020-range
+      label=(concat @root.constants.SYSTEM_NAME '.dialogs.checks.selects.autoFire.label')
+      name="fireZone"
+      selector="fireZone"
+      class="system-cp2020-system--hidden"
+      max=20
+      min=3
+    }}
+  {{/if}}
+{{/cp2020-sectionBox}}
 {{!-- select attack type --}}
 {{!-- display relevant selections --}}
 
   {{!-- display for <3 rounds of fire --}}
   {{#if multipleTargets}}
     {{cp2020-select
-      label=concat(@root.constants.SYSTEM_NAME '.dialogs.checks.selects.target.label')
+      label=(concat @root.constants.SYSTEM_NAME '.dialogs.checks.selects.target.label')
       name="targetActorId"
       inverted=true
       options=targetOptions
@@ -57,4 +62,10 @@
       value=targetActorId
     }}
   {{/if}}
+
+  {{cp2020-button
+    label=(replaceStringTokens (localize (concat @root.constants.SYSTEM_NAME '.dialogs.offense.action')) targetName)
+    selector='offense-submit'
+    type="submit"
+  }}
 </form>

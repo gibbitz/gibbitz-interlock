@@ -1,3 +1,4 @@
+import { rollFormulaToChat } from '@utils/roll/rollFormulaToChat'
 /**
  * handler for clicks that pulls item id from the target dataset to find a rollFormula to roll
  * @callback RollFormulaClickHandler
@@ -16,15 +17,16 @@ export const registerRollFormulaClick = (sheet) => async ({ target }) => {
     flavor = flavorFallback
   } = target.dataset
   const { actor } = sheet
-  const roll = new Roll(rollFormula, actor.getRollData());
-  roll.toMessage({
-    speaker: {
-      ...ChatMessage.getSpeaker({ actor: actor }),
-      // polyfill for Token rolling
-      alias: actor.name
-    },
-    flavor,
-    rollMode: game.settings.get('core', 'rollMode'),
-  });
-  return roll;
+  return rollFormulaToChat({ rollFormula, actor, flavor })
+  // const roll = new Roll(rollFormula, actor.getRollData());
+  // roll.toMessage({
+  //   speaker: {
+  //     ...ChatMessage.getSpeaker({ actor: actor }),
+  //     // polyfill for Token rolling
+  //     alias: actor.name
+  //   },
+  //   flavor,
+  //   rollMode: game.settings.get('core', 'rollMode'),
+  // });
+  // return roll;
 }
