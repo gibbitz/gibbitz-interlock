@@ -18,29 +18,31 @@
     }}
   {{else}}
     {{cp2020-range
-      label=(concat @root.constants.SYSTEM_NAME '.dialogs.offense.attackDetails.rateOfFire')
-      name="roundsFired"
       inverted=true
+      label=(concat @root.constants.SYSTEM_NAME '.dialogs.offense.attackDetails.rateOfFire')
+      markers=rateOfFire
       max=maxRateOfFire
       min=minRateOfFire
+      name="roundsFired"
+      selector="roundsFired"
       step="1"
-      markers=rateOfFire
       value=minRateOfFire
     }}
     {{cp2020-select
+      class="system-cp2020-system--hidden"
+      inverted=true
       label=(concat @root.constants.SYSTEM_NAME '.dialogs.checks.selects.autoFire.label')
       name="autoFireType"
-      selector="autoFireType"
-      inverted=true
       options=@root.constants.AUTO_FIRE_SELECT_OPTIONS
+      selector="autoFireType"
     }}
     {{cp2020-range
-      label=(concat @root.constants.SYSTEM_NAME '.dialogs.checks.selects.autoFire.label')
-      name="fireZone"
-      selector="fireZone"
       class="system-cp2020-system--hidden"
+      label=(concat @root.constants.SYSTEM_NAME '.dialogs.checks.selects.firezone.label')
       max=20
       min=3
+      name="fireZone"
+      selector="fireZone"
     }}
   {{/if}}
 {{/cp2020-sectionBox}}

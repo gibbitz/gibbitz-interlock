@@ -1,7 +1,6 @@
 import { DV_DIALOG_PATH } from '@constants/handlebars'
 import { SYSTEM_NAME } from '@constants'
 import { createFormDialog, replaceStringTokens, systemLog } from '@utils'
-import { evaluateRoll } from '@rolls'
 
 export const createAttackDvDialog = async (context) => new Promise((resolve) => {
   const { name, type } = context.attackPayload.attack.rollData
@@ -10,11 +9,14 @@ export const createAttackDvDialog = async (context) => new Promise((resolve) => 
     `${name} (${type})`
   )
   const label = game.i18n.localize(`${SYSTEM_NAME}.dialogs.dv.action`)
+
   const appendModifier = (value) => value ? ` + ${value}` : ''
+
   let dvRollData = {
-    actor: context.actor,
+    actor: context.attackPayload.attack.rollData.actor,
     rollFormula: ''
   }
+
   const render = (dialog) => {
     const { dvData } = context
     let baseDV = dvData.dv
@@ -25,6 +27,8 @@ export const createAttackDvDialog = async (context) => new Promise((resolve) => 
     const modifierSelect = dialog.querySelector('[data-selector="modifier"]')
     const modifierInput = dialog.querySelector('[data-selector="otherModifier"]')
 
+    dvRollData.rollFormula = `${baseDV}`
+
     rangeSelect.addEventListener('change', (event) => {
       baseDV = parseInt(event.target.value, 10) || baseDV
       outputDV.value = baseDV + (modifiers + addModifiers)
@@ -32,7 +36,7 @@ export const createAttackDvDialog = async (context) => new Promise((resolve) => 
     })
 
     // modifiers are subtracted to affect DV, not roll,
-    // this is due to selection in DV window by GM
+    // this is due to selection in DV window by Ref, not players
     modifierSelect.addEventListener('change', (event) => {
       modifiers = Array
         .from(event.target.selectedOptions)
@@ -50,9 +54,8 @@ export const createAttackDvDialog = async (context) => new Promise((resolve) => 
     systemLog('UNOPPOSED DEFENSE RENDER |', dialog)
   }
 
-  const onSubmit = async (data) => {
-    systemLog('defense rollformula |', dvRollData.rollFormula)
-    data.roll = await evaluateRoll(dvRollData)
+  const onSubmit = (data) => {
+    data.rollData = dvRollData
     systemLog('defense submission |', data)
     resolve(data)
   }
@@ -63,6 +66,7 @@ export const createAttackDvDialog = async (context) => new Promise((resolve) => 
     title,
     label,
     onSubmit,
-    render
+    render,
+    closeOnSubmit: true
   })
 })

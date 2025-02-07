@@ -12,4 +12,9 @@
     inverted=true
     options=statOptions
   }}
+  {{cp2020-button
+    label=(replaceStringTokens (localize (concat @root.constants.SYSTEM_NAME '.dialogs.defense.action')) attacker)
+    selector='defense-submit'
+    type="submit"
+  }}
 </form>

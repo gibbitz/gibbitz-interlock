@@ -1,7 +1,6 @@
 import {
   systemLog,
   rangeToDiscreteLevels,
-  repeatHandlebarsHelper,
   replaceStringTokens
 } from '@utils'
 import { fieldBox, sectionBox } from '@templates/partials/blocks'

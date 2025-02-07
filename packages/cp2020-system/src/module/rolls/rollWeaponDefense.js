@@ -1,7 +1,12 @@
 import { createDefenseDialog } from '@sheets/dialogs/defense/createDefenseDialog'
-import { emitters } from '@utils/sockets/emitters'
-import { evaluateRoll } from './evaluateRoll'
-const { emitDefend, emitError } = emitters
+import { emitDefend, emitError } from '@utils/sockets/emitters'
+import { SYSTEM_NAME } from '@constants'
+
+/**
+ * function to envoke the Attack Defense Dialog to the defender then emit a
+ * request to complete the combat turn
+ * @param {*} attackPayload
+ */
 export const rollWeaponDefense = async (attackPayload) => {
   // create rollData for defense
   const { attack: { targetActorId, rollData: { skill: skillName } } } = attackPayload
@@ -10,11 +15,11 @@ export const rollWeaponDefense = async (attackPayload) => {
     ? game.actors.get(targetActorId)
     : game.user.character
   const rollData = defender.getRollData()
-  const { actor } = rollData
-  // find associated attacker skill && || stat
+
+  // prep data for dialog context
+
+  // find associated attacker skill
   const skill = game.items.filter(({ name }) => name === skillName)[0] || {}
-  const { stat = '' } = skill?.system
-  // prep data for dialog
   const skillOptions = defender.itemTypes.Skill.reduce(
     (col, skill) => {
       const { name } = skill
@@ -22,41 +27,36 @@ export const rollWeaponDefense = async (attackPayload) => {
       return ({ ...col, [name]: rollFormula })
     }, {}
   )
+
+  // find associated attacker stat
   const statOptions = Object.keys(defender.system.stats).reduce(
     (col, stat) => (defender.system.stats[stat].rollFormula
       ? {
           ...col,
-          [game.i18n.localize(`cp2020.stats.${stat.toUpperCase()}.long`)]:
+          [game.i18n.localize(`${SYSTEM_NAME}.stats.${stat.toUpperCase()}.long`)]:
             defender.system.stats[stat].rollFormula
         }
       : col
     ),
     {}
   )
-  // manually collect missing or supplemental data
-  createDefenseDialog({
-    statOptions, skillOptions, attackPayload
-  }).then(async (defense) => {
-    // now generate formula & evaluate
-    const baseRollFormula = defense.skill
-    // find skill and getRollData for this
-      ? defense.skillRollFormula
-    // find stat and get roll
-      : defense.statRollFormula
-    const rollFormula = `${baseRollFormula} + ${defense.modifier || 0}`
-    const { isFumble, IP, rollInfo } = await evaluateRoll({ rollFormula, rollData })
-    // pass back to attacker for comparison
+  try{
+    // collect defense data
+    const defense = await createDefenseDialog({
+      rollData,
+      statOptions,
+      skillOptions,
+      attackPayload
+    })
+
+    // finalize the turn
     emitDefend({
       ...attackPayload,
-      defense : {
-        ...defense,
-        isFumble,
-        rollInfo,
-        rollData
-      }
+      defense
     })
-  }).catch((error) => {
+  }
+  catch(error) {
     // pass back to attacker to re-present the attack
     emitError({ defense: { error: error.message }, ...attackPayload })
-  })
+  }
 }

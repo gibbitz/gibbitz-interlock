@@ -1,5 +1,5 @@
-import { OFFENSE_DIALOG_PATH } from '@constants/handlebars'
-import { SYSTEM_NAME } from '@constants'
+import { ATTACK_DIALOG_PATH } from '@constants/handlebars'
+import { SYSTEM_NAME, STYLE_HIDDEN } from '@constants'
 import {
   createFormDialog,
   systemLog,
@@ -8,7 +8,7 @@ import {
 } from '@utils'
 
 // return a promise here to simulate the wait function on v1 Dialog
-export const createOffenseDialog = async (context) => new Promise((resolve) => {
+export const createAttackDialog = async (context) => new Promise((resolve) => {
   const targetName = Object.keys(context.targetOptions)[0]
 
   const title = replaceStringTokens(
@@ -25,14 +25,30 @@ export const createOffenseDialog = async (context) => new Promise((resolve) => {
 
   const render = (dialog) => {
     systemLog('offense render |', context, dialog)
+
+    const getParentFieldBox = (childNode) =>
+      Array.from(
+        dialog.querySelectorAll('.field-box')
+      ).filter(node => node.contains(childNode))[0]
+
+
+    const roundsFiredSelector = dialog.querySelector('[data-selector="roundsFired"]')
+    const autoFireSelector = dialog.querySelector('[data-selector="autoFireType"]')
     const firezoneSelector = dialog.querySelector('[data-selector="fireZone"]')
-    dialog.querySelector('[data-selector="autoFireType"]')
+    roundsFiredSelector
       .addEventListener('change', (event) => {
-        Array.from(
-          dialog.querySelectorAll('.field-box')
-        )
-          .filter(node => node.contains(firezoneSelector))[0]
-          .classList.toggle('cp2020-hidden')
+        if (event.target.value > 2) {
+          getParentFieldBox(autoFireSelector)
+            .classList.remove(STYLE_HIDDEN)
+        } else {
+          getParentFieldBox(autoFireSelector)
+            .classList.add(STYLE_HIDDEN)
+        }
+      })
+    autoFireSelector
+      .addEventListener('change', (_event) => {
+        getParentFieldBox(firezoneSelector)
+          .classList.toggle(STYLE_HIDDEN)
       })
   }
 
@@ -61,7 +77,7 @@ export const createOffenseDialog = async (context) => new Promise((resolve) => {
 
   createFormDialog({
     context: { targetName, ...context },
-    template: OFFENSE_DIALOG_PATH,
+    template: ATTACK_DIALOG_PATH,
     title,
     label,
     onSubmit,

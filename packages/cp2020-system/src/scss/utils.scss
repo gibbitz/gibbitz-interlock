@@ -1,7 +1,7 @@
 @use 'partials/variables' as vars;
 
 #{vars.$system-name} {
-  &--hidden {
+  #{vars.$system-name}--hidden {
     display: none;
   }
 }

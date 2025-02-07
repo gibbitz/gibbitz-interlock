@@ -541,7 +541,7 @@
         "title": "Incoming attack from ${1}",
         "dodge": "Dodge ${1}",
         "block": "Block ${1}",
-        "defend": "Defend yourself from ${1}"
+        "action": "Evade ${1}"
       },
       "dv": {
         "title": "Determine DV for ${1} attack",
@@ -584,9 +584,12 @@
             "label": "Select the fallback Stat"
           },
           "autoFire": {
-            "label": "Zone of fire",
+            "label": "Autofire type",
             "direct": "Direct Fire",
             "spray": "Suppressive Fire"
+          },
+          "firezone": {
+            "label": "Zone of fire"
           }
         }
       }

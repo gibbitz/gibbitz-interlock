@@ -47,7 +47,7 @@ import { accessByPathString } from '@utils'
  * @returns {ArrayManipulationHandlers}
  */
 export const registerArrayManipulationClicks = (sheet, html) => {
-  const getItem = (uuid) => sheet.actor.items.get(uuid)
+  const getItem = (uuid) => sheet.actor?.items?.get(uuid) || sheet.item
   const add = async (event) => {
     const { uuid, meta: name } = event.target.dataset
     const targetArray = accessByPathString(getItem(uuid), name)

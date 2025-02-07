@@ -32,11 +32,11 @@ import {
  * @param {Array<Actor>} targets iterable target collection or array from user.targets
  * @returns {TargetInfoByActor}
  */
-const collectTargetInfo = (targets) => {
+const collectTargetInfo = (targets, attacker) => {
   return targets.reduce(
     (col, { id: tokenId, document: { actorId, name }, x, y }) => {
       const range = measureWorldDistanceBetweenTokens(
-        game.combat.combatant.token,
+        (attacker || game.combat.combatant.token),
         { x, y }
       )
       const userId = getUserIdFromTokenId(tokenId)
@@ -78,7 +78,7 @@ const generateTargetOptions = (targets) =>
  *
  * @returns {TargetData}
  */
-export const determineTargetData = () => {
+export const determineTargetData = (attacker) => {
   const { targets } = game.user
   if (!targets?.size) {
     notify('Pick a target, Punk.')
@@ -87,7 +87,7 @@ export const determineTargetData = () => {
   const targetOptions = generateTargetOptions(targets)
   const multipleTargets = targets.size > 1
   return {
-    targetInfo: collectTargetInfo(targets),
+    targetInfo: collectTargetInfo(targets, attacker),
     targetActorId: !multipleTargets
       ? targetOptions[Object.keys(targetOptions)[0]]
       : undefined,

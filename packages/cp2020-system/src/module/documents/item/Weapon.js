@@ -25,8 +25,8 @@ export class Weapon extends Cp2020BaseItem {
       return context
     }
     const { skill, accuracy, rateOfFire, actor: { Skill: skills, stats } } = context
-    const maxRateOfFire = Math.max(...Object.values(rateOfFire))
-    const minRateOfFire = Math.min(...Object.values(rateOfFire))
+    const maxRateOfFire = Math.max(...Object.values(rateOfFire)) || 1
+    const minRateOfFire = Math.min(...Object.values(rateOfFire)) || 1
     // determine hit roll
     const weaponSkill = skills.filter(skillItem => skillItem.name === skill)[0]
     // TODO: make dynamic -- lookup type and get related skill then lookup stat
