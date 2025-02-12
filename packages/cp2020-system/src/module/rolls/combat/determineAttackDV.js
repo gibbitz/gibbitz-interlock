@@ -1,4 +1,4 @@
-import { createAttackDvDialog } from '@sheets/dialogs/defense/createAttackDvDialog'
+import { createDvDialog } from '@sheets/dialogs/combat'
 import { emitError, emitDefend } from '@utils/sockets'
 import { TO_HIT_DV, SYSTEM_NAME } from '@constants'
 import { systemLog, replaceStringTokens } from '@utils'
@@ -33,7 +33,7 @@ export const determineAttackDV = async (attackPayload) => {
 
   systemLog('DETERMINE_ATTACK_DV | ', attackPayload, overrideDvOptions)
 
-  createAttackDvDialog({
+  createDvDialog({
     attackPayload,
     overrideDvOptions,
     defaultDV,

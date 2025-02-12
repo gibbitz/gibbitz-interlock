@@ -1,4 +1,4 @@
-import { createDamageDialog } from '@sheets/dialogs/defense/createDamageDialog'
+import { createDamageDialog } from '@sheets/dialogs/actor'
 
 export const registerHealthClick = (edgerunnerSheet) => async (_event) => {
   createDamageDialog(edgerunnerSheet.actor).then((app) => {

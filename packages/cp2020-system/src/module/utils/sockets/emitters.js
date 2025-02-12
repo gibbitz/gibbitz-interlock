@@ -4,18 +4,31 @@ import {
   EMIT_REQUEST_ATTACK_DV,
   EMIT_DEFENSE,
   EMIT_ERROR,
-  EMIT_CHECK
+  EMIT_CHECK,
+  EMIT_REQUEST_TASK_DV,
+  EMIT_OPPOSED_TASK
 } from '@constants'
 
 import { enrollSocket } from './enrollSocket'
 import { systemLog, notify } from '@utils'
-import { determineOpposedRollResult, rollWeaponDefense, determineAttackDV } from '@rolls'
+import {
+  determineTurnResult,
+  rollWeaponDefense,
+  determineAttackDV
+} from '@rolls/combat'
+import {
+  determineTaskDV,
+  rollTaskOpposition,
+  determineCheckResult
+} from '@rolls/task'
 
 let _emitOpposedAttack
 let _emitDefend
 let _emitError
 let _emitSkillChallenge
 let _emitRequestAttackDv
+let _emitRequestTaskDv
+let _emitResolveCheck
 
 export const makeResponse = (payload) => ({
   ...payload,
@@ -40,7 +53,7 @@ export const initSocketListeners = () => {
   _emitDefend = enrollSocket(
     EMIT_DEFENSE,
     async (payload) => {
-      determineOpposedRollResult(makeResponse(payload))
+      determineTurnResult(makeResponse(payload))
     }
   )
 
@@ -53,10 +66,18 @@ export const initSocketListeners = () => {
   )
 
   _emitSkillChallenge = enrollSocket(
+    EMIT_OPPOSED_TASK,
+    rollTaskOpposition
+  )
+
+  _emitRequestTaskDv = enrollSocket(
+    EMIT_REQUEST_TASK_DV,
+    determineTaskDV
+  )
+
+  _emitResolveCheck = enrollSocket(
     EMIT_CHECK,
-    async (payload) => {
-      systemLog('OPPOSED SKILL |', payload)
-    }
+    determineCheckResult
   )
 }
 
@@ -65,3 +86,5 @@ export const emitDefend = (...args) => _emitDefend(...args)
 export const emitError = (...args) => _emitError(...args)
 export const emitOpposedAttack = (...args) => _emitOpposedAttack(...args)
 export const emitRequestAttackDv = (...args) => _emitRequestAttackDv(...args)
+export const emitRequestTaskDv = (...args) => _emitRequestTaskDv(...args)
+export const emitResolveCheck = (...args) => _emitResolveCheck(...args)

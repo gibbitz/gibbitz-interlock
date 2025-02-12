@@ -1,4 +1,4 @@
-import { createDefenseDialog } from '@sheets/dialogs/defense/createDefenseDialog'
+import { createDefenseDialog } from '@sheets/dialogs/combat'
 import { emitDefend, emitError } from '@utils/sockets/emitters'
 import { SYSTEM_NAME } from '@constants'
 

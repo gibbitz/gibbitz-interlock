@@ -1,0 +1,21 @@
+<form data-selector="checkValues">
+
+  {{cp2020-select
+    inverted=true
+    label=(replaceStringTokens (localize (concat @root.constants.SYSTEM_NAME '.dialogs.task.target')) name)
+    name="targetActorId"
+    options=targets
+    selector="targetActorId"
+  }}
+  {{cp2020-input
+    label=(concat @root.constants.SYSTEM_NAME '.dialogs.task.modifier')
+    selector="modifier"
+    name="modifier"
+    type="number"
+  }}
+  {{cp2020-button
+    label=action
+    selector='check-submit'
+    type="submit"
+  }}
+</form>

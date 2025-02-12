@@ -1,0 +1,35 @@
+{{systemLog ' TASK DIFFICULTY VALUE DIALOG: |' this }}
+<form data-selector="difficultyValue">
+  {{cp2020-select
+    label=(concat @root.constants.SYSTEM_NAME '.dialogs.task.dv.baseDv')
+    name="baseDv"
+    selector="baseDv"
+    inverted=true
+    options=@root.constants.SKILL_DV_SELECT_OPTIONS
+  }}
+  {{cp2020-select
+    label=(concat @root.constants.SYSTEM_NAME '.dialogs.task.dv.modifier')
+    name="modifiers"
+    selector="modifiers"
+    multiple=true
+    inverted=true
+    options=@root.constants.SKILL_MODIFIER_SELECT_OPTIONS
+  }}
+  {{cp2020-input
+    label=(concat @root.constants.SYSTEM_NAME '.dialogs.task.dv.otherModifier')
+    selector="otherModifier"
+    name="otherModifier"
+    type="number"
+  }}{{cp2020-output
+    label=(concat @root.constants.SYSTEM_NAME '.dialogs.task.dv.outputLabel')
+    selector="dvOutput"
+    name="dvOutput"
+    value=dvData.dv
+  }}
+  {{cp2020-button
+    label=(concat @root.constants.SYSTEM_NAME '.dialogs.task.dv.action')
+    selector='offense-submit'
+    type="submit"
+  }}
+</form>
+

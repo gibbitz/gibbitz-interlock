@@ -1,4 +1,4 @@
 export * from './rollWeaponAttack'
-export * from './determineOpposedRollResult'
+export * from './determineTurnResult'
 export * from './rollWeaponDefense'
 export * from './determineAttackDV'

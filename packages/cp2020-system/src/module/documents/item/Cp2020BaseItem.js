@@ -40,6 +40,16 @@ export class Cp2020BaseItem extends Item {
    * @public
    */
   async roll() {
-    return makeRollByItemType(this)
+    const { rollFormula } = this.getRollData()
+
+    // If there's no roll formula, throw an error.
+    if (!rollFormula) {
+      ui.notifications.error(
+        `There is no formula to roll ${this.name}!`
+      )
+      return
+    }
+
+    return await makeRollByItemType(this)
   }
 }

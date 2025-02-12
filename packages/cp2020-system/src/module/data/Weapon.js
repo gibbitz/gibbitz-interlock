@@ -30,7 +30,7 @@ export class Weapon extends Outfit {
     const strBonus = type === MELEE
       ? '@stats.get(dam).total'
       : 0
-    const ownerHasSkill = this.parent.parent.collections.skills?.get(skill)
+    const ownerHasSkill = this.parent?.parent?.collections.skills?.get(skill)
     const rollBase = ownerHasSkill
       ? `@skills.get(${skill}).rollFormula`
       : '1d10 + @stats.get(ref).total'

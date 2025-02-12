@@ -12,7 +12,7 @@ import { evaluateRoll } from '@utils/roll/evaluateRoll'
  * makes and chat logs the results
  * @param {*} param0
  */
-export const determineOpposedRollResult = async ({attack, dv, defense, ...meta}) => {
+export const determineTurnResult = async ({attack, dv, defense, ...meta}) => {
   systemLog('ROLL META | ', meta)
 
   // roll attack

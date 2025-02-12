@@ -1,0 +1,29 @@
+{{ systemLog 'CONTEST DIALOG | ' this }}
+<form data-selector="defenseValues">
+  {{cp2020-select
+    inverted=true
+    label=(concat @root.constants.SYSTEM_NAME '.dialogs.task.contest.skillRollFormula')
+    name="skillRollFormula"
+    options=skillOptions
+    selector="skill-select"
+  }}
+  {{cp2020-select
+    class="system-cp2020-system--hidden"
+    inverted=true
+    label=(concat @root.constants.SYSTEM_NAME '.dialogs.task.contest.statRollFormula')
+    name="statRollFormula"
+    options=statOptions
+    selector="stat-select"
+  }}
+  {{cp2020-input
+    label=(concat @root.constants.SYSTEM_NAME '.dialogs.task.contest.modifier')
+    name="modifier"
+    selector="modifier"
+    type="number"
+  }}
+  {{cp2020-button
+    label=action
+    selector='defense-submit'
+    type="submit"
+  }}
+</form>

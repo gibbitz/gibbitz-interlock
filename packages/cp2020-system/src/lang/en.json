@@ -506,6 +506,30 @@
           "content": "${1} skill will be deleted and all IP and level data will be lost. Do you wish to proceed?"
         }
       },
+      "task": {
+        "title": "${1} tries using ${2}",
+        "action": "Use ${1}",
+        "target": "Using ${1} against someone? Who?",
+        "noTarget": "no one",
+        "modifier": "Bonus or penalty",
+        "dv": {
+          "title": "Determine ${1} Difficulty Value",
+          "action": "Set Difficulty",
+          "baseDv": "Select Difficulty",
+          "modifier": "Select modifiers",
+          "otherModifier": "Discretionary modifier",
+          "outputLabel": "Current DV"
+        },
+        "contest": {
+          "title": "Contest ${1}'s attempt at ${2}",
+          "action": "Contest ${1}",
+          "modifier": "Enter modifiers",
+          "skillRollFormula": "Choose appropriate skill",
+          "noSkill": "Use Stat instead",
+          "noStat": "Select a stat",
+          "statRollFormula": "Don't have the skill? choose a stat instead"
+        }
+      },
       "outfit": {
         "delete": {
           "title": "Drop your ${1}?",

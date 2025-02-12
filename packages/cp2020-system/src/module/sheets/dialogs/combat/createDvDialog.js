@@ -1,16 +1,16 @@
 import { DV_DIALOG_PATH } from '@constants/handlebars'
 import { SYSTEM_NAME } from '@constants'
 import { createFormDialog, replaceStringTokens, systemLog } from '@utils'
+import { addFormMetaField, appendFormMeta, getSelectedOptions } from '@utils/dialogs'
+import { appendModifier } from '@utils/roll'
 
-export const createAttackDvDialog = async (context) => new Promise((resolve) => {
+export const createDvDialog = async (context) => new Promise((resolve) => {
   const { name, type } = context.attackPayload.attack.rollData
   const title = replaceStringTokens(
     game.i18n.localize(`${SYSTEM_NAME}.dialogs.dv.title`),
     `${name} (${type})`
   )
   const label = game.i18n.localize(`${SYSTEM_NAME}.dialogs.dv.action`)
-
-  const appendModifier = (value) => value ? ` + ${value}` : ''
 
   let dvRollData = {
     actor: context.attackPayload.attack.rollData.actor,
@@ -26,13 +26,17 @@ export const createAttackDvDialog = async (context) => new Promise((resolve) => 
     const outputDV = dialog.querySelector('[data-selector="dvOutput"]')
     const modifierSelect = dialog.querySelector('[data-selector="modifier"]')
     const modifierInput = dialog.querySelector('[data-selector="otherModifier"]')
+    const metaInput = addFormMetaField(dialog)
+    appendFormMeta(metaInput, { baseDv: getSelectedOptions(rangeSelect) })
 
     dvRollData.rollFormula = `${baseDV}`
 
     rangeSelect.addEventListener('change', (event) => {
-      baseDV = parseInt(event.target.value, 10) || baseDV
+      const select = event.target
+      baseDV = parseInt(select.value, 10) || baseDV
       outputDV.value = baseDV + (modifiers + addModifiers)
       dvRollData.rollFormula = `${baseDV}${appendModifier(modifiers)}${appendModifier(addModifiers)}`
+      appendFormMeta(metaInput, { baseDv: getSelectedOptions(select) })
     })
 
     // modifiers are subtracted to affect DV, not roll,
@@ -43,6 +47,7 @@ export const createAttackDvDialog = async (context) => new Promise((resolve) => 
         .reduce((out, opt) => (out + parseInt(opt.value, 10)), 0)
       outputDV.value = baseDV + (modifiers + addModifiers)
       dvRollData.rollFormula = `${baseDV}${appendModifier(modifiers)}${appendModifier(addModifiers)}`
+      appendFormMeta(metaInput, { modifiers: getSelectedOptions(event.target) })
     })
 
     modifierInput.addEventListener('change', ({ target }) => {

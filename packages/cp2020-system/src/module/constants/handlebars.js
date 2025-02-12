@@ -73,3 +73,6 @@ export const DEFENSE_DIALOG_PATH = `${BASE_TEMPLATE_PATH}/dialogs/combat/defense
 export const DV_DIALOG_PATH = `${BASE_TEMPLATE_PATH}/dialogs/combat/dv.hbs`
 export const ATTACK_DIALOG_PATH = `${BASE_TEMPLATE_PATH}/dialogs/combat/offense.hbs`
 export const DAMAGE_DIALOG_PATH = `${BASE_TEMPLATE_PATH}/dialogs/combat/damage.hbs`
+export const CHECK_DIALOG_PATH = `${BASE_TEMPLATE_PATH}/dialogs/task/check.hbs`
+export const COUNTER_CHECK_DIALOG_PATH = `${BASE_TEMPLATE_PATH}/dialogs/task/counter-check.hbs`
+export const TASK_DV_DIALOG_PATH = `${BASE_TEMPLATE_PATH}/dialogs/task/dv.hbs`

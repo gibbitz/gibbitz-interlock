@@ -2,7 +2,8 @@ import {
   ITEM_DOCUMENT_TYPES
 } from '@constants'
 
-import { rollWeaponAttack } from '@rolls'
+import { rollWeaponAttack } from '@rolls/combat'
+import { rollTaskCheck } from '@rolls/task'
 
 import { initializeChatDataByItem } from './initializeChatDataByItem'
 /**
@@ -36,6 +37,9 @@ export const makeRollByItemType = async (item) => {
   switch (type) {
     case ITEM_DOCUMENT_TYPES.WEAPON:
       roll = await rollWeaponAttack(item)
+      break
+    case ITEM_DOCUMENT_TYPES.SKILL:
+      roll = await rollTaskCheck(item)
       break
     default:
       // Invoke the roll and submit it to chat.

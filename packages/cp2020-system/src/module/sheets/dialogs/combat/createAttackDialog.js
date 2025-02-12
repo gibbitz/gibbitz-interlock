@@ -4,8 +4,8 @@ import {
   createFormDialog,
   systemLog,
   replaceStringTokens,
-  determineWeaponRanges
 } from '@utils'
+import { getParentFieldBox } from '@utils/dialogs'
 
 // return a promise here to simulate the wait function on v1 Dialog
 export const createAttackDialog = async (context) => new Promise((resolve) => {
@@ -26,11 +26,6 @@ export const createAttackDialog = async (context) => new Promise((resolve) => {
   const render = (dialog) => {
     systemLog('offense render |', context, dialog)
 
-    const getParentFieldBox = (childNode) =>
-      Array.from(
-        dialog.querySelectorAll('.field-box')
-      ).filter(node => node.contains(childNode))[0]
-
 
     const roundsFiredSelector = dialog.querySelector('[data-selector="roundsFired"]')
     const autoFireSelector = dialog.querySelector('[data-selector="autoFireType"]')
@@ -38,16 +33,16 @@ export const createAttackDialog = async (context) => new Promise((resolve) => {
     roundsFiredSelector
       .addEventListener('change', (event) => {
         if (event.target.value > 2) {
-          getParentFieldBox(autoFireSelector)
+          getParentFieldBox(autoFireSelector, dialog)
             .classList.remove(STYLE_HIDDEN)
         } else {
-          getParentFieldBox(autoFireSelector)
+          getParentFieldBox(autoFireSelector, dialog)
             .classList.add(STYLE_HIDDEN)
         }
       })
     autoFireSelector
       .addEventListener('change', (_event) => {
-        getParentFieldBox(firezoneSelector)
+        getParentFieldBox(firezoneSelector, dialog)
           .classList.toggle(STYLE_HIDDEN)
       })
   }

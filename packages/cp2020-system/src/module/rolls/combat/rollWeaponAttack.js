@@ -1,4 +1,4 @@
-import { createAttackDialog } from '@sheets/dialogs/offense/createAttackDialog'
+import { createAttackDialog } from '@sheets/dialogs/combat'
 import { determineTargetData } from '@utils'
 import { emitOpposedAttack, emitRequestAttackDv } from '@utils/sockets/emitters'
 import { MELEE } from '@constants'
