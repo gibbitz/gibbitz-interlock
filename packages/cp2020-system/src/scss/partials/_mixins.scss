@@ -1,5 +1,12 @@
 @use 'variables' as vars;
 
+// sets SVG fill and stroke colors by interpolated CSS dynamic properties
+@mixin covered($level) {
+  fill: var(--color-level-#{$level}-highlight);
+  stroke: var(--color-level-#{$level}-light);
+}
+
+// creates the striped progress bar effect
 @mixin progress-bar($color) {
   appearance: none;
   -webkit-appearance: none;
@@ -27,6 +34,7 @@
   @content;
 }
 
+// sets character for dice icon font
 @mixin die-variations($selector) {
 
   #{$selector}--solid {

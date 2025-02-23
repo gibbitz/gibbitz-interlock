@@ -1,55 +1,62 @@
 {{systemLog ' ARMOR SHEET | ' this}}
-<form autocomplete="off" class="{{SYSTEM_NAME}}-armor-sheet {{cssClass}}">
+<form autocomplete="off" class="system-{{@root.constants.SYSTEM_NAME}}__armor-sheet {{cssClass}}">
   {{cp2020-outfitHeader
     name=item.name
     label=(concat @root.constants.SYSTEM_NAME '.items.armor.label')
   }}
 
   <nav class="sheet-tabs tabs" data-selector="primary-tabs" data-group="primary">
-    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="description">Details</a>
     <a class="item" data-tab="locations">Locations</a>
-    <a class="item" data-tab="specs">Specs</a>
   </nav>
   {{!-- Sheet Body --}}
   <section data-selector="primary-tab-body">
 
-  <article class="fieldset tab" data-group="primary" data-tab="description">
-    {{itemDetails this}}
-  </article>
-  <article class="fieldset tab" data-group="primary" data-tab="locations">
-
-    <div class="row location-list__row">
-      <div class="col mannequin-col">
-        <figure class="mannequin {{locationClasses}}">
-          {{{graphic}}}
-        </figure>
-      </div>
-      <div class="col location-list__col">
-        {{cp2020-select
-        label=(concat @root.constants.SYSTEM_NAME '.items.cyberware.location.long')
-        name="system.locations"
-        value=item.system.locations
-        options=@root.constants.LOCATION_SELECT_OPTIONS
-        multiple=true
-        }}
-      </div>
-    </div>
-  </article>
-  <article class="fieldset tab" data-group="primary" data-tab="specs">
-    <div class="col">
+    <article class="tab armor-sheet__details" data-group="primary" data-tab="description">
+      <div class="armor-sheet__details--layout">
       {{cp2020-input
-      label=(concat @root.constants.SYSTEM_NAME '.items.armor.sp.long')
-      name="system.sp"
-      type='number'
-      value=item.system.sp
+        class="item-details__name"
+        label=(concat @root.constants.SYSTEM_NAME '.items.name')
+        name="name"
+        type='text'
+        value=item.name
+      }}
+      <img class="item-details__image" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+      {{cp2020-input
+        label=(concat @root.constants.SYSTEM_NAME '.items.armor.sp.long')
+        name="system.sp"
+        type='number'
+        value=item.system.sp
       }}
       {{cp2020-input
-      label=(concat @root.constants.SYSTEM_NAME '.items.armor.ev.long')
-      name="system.ev"
-      type='number'
-      value=item.system.ev
+        label=(concat @root.constants.SYSTEM_NAME '.items.armor.ev.long')
+        name="system.ev"
+        type='number'
+        value=item.system.ev
       }}
       {{outfitSpecs this}}
-    </div>
-  </article>
+      {{cp2020-editor
+        class="item-details__description"
+        target="system.description"
+        engine="prosemirror"
+      }}
+      </div>
+    </article>
+
+    <article class="armor-sheet__locations tab" data-group="primary" data-tab="locations">
+      <div class="armor-sheet__locations--layout">
+        {{cp2020-mannequin
+          class="locations__mannequin"
+          locationClasses=locationClasses
+          graphic=graphic
+        }}
+        <div
+          class="locations__details"
+          data-selector="location-detail"
+        >
+          {{!-- displays location markup --}}
+        </div>
+      </div>
+    </article>
+  </section>
 </form>

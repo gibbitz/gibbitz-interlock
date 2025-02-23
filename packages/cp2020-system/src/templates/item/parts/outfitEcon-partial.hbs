@@ -1,16 +1,15 @@
-<div>
-  {{cp2020-input
+
+{{cp2020-input
+  class="item-details__cost"
   label=(concat @root.constants.SYSTEM_NAME '.items.cost')
   name="system.cost.euroDollars"
   type='number'
   value=item.system.cost.euroDollars
-  }}
-</div>
-<div>
-  {{cp2020-select
+}}
+{{cp2020-select
+  class="item-details__availability"
   label=(concat @root.constants.SYSTEM_NAME '.items.availabilities.label')
   name="system.availability"
   value=item.system.availability
   options=@root.constants.ITEM_AVAILABILITIES_SELECT_OPTIONS
-  }}
-</div>
+}}

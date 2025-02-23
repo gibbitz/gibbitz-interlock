@@ -745,7 +745,8 @@
     "SheetLabels": {
       "Item": "Outfit Sheet",
       "Weapon": "Weapon Sheet",
-      "Cyberware": "Cyberware Sheet"
+      "Cyberware": "Cyberware Sheet",
+      "Armor": "Armor Sheet"
     }
   }
 }

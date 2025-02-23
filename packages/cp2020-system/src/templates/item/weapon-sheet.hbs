@@ -1,5 +1,5 @@
 {{systemLog ' Weapon | ' this}}
-<form class="{{cssClass}}" autocomplete="off">
+<form class="system-{{@root.constants.SYSTEM_NAME}}-weapon-sheet {{cssClass}}" autocomplete="off">
   {{cp2020-outfitHeader
   name=item.name
   label=(concat @root.constants.SYSTEM_NAME '.items.weapon.label')

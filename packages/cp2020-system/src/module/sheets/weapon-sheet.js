@@ -17,7 +17,7 @@ export class WeaponSheet extends OutfitSheet {
     context.system.upgradeIds.forEach(id => {
       context.item.system.upgrades[id] = actor?.items.get(id)
     })
-    systemLog(' WEAPON SHEET | ', context)
+    systemLog(' WEAPON SHEET + | ', context)
     return context
   }
 

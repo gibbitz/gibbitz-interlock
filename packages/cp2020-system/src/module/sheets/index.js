@@ -1,3 +1,4 @@
+export * from './armor-sheet'
 export * from './cyberware-sheet'
 export * from './edgerunner-sheet'
 export * from './outfit-sheet'

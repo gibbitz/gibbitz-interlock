@@ -1,0 +1,15 @@
+%sheet {
+  display: grid;
+  grid-template-rows: 3.5rem 3rem auto;
+  .sheet-tabs {
+    align-items: stretch;
+    line-height: 4;
+    padding-bottom: .25rem;
+    > * {
+      flex: 1 1;
+    }
+  }
+  .tab {
+    height: 100%;
+  }
+}

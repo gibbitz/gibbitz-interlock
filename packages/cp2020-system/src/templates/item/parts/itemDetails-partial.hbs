@@ -1,18 +1,14 @@
-<aside>
-  <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-  <div>
-    {{cp2020-input
-    label=(concat @root.constants.SYSTEM_NAME '.items.name')
-    name="name"
-    type='text'
-    value=item.name
-    }}
-  </div>
-  <div>
-    {{editor
-    this
-    target="system.description"
-    engine="prosemirror"
-    }}
-  </div>
-</aside>
+{{cp2020-input
+  class="item-details__name"
+  label=(concat @root.constants.SYSTEM_NAME '.items.name')
+  name="name"
+  type='text'
+  value=item.name
+}}
+<img class="item-details__image" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+{{cp2020-editor
+  this
+  class="item-details__description"
+  target="system.description"
+  engine="prosemirror"
+}}

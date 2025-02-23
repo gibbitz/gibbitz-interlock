@@ -8,7 +8,7 @@
 @use 'partials/forms';
 @use 'partials/layout';
 @use 'partials/effects';
-@use 'sheets/armor/armorSheet';
+@use 'sheets/outfit/armorSheet';
 @use 'sheets/edgerunner/portrait';
 @use 'sheets/edgerunner/stats';
 @use 'sheets/edgerunner/siblings';
@@ -17,5 +17,6 @@
 @use 'sheets/edgerunner/health';
 @use 'sheets/edgerunner/lifepath';
 @use 'sheets/edgerunner/edgerunner';
+
 .system-cp2020-system {
 }

@@ -1,7 +1,44 @@
 @use "sass:list";
 $system-name: ".system-cp2020-system";
 
-// color vars set dynamic props for scss shorthand
+// locations
+$locations: (
+  skull,
+  right-eye,
+  left-eye,
+  face,
+  neck,
+  right-chest,
+  left-chest,
+  right-stomach,
+  left-stomach,
+  right-shoulder,
+  right-upperArm,
+  right-elbow,
+  right-forearm,
+  right-hand,
+  left-shoulder,
+  left-upperArm,
+  left-elbow,
+  left-forearm,
+  left-hand,
+  right-groin,
+  right-hipBone,
+  right-hipJoint,
+  right-thigh,
+  right-knee,
+  right-shin,
+  right-foot,
+  left-groin,
+  left-hipBone,
+  left-hipJoint,
+  left-thigh,
+  left-knee,
+  left-shin,
+  left-foot
+);
+
+// SASS vars set to dynamic props for scss shorthand
 $color-text-light-highlight: var(--color-text-light-highlight);
 $color-text-light-heading: var(--color-text-light-heading);
 $color-text-light-primary: var(--color-text-light-primary);
@@ -132,7 +169,8 @@ $color-level-7-transparent: var(--color-level-7-transparent);
 $color-level-8-transparent: var(--color-level-8-transparent);
 $color-level-9-transparent: var(--color-level-9-transparent);
 $color-level-10-transparent: var(--color-level-10-transparent);
-// lists for looping class values
+
+// lists for looping graduated values
 $color-levels:
   $color-level-1,
   $color-level-2,

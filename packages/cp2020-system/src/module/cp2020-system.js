@@ -26,6 +26,7 @@ import {
 
 // sheet classes.
 import {
+  ArmorSheet,
   CyberwareSheet,
   EdgerunnerSheet,
   OutfitSheet,
@@ -106,8 +107,20 @@ Hooks.on('init', function () {
     label: `${SYSTEM_NAME}.SheetLabels.Actor`,
   });
   const registerItemSheets = () => {
-    const { WEAPON, CYBERWARE, AMMUNITION, CURRENCY, ...ITEM_TYPES} = ITEM_DOCUMENT_TYPES
+    const {
+      WEAPON,
+      CYBERWARE,
+      AMMUNITION,
+      ARMOR,
+      CURRENCY,
+      ...ITEM_TYPES
+    } = ITEM_DOCUMENT_TYPES
+
     Items.unregisterSheet('core', ItemSheet);
+    Items.registerSheet(SYSTEM_PROJECT_NAME, OutfitSheet, {
+      types: ITEM_TYPES,
+      label: `${SYSTEM_NAME}.SheetLabels.Item`,
+    });
     Items.registerSheet(SYSTEM_PROJECT_NAME, WeaponSheet, {
       types: [WEAPON],
       label: `${SYSTEM_NAME}.SheetLabels.Weapon`,
@@ -116,9 +129,9 @@ Hooks.on('init', function () {
       types: [CYBERWARE],
       label: `${SYSTEM_NAME}.SheetLabels.Cyberware`,
     });
-    Items.registerSheet(SYSTEM_PROJECT_NAME, OutfitSheet, {
-      types: ITEM_TYPES,
-      label: `${SYSTEM_NAME}.SheetLabels.Item`,
+    Items.registerSheet(SYSTEM_PROJECT_NAME, ArmorSheet, {
+      types: [ARMOR],
+      label: `${SYSTEM_NAME}.SheetLabels.Armor`,
     });
   }
   registerItemSheets()
