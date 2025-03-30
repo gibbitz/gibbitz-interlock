@@ -50,12 +50,40 @@
           locationClasses=locationClasses
           graphic=graphic
         }}
-        <div
+        <ul
           class="locations__details"
           data-selector="location-detail"
         >
-          {{!-- displays location markup --}}
-        </div>
+          {{#each item.system.locations}}
+            {{systemLog ' ARMOR LOCATION | ' this}}
+            <li class="locations__details_detail">
+              {{cp2020-input
+                name=(concat 'system.locations.' @index '.location')
+                value=location
+                type='text'
+                label=(concat @root.constants.SYSTEM_NAME '.items.armor.locations.location.long')
+              }}
+              {{cp2020-input
+                name=(concat 'system.locations.' @index '.sp')
+                value=sp
+                type='number'
+                label=(concat @root.constants.SYSTEM_NAME '.items.armor.locations.sp.long')
+              }}
+              {{cp2020-input
+                name=(concat 'system.locations.' @index '.ablation')
+                value=ablation
+                type='number'
+                label=(concat @root.constants.SYSTEM_NAME '.items.armor.locations.ab.long')
+              }}
+              {{cp2020-button
+                label=(concat @root.constants.SYSTEM_NAME '.items.armor.locations.remove.long')
+                action='delete-location'
+                key=@index
+              }}
+
+            </li>
+          {{/each}}
+        </ul>
       </div>
     </article>
   </section>

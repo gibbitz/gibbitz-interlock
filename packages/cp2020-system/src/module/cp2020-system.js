@@ -21,7 +21,8 @@ import {
   Skill,
   Vehicle,
   Weapon,
-  Upgrade
+  Upgrade,
+  Armor
 } from '@models';
 
 // sheet classes.
@@ -90,6 +91,7 @@ Hooks.on('init', function () {
     Upgrade,
     Vehicle,
     Weapon,
+    Armor
   }
 
   // Active Effects are never copied to the Actor,

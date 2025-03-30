@@ -6,11 +6,6 @@ import {
   systemLog
 } from '@utils'
 
-const handleMannequinClick = (data, event) => {
-  const { type, target } = event
-  console.log(data, type, target)
-}
-
 /**
  * Extend the OutfitSheet with some armor speciic modifications
  * @extends {OutfitSheet}
@@ -37,7 +32,7 @@ export class ArmorSheet extends OutfitSheet {
     const gender = Math.round(Math.random()) ? 'male' : 'female'
     const svgData = await fetch(`/systems/cp2020-system/assets/graphics/${gender}.svg`)
     const graphic = await svgData.text()
-    const locationClasses = armorData.item.system.locations.map(item => item.replace('.', '-')).join(' ')
+    const locationClasses = armorData.item.system.locations?.map(({ location }) => location.replace('.', '-')).join(' ')
     return appendSystemConstants({
       graphic,
       locationClasses,
@@ -48,8 +43,41 @@ export class ArmorSheet extends OutfitSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html)
-    registerMannequinInteraction(html[0])({
+    const domRoot = html[0]
+
+    const handleRemoveLocation = (event) => {
+      const { target } = event
+      const {key} = target.dataset
+      this.item.system.locations.splice(key, 1)
+      this.render(true)
+    }
+
+    const handleMannequinClick = (data, event) => {
+      const { type, target } = event
+      const { id, classname } = data
+      const { item: { system: { locations } } } = this
+      if (
+        locations.filter(({location}) => (location === id)).length
+      ) {
+        return
+      }
+      locations.push({
+        location: id,
+        sp: 0,
+        ablation: 0
+      })
+      this.render(true)
+    }
+
+    registerMannequinInteraction(domRoot)({
       click: handleMannequinClick
+    })
+    // live listene needs to be removed when closed
+    domRoot.addEventListener('click', (event) => {
+      const { target } = event
+      if(target.dataset.action === 'delete-location') {
+        handleRemoveLocation(event)
+      }
     })
   }
 }

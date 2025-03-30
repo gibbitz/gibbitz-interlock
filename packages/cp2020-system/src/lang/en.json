@@ -165,13 +165,27 @@
       "armor": {
         "label": "Armor",
         "labelPlural": "Armor",
-        "sp": {
-          "long": "Stopping Power",
-          "short": "SP"
-        },
         "ev": {
           "long": "Encumbrance Value",
           "short": "EV"
+        },
+        "locations": {
+          "location": {
+            "long": "Location",
+            "short": "LOC"
+          },
+          "sp": {
+            "long": "Stopping Power",
+            "short": "SP"
+          },
+          "ab": {
+            "long": "Ablation",
+            "short": "AB"
+          },
+          "remove": {
+            "long": "Remove",
+            "short": "DEL"
+          }
         }
       },
       "cyberware": {

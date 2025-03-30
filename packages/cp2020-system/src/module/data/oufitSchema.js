@@ -40,7 +40,9 @@ export const encumberanceSchema = () => ({
 
 export const resiliencySchema = () => ({
   stoppingPower: new NumberField(requiredUninitialized),
+  stoppingPowerMod: new NumberField(optionalUninitialized),
   StructuralDamagePoints: new NumberField(requiredUninitialized),
+  StructuralDamagePointsMod: new NumberField(optionalUninitialized),
 })
 
 export const consumableSchema = () => ({
@@ -78,6 +80,17 @@ export const ammoSchema = () => ({
   rangedDamage: new ObjectField(),
   type: new StringField(requiredBlank),
   armorPiercing: new BooleanField(requiredUninitialized)
+})
+
+const armorLocationFields = {
+  location: new StringField(requiredBlank),
+  sp: new NumberField(requiredUninitialized),
+  ablation: new NumberField(optionalUninitialized)
+}
+
+export const armorSchema = () => ({
+  locations: new ArrayField(new SchemaField(armorLocationFields)),
+  ev: new NumberField(optionalUninitialized)
 })
 
 export const skillSchema = () => ({
