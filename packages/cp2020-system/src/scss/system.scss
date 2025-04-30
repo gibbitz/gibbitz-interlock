@@ -89,8 +89,8 @@
 
   .cp2020-progress-detail {
     display: grid;
-    grid-template-rows: 1fr;
-    label {
+    grid-template-rows: repeat(3, 1fr);
+    max-height: 4rem;
 
     > value {
         text-align: right;
@@ -101,7 +101,6 @@
         letter-spacing: 0.1rem;
         text-align: left;
         text-transform: lowercase;
-      }
     }
   }
 }

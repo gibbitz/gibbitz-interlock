@@ -31,13 +31,11 @@
     nav.sheet-tabs{
       border: 0;
       > [data-tab] {
-        padding: 0;
+        flex: 1;
+        padding: .5rem;
         &.active {
           text-shadow: none;
           border-bottom: 1px solid vars.$color-shadow-primary;
-        }
-        &:nth-child(1){
-          text-align: left;
         }
       }
 

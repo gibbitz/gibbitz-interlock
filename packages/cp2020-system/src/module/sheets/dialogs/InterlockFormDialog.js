@@ -6,6 +6,7 @@ export class InterlockFormDialog extends HandlebarsApplicationMixin(ApplicationV
 
   #templates
   #context
+  #values
 
   static PARTS = {}
 
@@ -19,21 +20,25 @@ export class InterlockFormDialog extends HandlebarsApplicationMixin(ApplicationV
 
   constructor(options) {
     super(options)
-    const { template, context } = options
+    const { template, context, values } = options
     const parts = typeof template !== 'string' ? template : { form: { template } }
     this.#templates = parts
     this.#context = context
+    this.#values = values
   }
 
   _configureRenderOptions(options) {
     super._configureRenderOptions(options)
-    options.parts = {...this.#templates }
+    options.parts = {...this.#templates, values: this.#values }
   }
 
   async _renderHTML(context, options) {
     const htmlContent = await renderTemplate(
       options.parts.form.template,
-      context
+      {
+        ...context,
+        values: options.parts.values
+      }
     )
     return htmlContent.trim()
   }

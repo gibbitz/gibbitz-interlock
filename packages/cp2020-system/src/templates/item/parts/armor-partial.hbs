@@ -1,15 +1,24 @@
 {{systemLog ' ARMOR PARTIAL | ' this}}
 {{#if this.length}}
-  {{#cp2020-sectionBox title='Armor' class='item-list__wrapper'}}
-    {{!-- TODO: manequin --}}
-    <ul class="item-list item-list--armor">
+  {{#cp2020-sectionBox
+    title='Armor'
+    class='item-list__wrapper'
+  }}
+    {{cp2020-mannequin
+      class="locations__mannequin"
+      locationClasses=locationClasses
+      graphic=graphic
+    }}
+    <div class="item-list item-list--armor">
       {{#each this}}
-        <li class="item" data-item-id="{{_id}}" data-item-name="{{this.name}}">
-          <a class="item-roll item-name">
-            {{this.name}} : {{this.location}}
-          </a>
-        </li>
+        {{cp2020-progressDetail
+          class="armor__local--bar"
+          max=sp
+          min=0
+          value=ablation
+          name=location
+        }}
       {{/each}}
-    </ul>
+    </div>
   {{/cp2020-sectionBox}}
 {{/if}}

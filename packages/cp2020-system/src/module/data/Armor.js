@@ -8,4 +8,9 @@ export class Armor extends Outfit {
       ...super.defineSchema()
     };
   }
+  prepareDerivedData() {
+    this.locations.forEach((data, index) => {
+      this.locations[index].total = Math.max(0, data.sp - data.ablation)
+    })
+  }
 }

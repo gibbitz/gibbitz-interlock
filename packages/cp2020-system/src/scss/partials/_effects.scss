@@ -32,20 +32,21 @@ $rgb-magenta: rgba(255, 0, 80, 0.3);
 
 // placeholder for full-size screen pseudos
 %crt-psuedo {
-  bottom: 0;
   content: " ";
   display: block;
+  height: 100%;
   left: 0;
   pointer-events: none;
   position: absolute;
-  right: 0;
   top: 0;
+  width: 100%;
   z-index: 2;
 }
 
 #{vars.$system-name} {
   // classname for opt-in/out
   .crt{
+    position: relative;
     &::before {
       @extend %crt-psuedo;
       background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));

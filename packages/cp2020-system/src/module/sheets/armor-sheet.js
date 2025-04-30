@@ -45,6 +45,16 @@ export class ArmorSheet extends OutfitSheet {
     super.activateListeners(html)
     const domRoot = html[0]
 
+    const mannequin = domRoot.querySelector('.mannequin__graphic svg')
+    this.item.system.locations?.forEach(({
+      location: id,
+      sp,
+      ablation
+    }) => {
+      const lvlClass = `level-${Math.round(((sp - ablation) / sp) * 10)}`
+      mannequin.getElementById(id)?.classList?.add(lvlClass)
+    })
+
     const handleRemoveLocation = (event) => {
       const { target } = event
       const {key} = target.dataset

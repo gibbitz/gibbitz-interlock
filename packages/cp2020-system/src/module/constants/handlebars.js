@@ -37,11 +37,15 @@ const actorPartials = [
   'lifepath',
   'motivations',
   'portrait',
+  'save',
   'siblings',
-  'status',
   'stat',
   'style',
   'values'
+]
+const actorLayoutPartials = [
+  'background',
+  'combat'
 ]
 
 const generateGlobalPartialPath = (partialName) =>
@@ -50,14 +54,18 @@ const generateItemPartialPath = (partialName) =>
   `${BASE_TEMPLATE_PATH}/item/parts/${partialName}-partial.hbs`
 const generateActorPartialPath = (partialName) =>
   `${BASE_TEMPLATE_PATH}/actor/parts/${partialName}-partial.hbs`
+const generateActorLayoutPartialPath = (partialName) =>
+  `${BASE_TEMPLATE_PATH}/actor/layoutParts/${partialName}-partial.hbs`
 
 export const HBS_TEMPLATES = [
   ...actorPartials.map(generateActorPartialPath),
+  ...actorLayoutPartials.map(generateActorLayoutPartialPath),
   ...itemPartials.map(generateItemPartialPath),
   ...globalPartials.map(generateGlobalPartialPath)
 ]
 export const HBS_TEMPLATE_HELPER_PARAMS = [
   ...actorPartials.map((partialName) => [partialName, generateActorPartialPath(partialName)]),
+  ...actorLayoutPartials.map((partialName) => [partialName, generateActorLayoutPartialPath(partialName)]),
   ...itemPartials.map((partialName) => [partialName, generateItemPartialPath(partialName)]),
   ...globalPartials.map((partialName) => [partialName, generateGlobalPartialPath(partialName)])
 ]

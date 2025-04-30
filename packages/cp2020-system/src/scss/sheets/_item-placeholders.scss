@@ -1,6 +1,12 @@
+@use '../partials/variables' as vars;
+@use '../partials/mixins' as mixins;
+
 %sheet {
-  display: grid;
-  grid-template-rows: 3.5rem 3rem auto;
+  display: flex;
+  flex-direction: column;
+  > * {
+    flex: 0 1 auto;
+  }
   .sheet-tabs {
     align-items: stretch;
     line-height: 4;
@@ -9,7 +15,42 @@
       flex: 1 1;
     }
   }
+  [data-selector="primary-tab-body"] {
+    flex: 1;
+  }
   .tab {
     height: 100%;
+  }
+}
+
+%mannequin {
+  svg {
+    display: inline-block;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  path {
+    fill: rgba(#000, 0);
+    stroke: rgba(#000, 0);
+    stroke-width: 2.5px;
+    cursor: pointer;
+
+    &:hover {
+      stroke: rgba(#fff, 0.5)
+    }
+  }
+
+  #base {
+    fill: vars.$color-graphic-bg-transparent;
+    stroke: vars.$color-text-light-5;
+  }
+
+  @each $location in vars.$locations {
+    @for $level from 1 through 10 {
+      &.#{$location} ##{$location}.level-#{$level} {
+        @include mixins.covered($level);
+      }
+    }
   }
 }

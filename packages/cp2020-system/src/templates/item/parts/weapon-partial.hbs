@@ -1,6 +1,6 @@
 {{systemLog ' WEAPON | ' this}}
 {{#if this.length}}
-  {{#cp2020-sectionBox title='Weapons' class='item-list__wrapper'}}
+  {{#cp2020-sectionBox title='Weapons' class='item-list__wrapper item-list__weapons'}}
     <ul class="item-list item-list--weapons">
       {{#each this}}
         <li class="item item--weapon" data-item-id="{{_id}}" data-item-name="{{name}}">

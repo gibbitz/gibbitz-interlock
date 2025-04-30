@@ -5,87 +5,143 @@
 
 #{vars.$system-name} {
   &__armor-sheet {
-    @extend %sheet;
+    // @extend %sheet;
+    display: grid;
+    grid-template-rows: 3rem 3rem minmax(0, 1fr);
+    max-height: 100%;
+    container-type: inline-size;
+    container-name: armor-sheet;
 
-    .armor-sheet {
-      &__details {
-        height: 100%;
-
-        &--layout {
-          display: grid;
-          grid-template-columns: 1fr .75fr .75fr;
-          grid-template-rows: 4rem 4rem 4rem 4rem 1fr;
+    @container armor-sheet (max-width: 2770px) {
+      .armor-sheet {
+        &__details {
           height: 100%;
+
+          &--layout {
+            display: grid;
+            grid-template-columns: 1fr .75fr .75fr;
+            grid-template-rows: 4rem 4rem 4rem 1fr;
+            height: 100%;
+          }
+
+          .item-details {
+            &__name {
+              grid-column: 2 / 4;
+            }
+
+            &__image {
+              grid-row: 1 / 4;
+              border: 0;
+              border-radius: 0;
+            }
+
+            &__graphic {
+              height: 100%;
+              object-fit: contain;
+            }
+
+            &__description {
+              grid-column: 1 / 4;
+
+              .field-box {
+                height: calc(100% - var(--box-spacing));
+              }
+            }
+          }
         }
+        &__locations {
+          height: 100%;
 
-        .item-details {
-          &__name {
-            grid-column: 2 / 4;
+          &--layout {
+            display: grid;
+            grid-template-columns: 1fr 0.85fr;
+            grid-template-rows: minmax(0, 1fr);
+            height: 100%;
           }
+        }
+      }
+      .locations{
+        &__mannequin {
+          @extend %mannequin;
 
-          &__image {
-            grid-row: 1 / 3;
-            border: 0;
-            border-radius: 0;
+          display: flex;
+          justify-content: space-evenly;
+
+          .mannequin__graphic {
+            flex: 0 1 auto;
           }
-
-          &__weight {
-            grid-column: 2;
+        }
+        &__details {
+          &-list{
+            height: 100%;
+            list-style: none;
+            overflow-y: scroll;
+            margin: 0;
+            padding: 0;
           }
-
-          &__availability {
-            grid-column: 2 / 4;
-          }
-
-          &__description {
-            grid-column: 1 / 4;
-            grid-row: 5;
+          &-location {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 4rem 4rem;
 
             .field-box {
-              height: calc(100% - var(--box-spacing));
+              grid-row: 2;
+              &:nth-child(2) {
+                grid-row: 1;
+              }
+              &:first-child {
+                grid-column: 1 / 3;
+                grid-row: 1;
+              }
+            }
+            .field-button--wrapper {
+              display: flex;
+              margin: 2px;
+
+              .cp2020-button {
+                flex: 1;
+              }
             }
           }
         }
       }
-      &__locations {
-        height: 100%;
-
-        &--layout {
-          display: grid;
-          grid-template-columns: 1fr 0.85fr;
-          align-items: stretch;
-        }
-      }
     }
-    .locations{
-      &__mannequin {
-        svg {
-        }
-        path {
-          fill: rgba(#000, 0);
-          stroke: rgba(#000, 0);
-          stroke-width: 2.5px;
-          cursor: pointer;
+    @container armor-sheet (max-width: 460px) {
+      .armor-sheet {
+        &__details {
 
-          &:hover {
-            stroke: rgba(#fff, 0.5)
+          &--layout {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: minmax(0, 1.1fr) 4rem 4rem 1fr;
+          }
+          .item-details {
+            &__name {
+              grid-column: 1 / 3;
+            }
+
+            &__image {
+              grid-column: 1 / 4;
+              grid-row: 1;
+            }
           }
         }
-        #base {
-          fill: vars.$color-graphic-bg-transparent;
-          stroke: vars.$color-text-light-5;
+        &__locations {
+          &--layout {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr minmax(0, 1fr);
+          }
         }
       }
     }
   }
 
-  @each $location in vars.$locations {
-    @for $level from 1 through 10 {
-      .#{$location}.level-#{$level} ##{$location} {
-        @include mixins.covered($level);
-      }
-    }
-  }
+  // @each $location in vars.$locations {
+  //   @for $level from 1 through 10 {
+  //     .#{$location} ##{$location}.level-#{$level} {
+  //       @include mixins.covered($level);
+  //     }
+  //   }
+  // }
 
 
 }

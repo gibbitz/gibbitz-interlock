@@ -47,12 +47,14 @@ export const WOUND_TYPES = ['none', 'bruise', 'penetrating']
 export const WOUND_STATUSES = [
   'light',
   'serious',
-  'criical',
+  'critical',
   'mortal_0',
   'mortal_1',
   'mortal_2',
   'mortal_3',
-  'mortal_4'
+  'mortal_4',
+  'mortal_5',
+  'mortal_6'
 ]
 export const SAVE_TYPES = {
   DEATH: 'Death',

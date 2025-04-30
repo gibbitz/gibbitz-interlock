@@ -6,7 +6,8 @@ import {
   DAMAGE_MODIFIER,
   HIT_LOCATIONS,
   WOUND_TYPES,
-  SAVE_TYPES
+  SAVE_TYPES,
+  WOUND_STATUSES
 } from "@constants";
 
 import { rangeToDiscreteLevels } from '@utils';
@@ -16,10 +17,11 @@ export class Edgerunner extends foundry.abstract.TypeDataModel {
 
   static defineSchema() {
     const {
-      HTMLField,
-      SchemaField,
-      NumberField,
       ArrayField,
+      HTMLField,
+      NumberField,
+      ObjectField,
+      SchemaField,
       StringField
     } = foundry.data.fields;
 
@@ -223,9 +225,13 @@ export class Edgerunner extends foundry.abstract.TypeDataModel {
         })
       }),
       health: new SchemaField({
-        stunSave: new NumberField(),
+        condition: new StringField(),
+        damage: new ArrayField(new SchemaField(woundSchema)),
+        locationClasses: new StringField(),
+        damageByLocation: new ObjectField(),
         deathSave: new NumberField(),
-        damage: new ArrayField(new SchemaField(woundSchema))
+        statusLevel: new NumberField(),
+        stunSave: new NumberField(),
       })
     }
   }
@@ -281,6 +287,20 @@ export class Edgerunner extends foundry.abstract.TypeDataModel {
       ? DAMAGE_MODIFIER[this.stats.body.total]
       : 8
     this.bio.family.siblingCount = this.bio.siblings?.length || 0
+    // health
+    const damageLevel = Math.floor(this.health.damage.length / 4)
+    this.health.condition = damageLevel === 0
+      ? game.i18n.localize(`${SYSTEM_NAME}.health.condition.unwounded`)
+      : game.i18n.localize(
+        `${SYSTEM_NAME}.health.condition.woundStatuses.${WOUND_STATUSES[damageLevel]}`
+      )
+    this.health.statusLevel = 40 - this.health.damage.length
+    this.health.damageByLocation = this.health.damage.reduce((obj, { location }) => {
+      const selector = location.replace('.', '-')
+      obj[selector] = obj[selector] ? obj[selector] + 1 : 1
+      return obj
+    }, {})
+    this.health.locationClasses = Object.keys(this.health.damageByLocation).join(' ')
     this.health.stunSave = determineHealthSave(SAVE_TYPES.STUN, {system: this})
     this.health.deathSave = determineHealthSave(SAVE_TYPES.DEATH, {system: this})
   }

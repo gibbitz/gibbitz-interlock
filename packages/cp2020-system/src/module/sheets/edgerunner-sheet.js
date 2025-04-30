@@ -168,6 +168,17 @@ export class EdgerunnerSheet extends ActorSheet {
     super.activateListeners(html)
     const { registerDraggableElement } = registerActorOnDrag(this, super._onDragStart)
 
+    const domRoot = html[0]
+    const system = this.actor.system
+
+    const mannequin = domRoot.querySelector('.health__mannequin svg')
+    Object.keys(system.health.damageByLocation)?.forEach((location) => {
+      const lvlClass = `level-${Math.max(1, Math.round(
+        ((8 - system.health.damageByLocation[location]) / 8) * 10
+      ))}`
+      mannequin.getElementById(location)?.classList?.add(lvlClass)
+    })
+
     // Delete Inventory Item
     html.find('[data-selector="item-delete"]')
       .click(
@@ -214,7 +225,7 @@ export class EdgerunnerSheet extends ActorSheet {
         registerRollClick(this)
       )
 
-    html.find('[data-health]')
+    html.find('[data-action="health-click"]')
       .click(
         registerHealthClick(this)
       )

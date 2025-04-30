@@ -1,7 +1,7 @@
 import { DAMAGE_DIALOG_PATH, SYSTEM_NAME, HEALTH_ACTION_TYPES, STYLE_HIDDEN } from '@constants'
 import { createFormDialog, replaceStringTokens, systemLog } from '@utils'
 
-export const createDamageDialog = async (context) => {
+export const createDamageDialog = async (context, values={}) => {
   systemLog('DAMAGE DIALOG | ', context)
   const { name } = context
   const title = replaceStringTokens(
@@ -61,6 +61,7 @@ export const createDamageDialog = async (context) => {
   }
   return createFormDialog({
     context,
+    values,
     template: DAMAGE_DIALOG_PATH,
     title,
     label,

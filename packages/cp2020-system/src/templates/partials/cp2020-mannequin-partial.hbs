@@ -1,4 +1,9 @@
 {{systemLog ' MANNEQUIN | ' this}}
 <figure class="mannequin{{#if class}} {{class}}{{/if}} {{locationClasses}}">
-  {{{graphic}}}
+  <div
+    {{#if action}}data-action="{{action}}"{{/if}}
+    class="mannequin__graphic"
+  >
+    {{{graphic}}}
+  </div>
 </figure>

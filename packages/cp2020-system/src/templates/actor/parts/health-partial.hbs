@@ -1,107 +1,32 @@
 {{systemLog 'HEALTH | ' this}}
-{{#* inline "statusSlot"}}
-  {{systemLog 'status | ' damage}}
-  <li
-    class="damage-interface__status-slot"
-    data-damage-index="{{number}}"
-    data-damage-type="{{damage.[number].type}}"
-    data-damage-location="{{damage.[number].location}}"
-  ></li>
-{{/inline}}
 
-<section class="edgerunner-sheet__health">
-  <article class="health__damage-interface" data-health>
-    {{#cp2020-sectionBox
-      title=(localize (concat @root.constants.SYSTEM_NAME '.health.woundStatuses.light'))
-      class='damage-interface__status-block'
+{{#cp2020-sectionBox title='Health' class='edgerunner-sheet__health'}}
+  <article class="health__damage-interface">
+    {{cp2020-mannequin
+      action="health-click"
+      class="health__mannequin"
+      locationClasses=health.locationClasses
+      graphic=graphic
     }}
-      <ul class="damage-interface__status-slots">
-        {{> statusSlot number=0 damage=this.damage}}
-        {{> statusSlot number=1 damage=this.damage}}
-        {{> statusSlot number=2 damage=this.damage}}
-        {{> statusSlot number=3 damage=this.damage}}
-      </ul>
-    {{/cp2020-sectionBox}}
-    {{#cp2020-sectionBox
-      title=(localize (concat @root.constants.SYSTEM_NAME '.health.woundStatuses.serious'))
-      class='damage-interface__status-block'
+    {{cp2020-progressDetail
+      class="health__detail"
+      value=health.statusLevel
+      max=40
+      name=(concat (localize (concat @root.constants.SYSTEM_NAME '.health.condition.label')) ': ' health.condition)
     }}
-      <ul class="damage-interface__status-slots">
-        {{> statusSlot number=4 damage=this.damage}}
-        {{> statusSlot number=5 damage=this.damage}}
-        {{> statusSlot number=6 damage=this.damage}}
-        {{> statusSlot number=7 damage=this.damage}}
-      </ul>
-    {{/cp2020-sectionBox}}
-    {{#cp2020-sectionBox
-      title=(localize (concat @root.constants.SYSTEM_NAME '.health.woundStatuses.critical'))
-      class='damage-interface__status-block'
-    }}
-      <ul class="damage-interface__status-slots">
-        {{> statusSlot number=8 damage=this.damage}}
-        {{> statusSlot number=9 damage=this.damage}}
-        {{> statusSlot number=10 damage=this.damage}}
-        {{> statusSlot number=11 damage=this.damage}}
-      </ul>
-    {{/cp2020-sectionBox}}
-    {{#cp2020-sectionBox
-      title=(localize (concat @root.constants.SYSTEM_NAME '.health.woundStatuses.mortal_0'))
-      class='damage-interface__status-block'
-    }}
-      <ul class="damage-interface__status-slots">
-        {{> statusSlot number=12 damage=this.damage}}
-        {{> statusSlot number=13 damage=this.damage}}
-        {{> statusSlot number=14 damage=this.damage}}
-        {{> statusSlot number=15 damage=this.damage}}
-      </ul>
-    {{/cp2020-sectionBox}}
-    {{#cp2020-sectionBox
-    title=(localize (concat @root.constants.SYSTEM_NAME '.health.woundStatuses.mortal_1'))
-    class='damage-interface__status-block'
-    }}
-      <ul class="damage-interface__status-slots">
-        {{> statusSlot number=16 damage=this.damage}}
-        {{> statusSlot number=17 damage=this.damage}}
-        {{> statusSlot number=18 damage=this.damage}}
-        {{> statusSlot number=19 damage=this.damage}}
-      </ul>
-    {{/cp2020-sectionBox}}
-    {{#cp2020-sectionBox
-      title=(localize (concat @root.constants.SYSTEM_NAME '.health.woundStatuses.mortal_2'))
-      class='damage-interface__status-block'
-    }}
-      <ul class="damage-interface__status-slots">
-        {{> statusSlot number=20 damage=this.damage}}
-        {{> statusSlot number=21 damage=this.damage}}
-        {{> statusSlot number=22 damage=this.damage}}
-        {{> statusSlot number=23 damage=this.damage}}
-      </ul>
-    {{/cp2020-sectionBox}}
-    {{#cp2020-sectionBox
-      title=(localize (concat @root.constants.SYSTEM_NAME '.health.woundStatuses.mortal_3'))
-      class='damage-interface__status-block'
-    }}
-      <ul class="damage-interface__status-slots">
-        {{> statusSlot number=24 damage=this.damage}}
-        {{> statusSlot number=25 damage=this.damage}}
-        {{> statusSlot number=26 damage=this.damage}}
-        {{> statusSlot number=27 damage=this.damage}}
-      </ul>
-    {{/cp2020-sectionBox}}
-    {{#cp2020-sectionBox
-      title=(localize (concat @root.constants.SYSTEM_NAME '.health.woundStatuses.mortal_4'))
-      class='damage-interface__status-block'
-    }}
-      <ul class="damage-interface__status-slots">
-        {{> statusSlot number=28 damage=this.damage}}
-        {{> statusSlot number=29 damage=this.damage}}
-        {{> statusSlot number=30 damage=this.damage}}
-        {{> statusSlot number=31 damage=this.damage}}
-      </ul>
-    {{/cp2020-sectionBox}}
+    <div class="health__save-interface">
+      {{save
+        label=(localize (concat @root.constants.SYSTEM_NAME '.health.saves.stun'))
+        name='stun'
+        saveFormula=(concat '1d10cs<' health.stunSave)
+        value=health.stunSave
+      }}
+      {{save
+        label=(localize (concat @root.constants.SYSTEM_NAME '.health.saves.death'))
+        name='death'
+        saveFormula=(concat '1d10cs<' health.deathSave)
+        value=health.deathSave
+      }}
+    </div>
   </article>
-  {{cp2020-button
-    label='clear'
-    action='clear-wounds'
-  }}
-</section>
+{{/cp2020-sectionBox}}

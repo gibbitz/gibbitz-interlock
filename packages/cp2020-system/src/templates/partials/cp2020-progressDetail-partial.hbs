@@ -1,12 +1,15 @@
-<label class="cp2020-progress-detail {{#if class}}{{class}}-label{{/if}}"">
+<label
+  class="cp2020-progress-detail
+  {{#if class}}{{class}}-label{{/if}}"
+>
   <value>
-    <em>{{value}}</em>/{{max}}
+    <em>{{value}}</em>{{#if max}}/{{max}}{{/if}}
   </value>
     {{cp2020-progress
       value=value
       max=max
       min=min
-      class=class
+      class=(concat class '__value')
     }}
   <small>
     {{name}}

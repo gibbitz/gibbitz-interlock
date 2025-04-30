@@ -9,13 +9,13 @@
             name=(concat 'system.bio.lifepath.' @index '.year')
             value=year
             type='text'
-            label=(concat constants.SYSTEM_NAME '.lifepath.year')
+            label=(concat ../constants.SYSTEM_NAME '.lifepath.year')
           }}
           {{cp2020-editor
             content=event
             target=(concat 'system.bio.lifepath.' @index '.event')
             editable='true'
-            label=(concat constants.SYSTEM_NAME '.lifepath.event')
+            label=(concat ../constants.SYSTEM_NAME '.lifepath.event')
           }}
         </li>
       {{/each}}

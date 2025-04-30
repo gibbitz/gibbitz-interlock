@@ -84,6 +84,7 @@ export const ammoSchema = () => ({
 
 const armorLocationFields = {
   location: new StringField(requiredBlank),
+  total: new NumberField(requiredUninitialized),
   sp: new NumberField(requiredUninitialized),
   ablation: new NumberField(optionalUninitialized)
 }

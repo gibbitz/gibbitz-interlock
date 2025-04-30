@@ -20,10 +20,19 @@
       position: absolute;
       padding-top: 0;
       top: calc(0px - vars.$font-size-16 - 0.25em);
+
+      &.tabs {
+        top: calc(0px - vars.$font-size-16 - 1.5rem);
+        width: 100%;
+      }
     }
 
     &:has(> .legend) {
       margin-top: calc(vars.$font-size-16 + 1.2em);
+    }
+
+    &:has(> .legend.tabs) {
+      margin-top: calc(vars.$font-size-16 + 2rem);
     }
   }
 

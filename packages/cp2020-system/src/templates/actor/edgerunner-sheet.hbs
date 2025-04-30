@@ -17,16 +17,21 @@
       </nav>
       <section data-selector="background-tab-body">
         <article class="tab" data-tab="background">
-            {{stat backgroundStats}}
-            {{family actor.system.bio.family}}
-            {{siblings actor.system.bio.siblings}}
-            {{lifepath actor.system.bio.lifepath}}
+          {{background this}}
         </article>
         <article class="tab" data-tab="combat">
-          {{stat combatStats}}
+          {{combat
+            combatStats=combatStats
+            armor=actor.itemTypes.Armor
+            weapon=actor.itemTypes.Weapon
+            health=actor.system.health
+            graphic=graphic
+            locationClasses=locationClasses
+          }}
+          {{!-- {{stat combatStats}}
           {{health actor.system.health}}
           {{armor actor.itemTypes.Armor}}
-          {{weapon actor.itemTypes.Weapon}}
+          {{weapon actor.itemTypes.Weapon}} --}}
         </article>
         <article class="tab" data-tab="tasks">
           {{stat taskStats}}

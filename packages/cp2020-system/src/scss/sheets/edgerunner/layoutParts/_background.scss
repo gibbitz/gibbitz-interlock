@@ -1,0 +1,66 @@
+@use '../../../partials/variables' as vars;
+#{vars.$system-name} {
+
+  [data-tab="background"] {
+    container-type: inline-size;
+    container-name: character-background;
+  }
+
+  .edgerunner-sheet__background-grid {
+    display: grid;
+    grid-gap: 0.4rem;
+  }
+
+  @container character-background (max-width: 2770px) {
+    .edgerunner-sheet{
+      &__background-grid {
+        grid-template-columns: minmax(8rem, 10rem) 1fr 1fr;
+        grid-template-rows: 1fr;
+
+        .edgerunner-sheet__stats {
+          grid-column: 1;
+          grid-row: 1 / 5;
+        }
+      }
+      &__style {
+        grid-column: 2;
+        grid-row: 1;
+      }
+      &__motivations {
+        grid-column: 2;
+        grid-row: 2;
+      }
+      &__family {
+        grid-column: 2;
+        grid-row: 3;
+      }
+      .sibling-list__wrapper{
+        grid-column: 2;
+        grid-row: 4;
+      }
+      .lifepath__wrapper{
+        grid-column: 3;
+        grid-row: 1/5;
+      }
+      .field-button--wrapper {
+        padding: 0.5rem;
+      }
+    }
+  }
+  @container character-background (max-width: 770px) {
+    .edgerunner-sheet {
+      &__background-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+      }
+      &__style,
+      &__motivations,
+      &__family,
+      .sibling-list__wrapper,
+      .lifepath__wrapper {
+        grid-column: 1;
+        grid-row: auto;
+      }
+    }
+  }
+}

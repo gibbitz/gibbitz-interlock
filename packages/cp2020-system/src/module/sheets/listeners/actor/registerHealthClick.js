@@ -1,7 +1,10 @@
 import { createDamageDialog } from '@sheets/dialogs/actor'
 
 export const registerHealthClick = (edgerunnerSheet) => async (_event) => {
-  createDamageDialog(edgerunnerSheet.actor).then((app) => {
+  createDamageDialog(
+    edgerunnerSheet.actor,
+    { hitLocation: _event.target.id.replace('-', '.') }
+  ).then((app) => {
     console.log(app)
   }).catch((err) => {
     console.error(err)

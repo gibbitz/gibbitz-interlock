@@ -74,7 +74,8 @@ export const createFormDialog = async ({
     },
     actions: {
       damageType: (...args) => console.log('DT', ...args)
-    }
+    },
+    ...rest
   })
 
   return formDialog.render(true).then(appWindow => render(appWindow.element))

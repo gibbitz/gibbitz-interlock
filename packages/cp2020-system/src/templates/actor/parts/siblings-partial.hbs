@@ -1,5 +1,8 @@
 {{systemLog ' BIO | SIBLINGS | ' this}}
-{{#cp2020-sectionBox title='Siblings' class='sibling-list__wrapper'}}
+  {{#cp2020-sectionBox
+    title=(concat (localize (concat constants.SYSTEM_NAME '.siblings.label')) ' (' siblingCount ')' )
+    class='sibling-list__wrapper'
+  }}
   {{#if this.length}}
     <ul>
       {{#each this}}
@@ -39,7 +42,11 @@
       {{/each}}
     </ul>
   {{else}}
-    <div class="siblings--none">{{localize (concat ../constants.SYSTEM_NAME '.siblings.none')}}</div>
+  {{cp2020-input
+    class="siblings--none"
+    disabled=true
+    value=(localize (concat constants.SYSTEM_NAME '.siblings.none'))
+  }}
   {{/if}}
   {{cp2020-button
     label='add'

@@ -1,5 +1,5 @@
-@use '../../partials/variables' as vars;
-@use '../../partials/placeholders' as *;
+@use '../../../partials/variables' as vars;
+@use '../../../partials/placeholders' as *;
 
 #{vars.$system-name} {
   .edgerunner-sheet__portrait {

@@ -1,5 +1,5 @@
 {{systemLog ' ARMOR SHEET | ' this}}
-<form autocomplete="off" class="system-{{@root.constants.SYSTEM_NAME}}__armor-sheet {{cssClass}}">
+<form autocomplete="off" class="system-{{@root.constants.SYSTEM_NAME}}__armor-sheet crt {{cssClass}}">
   {{cp2020-outfitHeader
     name=item.name
     label=(concat @root.constants.SYSTEM_NAME '.items.armor.label')
@@ -14,19 +14,15 @@
 
     <article class="tab armor-sheet__details" data-group="primary" data-tab="description">
       <div class="armor-sheet__details--layout">
+      <figure class="item-details__image">
+        <img class="item-details__graphic" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+      </figure>
       {{cp2020-input
         class="item-details__name"
         label=(concat @root.constants.SYSTEM_NAME '.items.name')
         name="name"
         type='text'
         value=item.name
-      }}
-      <img class="item-details__image" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-      {{cp2020-input
-        label=(concat @root.constants.SYSTEM_NAME '.items.armor.sp.long')
-        name="system.sp"
-        type='number'
-        value=item.system.sp
       }}
       {{cp2020-input
         label=(concat @root.constants.SYSTEM_NAME '.items.armor.ev.long')
@@ -50,40 +46,50 @@
           locationClasses=locationClasses
           graphic=graphic
         }}
-        <ul
-          class="locations__details"
-          data-selector="location-detail"
-        >
-          {{#each item.system.locations}}
-            {{systemLog ' ARMOR LOCATION | ' this}}
-            <li class="locations__details_detail">
-              {{cp2020-input
-                name=(concat 'system.locations.' @index '.location')
-                value=location
-                type='text'
-                label=(concat @root.constants.SYSTEM_NAME '.items.armor.locations.location.long')
-              }}
-              {{cp2020-input
-                name=(concat 'system.locations.' @index '.sp')
-                value=sp
-                type='number'
-                label=(concat @root.constants.SYSTEM_NAME '.items.armor.locations.sp.long')
-              }}
-              {{cp2020-input
-                name=(concat 'system.locations.' @index '.ablation')
-                value=ablation
-                type='number'
-                label=(concat @root.constants.SYSTEM_NAME '.items.armor.locations.ab.long')
-              }}
-              {{cp2020-button
-                label=(concat @root.constants.SYSTEM_NAME '.items.armor.locations.remove.long')
-                action='delete-location'
-                key=@index
-              }}
+        {{#cp2020-sectionBox title='locations' class='locations__details'}}
+          <ul
+            class="locations__details-list"
+            data-selector="location-detail"
+          >
+            {{#each item.system.locations}}
+              {{systemLog ' ARMOR LOCATION | ' this}}
+              <li class="locations__details-location">
+                {{cp2020-input
+                  name=(concat 'system.locations.' @index '.location')
+                  value=location
+                  disabled=true
+                  type='text'
+                  label=(concat @root.constants.SYSTEM_NAME '.items.armor.locations.location.long')
+                }}
+                {{cp2020-input
+                  name=(concat 'system.locations.' @index '.total')
+                  disabled=true
+                  value=total
+                  type='number'
+                  label=(concat @root.constants.SYSTEM_NAME '.items.armor.locations.total.short')
+                }}
+                {{cp2020-input
+                  name=(concat 'system.locations.' @index '.sp')
+                  value=sp
+                  type='number'
+                  label=(concat @root.constants.SYSTEM_NAME '.items.armor.locations.sp.short')
+                }}
+                {{cp2020-input
+                  name=(concat 'system.locations.' @index '.ablation')
+                  value=ablation
+                  type='number'
+                  label=(concat @root.constants.SYSTEM_NAME '.items.armor.locations.ab.long')
+                }}
+                {{cp2020-button
+                  label=(concat @root.constants.SYSTEM_NAME '.items.armor.locations.remove.long')
+                  action='delete-location'
+                  key=@index
+                }}
 
-            </li>
-          {{/each}}
-        </ul>
+              </li>
+            {{/each}}
+          </ul>
+        {{/cp2020-sectionBox}}
       </div>
     </article>
   </section>
