@@ -2,18 +2,22 @@
 
 {{#cp2020-sectionBox title='Health' class='edgerunner-sheet__health'}}
   <article class="health__damage-interface">
-    {{cp2020-mannequin
-      action="health-click"
-      class="health__mannequin"
-      locationClasses=health.locationClasses
-      graphic=graphic
+    {{#cp2020-fieldBox
+      class="mannequin-box"
     }}
-    {{cp2020-progressDetail
-      class="health__detail"
-      value=health.statusLevel
-      max=40
-      name=(concat (localize (concat @root.constants.SYSTEM_NAME '.health.condition.label')) ': ' health.condition)
-    }}
+      {{cp2020-mannequin
+        action="health-click"
+        class="health__mannequin"
+        locationClasses=health.locationClasses
+        graphic=graphic
+      }}
+      {{cp2020-progressDetail
+        class="health__detail"
+        value=health.statusLevel
+        max=40
+        name=(concat (localize (concat @root.constants.SYSTEM_NAME '.health.condition.label')) ': ' health.condition)
+      }}
+    {{/cp2020-fieldBox}}
     <div class="health__save-interface">
       {{save
         label=(localize (concat @root.constants.SYSTEM_NAME '.health.saves.stun'))

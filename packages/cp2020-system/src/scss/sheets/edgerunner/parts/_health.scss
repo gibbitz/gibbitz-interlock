@@ -8,8 +8,10 @@
     &__health {
       .health {
         &__damage-interface {
-          display: grid;
-          grid-template-columns: 1fr 0.4fr;
+          .mannequin-box > * {
+            display: grid;
+            grid-template-columns: 1fr 0.4fr;
+          }
         }
         &__mannequin {
           @extend %mannequin;

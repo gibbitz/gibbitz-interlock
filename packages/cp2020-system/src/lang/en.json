@@ -165,6 +165,21 @@
       "armor": {
         "label": "Armor",
         "labelPlural": "Armor",
+        "type": {
+          "long": "Armor Composition",
+          "short": "type",
+          "hard": {
+            "long": "Hard (plates of metal, ceramic or plasic)",
+            "short": "hard"
+          },
+          "soft": {
+            "long": "Soft (woven kevlar or durable fiber)",
+            "short": "soft"},
+          "composite": {
+            "long": "Composite (combination of hard and soft)",
+            "short": "composite"
+          }
+        },
         "ev": {
           "long": "Encumbrance Value",
           "short": "EV"

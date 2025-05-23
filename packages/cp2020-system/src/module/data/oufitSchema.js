@@ -1,4 +1,5 @@
 import { Cp2020Item } from '@documents/Cp2020Item';
+import { armorTypes } from '@constants/armorTypes';
 
 const {
   HTMLField,
@@ -91,7 +92,10 @@ const armorLocationFields = {
 
 export const armorSchema = () => ({
   locations: new ArrayField(new SchemaField(armorLocationFields)),
-  ev: new NumberField(optionalUninitialized)
+  ev: new NumberField(optionalUninitialized),
+  total: new NumberField(requiredUninitialized),
+  sp: new NumberField(requiredUninitialized),
+  composition: new StringField({ choices: armorTypes})
 })
 
 export const skillSchema = () => ({

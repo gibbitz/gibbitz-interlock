@@ -10,7 +10,8 @@ import {
 import {
   appendSystemConstants,
   systemLog,
-  fetchMannequinGraphic
+  fetchMannequinGraphic,
+  calculateLayeredArmorSp
 } from '@utils';
 import {
   registerItemDeleteClick,
@@ -27,6 +28,28 @@ import { registerRollFormulaClick } from './listeners/registerRollFormulaClick';
 import { registerRollClick } from './listeners/registerRollClick';
 import { registerHealthClick } from '@actorListeners';
 
+// calculate worn armor status
+const getCombinedArmorLocations = (armors = []) => armors
+  .reduce((acc, { system: { locations } }) => {
+    locations.forEach(({ location, sp, ablation, total }, index) => {
+      const locationMatch = acc.find(
+        (accData) => accData.location === location
+      )
+      if (locationMatch) {
+        acc[acc.indexOf(locationMatch)] = {
+          location,
+          sp: calculateLayeredArmorSp(locationMatch.sp, sp),
+          ablation: ablation + locationMatch.ablation,
+          total: calculateLayeredArmorSp(locationMatch.total, total)
+        }
+      } else {
+        acc.push(locations[index])
+      }
+    })
+    return acc
+  },
+    []
+  )
 
 /**
  * Chrome out the basic Actor sheet.
@@ -129,6 +152,11 @@ export class EdgerunnerSheet extends ActorSheet {
     const cyberwareStats = {
       hum
     }
+    const armorLocations = getCombinedArmorLocations(this.actor.itemTypes?.Armor)
+    const armorLocationClasses = armorLocations
+      .map(({location}) => location)
+      .join(' ')
+
     // Add roll data for TinyMCE editors.
     const rollData = context.actor.getRollData();
 
@@ -145,6 +173,8 @@ export class EdgerunnerSheet extends ActorSheet {
     // TODO: Determine if this is better than the document for derived stats
     const sheetData = appendSystemConstants({
       ...context,
+      armorLocations,
+      armorLocationClasses,
       graphic,
       system,
       flags,
@@ -177,6 +207,20 @@ export class EdgerunnerSheet extends ActorSheet {
         ((8 - system.health.damageByLocation[location]) / 8) * 10
       ))}`
       mannequin.getElementById(location)?.classList?.add(lvlClass)
+    })
+
+      const armorLocations = getCombinedArmorLocations(this.actor.itemTypes?.Armor)
+      const armorMannequin = domRoot.querySelector('.armor__mannequin svg')
+
+      armorLocations?.forEach(({ location, sp, total }) => {
+        const lvlClass = `level-${Math.max(1, Math.round(
+          ((total) / sp) * 10
+        ))}`
+        const locationShape = armorMannequin.getElementById(location)
+        locationShape?.classList?.add(lvlClass)
+        const locationTitle = document.createElementNS('http://www.w3.org/2000/svg', 'title')
+        locationTitle.textContent = `${location}: ${total}`
+        locationShape.appendChild(locationTitle)
     })
 
     // Delete Inventory Item

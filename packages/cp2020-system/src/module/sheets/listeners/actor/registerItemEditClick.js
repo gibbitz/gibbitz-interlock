@@ -12,7 +12,7 @@
  * @returns {ItemEditClickHandler}
  */
 export const registerItemEditClick = (edgerunnerSheet) => (event) =>{
-  const { uuid } = event.target.dataset
+  const { uuid } = event.currentTarget.dataset
   const item = edgerunnerSheet.actor.items.get(uuid)
   item.sheet.render(true)
 }

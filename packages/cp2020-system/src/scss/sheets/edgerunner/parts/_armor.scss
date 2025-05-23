@@ -1,0 +1,30 @@
+@use '../../item-placeholders';
+
+.armor {
+  &__ablation-interface {
+    display: grid;
+    grid-template-columns: minmax(13.2rem, 0.5fr) 1.2fr;
+    height: 100%;
+
+    .mannequin-box > span {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .locations__mannequin {
+      @extend %mannequin;
+      .mannequin__graphic {
+        height: 100%;
+      }
+      svg {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    .item-list {
+      height: 100%;
+      overflow-y: auto;
+    }
+  }
+}

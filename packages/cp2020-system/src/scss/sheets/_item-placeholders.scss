@@ -24,6 +24,10 @@
 }
 
 %mannequin {
+  margin: 0;
+  max-height: 100%;
+  padding: 1rem 0;
+
   svg {
     display: inline-block;
     height: 100%;

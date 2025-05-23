@@ -1,24 +1,42 @@
-{{systemLog ' ARMOR PARTIAL | ' this}}
-{{#if this.length}}
+{{systemLog ' ARMOR PARTIAL | ' armor }}
+{{#if armor.length}}
   {{#cp2020-sectionBox
     title='Armor'
     class='item-list__wrapper'
   }}
-    {{cp2020-mannequin
-      class="locations__mannequin"
-      locationClasses=locationClasses
-      graphic=graphic
-    }}
-    <div class="item-list item-list--armor">
-      {{#each this}}
-        {{cp2020-progressDetail
-          class="armor__local--bar"
-          max=sp
-          min=0
-          value=ablation
-          name=location
+    <article class="armor__ablation-interface">
+
+    {{!-- this will need the classnames added dynamically --}}
+    {{!-- mousing over items in the list on the right should highlight the areas --}}
+      {{#cp2020-fieldBox
+        class="mannequin-box"
+      }}
+        {{cp2020-mannequin
+          class="armor__mannequin locations__mannequin"
+          locationClasses=locationClasses
+          graphic=graphic
         }}
-      {{/each}}
-    </div>
+      {{/cp2020-fieldBox}}
+      <div class="item-list">
+        {{!-- this section will need overall ablation indication --}}
+        {{#each armor}}
+          {{#cp2020-fieldBox}}
+          <a
+            data-selector="item-edit"
+            data-uuid="{{_id}}"
+            title="edit"
+          >
+            {{cp2020-progressDetail
+              class="armor__local--bar"
+              max=system.sp
+              min=0
+              value=system.total
+              name=name
+            }}
+          </a>
+          {{/cp2020-fieldBox}}
+        {{/each}}
+      </div>
+    </article>
   {{/cp2020-sectionBox}}
 {{/if}}

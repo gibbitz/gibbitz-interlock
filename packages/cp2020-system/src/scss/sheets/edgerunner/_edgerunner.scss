@@ -1,4 +1,5 @@
 @use '../../partials/variables' as vars;
+@forward './parts/armor';
 
 $col-width: minmax(15rem, 1fr);
 

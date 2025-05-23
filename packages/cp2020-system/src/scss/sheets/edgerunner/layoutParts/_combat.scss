@@ -16,7 +16,7 @@
     .edgerunner-sheet {
       &__combat-grid {
         grid-template-columns: minmax(8rem, 10rem) minmax(12rem, 15rem) 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 31.6rem 1fr;
 
         .edgerunner-sheet__stats {
           grid-column: 1;
