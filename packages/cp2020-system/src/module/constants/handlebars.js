@@ -22,6 +22,7 @@ const itemPartials = [
   'cyberdeck',
   'cyberware',
   'itemDetails',
+  'itemList',
   'outfit',
   'outfitEcon',
   'outfitSpecs',
@@ -45,7 +46,8 @@ const actorPartials = [
 ]
 const actorLayoutPartials = [
   'background',
-  'combat'
+  'combat',
+  'inventory'
 ]
 
 const generateGlobalPartialPath = (partialName) =>

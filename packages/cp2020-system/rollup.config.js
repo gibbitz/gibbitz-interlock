@@ -43,7 +43,7 @@ export default (async () => ({
     }),
 		resolve(),
     string({
-      include: '**/**.hbs'
+      include: ['**/**.hbs', '**/**.svg']
     }),
 		isProd && (await import('@rollup/plugin-terser')).default()
 	],

@@ -22,7 +22,9 @@ import {
   WOUND_TYPES_I18N_BASE,
   SYSTEM_NAME,
   HEALTH_ACTION_TYPES,
-  HEALTH_ACTION_TYPES_I18N_BASE
+  HEALTH_ACTION_TYPES_I18N_BASE,
+  WEAPON_RELIABLITIES,
+  WEAPON_RELIABILITY_I18N_BASE
 } from '@constants'
 
 const insertDefaultOption = (i18n, options) => ({
@@ -76,6 +78,21 @@ export const buildConcealabilitySelectOptions = (i18n) =>
       i18n,
       WEAPON_CONCEALABILITIES,
       (val) => `${WEAPON_CONCEALABILITY_I18N_BASE}.${val}.long`
+    )
+  )
+/**
+ * builds key value pairs of the localized concealability (pocket, long coat, etc.)
+ * for use as select <option/>s
+ * @param {Localization} i18n the i18n class that provides the localize function
+ * @returns {Object} key -> value pairs like `{ longCoat: 'Long Coat' }`
+ */
+export const buildReliabilitySelectOptions = (i18n) =>
+  insertDefaultOption(
+    i18n,
+    translateObjectValuesFromKeys(
+      i18n,
+      WEAPON_RELIABLITIES,
+      (val) => `${WEAPON_RELIABILITY_I18N_BASE}.${val}.long`
     )
   )
 

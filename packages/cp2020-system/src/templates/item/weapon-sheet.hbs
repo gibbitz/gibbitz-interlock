@@ -44,6 +44,12 @@
             value=item.system.concealability
             options=@root.constants.WEAPON_CONCEALABILITY_SELECT_OPTIONS
           }}
+          {{cp2020-select
+            label=(concat @root.constants.SYSTEM_NAME '.items.weapon.reliability.long')
+            name="system.reliability"
+            value=item.system.reliability
+            options=@root.constants.WEAPON_RELIABILITY_SELECT_OPTIONS
+          }}
           {{cp2020-input
             label=(concat @root.constants.SYSTEM_NAME '.items.weapon.accuracy.long')
             name="system.accuracy"

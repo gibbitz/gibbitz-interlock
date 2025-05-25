@@ -37,5 +37,6 @@ export class Weapon extends Outfit {
     this.damageRoll = `${damage} + ${strBonus}`
     this.hitRoll = `${rollBase} + ${accuracy}`
     this.rangeDVs = determineWeaponRanges(this.range)
+    this.prettyRateOfFire = this.rateOfFire.sort().reverse().join(' / ')
   }
 }

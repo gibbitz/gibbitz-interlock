@@ -1,0 +1,16 @@
+{{systemLog ' ITEM LIST | ' title class items}}
+{{#if items.length}}
+  {{#cp2020-sectionBox title=title class=class}}
+  <ul class="item-list">
+    {{#each items}}
+      <li class="item item--{{this.type}}" data-item-id="{{this._id}}" data-item-name="{{this.name}}">
+      {{#if (eq this.type 'Weapon')}}
+        {{weapon this}}
+      {{else}}
+        {{outfit this}}
+      {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+  {{/cp2020-sectionBox}}
+{{/if}}

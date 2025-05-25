@@ -325,6 +325,22 @@
           "long": "Damage",
           "short": "DAM"
         },
+        "reliability": {
+          "long": "Reliability",
+          "short": "Rel",
+          "veryReliable": {
+            "long": "Very Reliable",
+            "short": "VR"
+          },
+          "standard": {
+            "long": "Standard",
+            "short": "ST"
+          },
+          "unreliable": {
+            "long": "Unreliable",
+            "short": "UR"
+          }
+        },
         "conceal": {
           "long": "Concealability",
           "short": "Conc",

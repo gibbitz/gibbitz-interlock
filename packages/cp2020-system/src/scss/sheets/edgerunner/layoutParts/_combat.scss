@@ -1,4 +1,5 @@
 @use '../../../partials/variables' as vars;
+@forward '../parts/weapon';
 
 #{vars.$system-name} {
 

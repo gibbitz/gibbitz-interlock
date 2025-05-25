@@ -1,8 +1,14 @@
-import { GRAPHIC_ASSETS_IMPORT_BASE_PATH } from '@constants'
+import maleMannequin from '@assets/graphics/male.svg'
+import femaleMannequin from '@assets/graphics/female.svg'
 
 const MALE = 'male'
 const FEMALE = 'female'
 const REPRESENTED_GENDERS = [FEMALE, MALE]
+
+const mannequins = {
+  [MALE]: maleMannequin,
+  [FEMALE]: femaleMannequin
+}
 
 /**
  * function to get SVG graphic markup as a string to insert into HBS templates
@@ -12,7 +18,7 @@ const REPRESENTED_GENDERS = [FEMALE, MALE]
  * @param {string} genderString
  * @returns {Promise<string>} svgMarkup
  */
-export const fetchMannequinGraphic = async (genderString = '') => {
+export const fetchMannequinGraphic = (genderString = '') => {
   const lowerCaseGenderString = genderString?.toLowerCase()
   const cysGender = REPRESENTED_GENDERS.indexOf(lowerCaseGenderString) > -1
     && genderString.toLowerCase()
@@ -25,7 +31,6 @@ export const fetchMannequinGraphic = async (genderString = '') => {
   // binary -- if more genders are added to the list this will need to change
   const randomGender = REPRESENTED_GENDERS[Math.round(Math.random())]
   const gender = cysGender || interpretedFemale || interpretedMale || randomGender
-  const svgData = await fetch(`${GRAPHIC_ASSETS_IMPORT_BASE_PATH}${gender}.svg`)
-  const svgMarkup = await svgData.text()
+  const svgMarkup = mannequins[gender]
   return svgMarkup
 }

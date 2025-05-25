@@ -7,6 +7,11 @@
     graphic=graphic
   }}
   {{!-- equiped --}}
+  {{itemList
+    items=weapon
+    class='combat-grid__weapons combat-grid__weapons--equiped'
+    title='Equiped Weapons'
+  }}
   {{!-- cyberweapons --}}
   {{armor
     armor=armor
@@ -14,5 +19,9 @@
     locationClasses=armorLocationClasses
   }}
   {{!-- stashed --}}
-  {{weapon weapon}}
+  {{itemList
+    items=weapon
+    class='combat-grid__weapons combat-grid__weapons--all'
+    title='All Weapons'
+  }}
 </div>

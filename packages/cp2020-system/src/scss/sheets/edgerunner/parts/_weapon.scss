@@ -1,0 +1,15 @@
+@use '../../item-placeholders' as *;
+// weapon item partial used in Edgrunner sheets
+
+// TODO: Organize these better
+.weapon-item{
+  &__img {
+    @extend %item-image;
+  }
+  &__stats {
+    svg {
+      height: 1.3rem;
+      width: 1.3rem;
+    }
+  }
+}

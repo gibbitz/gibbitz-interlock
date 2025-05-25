@@ -168,7 +168,7 @@ export class EdgerunnerSheet extends ActorSheet {
     );
 
     // create graphic svg string for armor/health diplay based on Gender
-    const graphic = await fetchMannequinGraphic(system.identity.gender)
+    const graphic = fetchMannequinGraphic(system.identity.gender)
 
     // TODO: Determine if this is better than the document for derived stats
     const sheetData = appendSystemConstants({

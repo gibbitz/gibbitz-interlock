@@ -39,9 +39,13 @@
           {{skill actor.itemTypes.Skill}}
         </article>
         <article class="tab" data-tab="inventory">
-          {{stat inventoryStats}}
-          {{outfit actor.itemTypes.Outfit}}
-          {{weapon actor.itemTypes.Weapon}}
+          {{inventory
+            stats=inventoryStats
+            upgrades=actor.itemTypes.Upgrades
+            outfit=actor.itemTypes.Outfit
+            weapons=actor.itemTypes.Weapon
+            vehicles=actor.itemTypes.Vehicle
+          }}
         </article>
         <article class="tab" data-tab="cyberware">
           {{stat cyberwareStats}}

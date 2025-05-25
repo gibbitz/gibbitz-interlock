@@ -57,11 +57,12 @@ export const upgradeSchema = () => ({
 })
 
 export const weaponSchema = () => ({
-  type: new StringField(requiredBlank),
-  skill: new StringField(requiredBlank),
-  damage: new StringField(requiredBlank),
-  concealability: new StringField(requiredBlank),
   accuracy: new NumberField(requiredUninitialized),
+  concealability: new StringField(requiredBlank),
+  damage: new StringField(requiredBlank),
+  reliability: new StringField(), // TODO: restrict to drop-down values
+  skill: new StringField(requiredBlank),
+  type: new StringField(requiredBlank),
   upgradeIds: new ArrayField(new ForeignDocumentField(Item, { idOnly: true }))
 })
 
