@@ -296,6 +296,8 @@
           "short": "Type"
         },
         "types": {
+          "long": "Weapon Type",
+          "short": "Type",
           "bow": {
             "long": "Bow",
             "short": "Bow"

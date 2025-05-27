@@ -65,15 +65,26 @@
 
   .cp2020-button {
     @extend %crt-hover;
+    align-items: center;
     background: vars.$color-level-info-inactive;
     color: vars.$color-bg;
-    display: inline-block;
+    display: inline-flex;
+    line-height: 1.5rem;
     padding: 0.3rem 1rem;
     transition: color 0.2s, background-color 0.3s;
     width: auto;
+    .die--d-6,
+    .die--d-10 {
+      color: vars.$color-bg;
+      margin-left:0.2rem;
+    }
     &:hover {
       color: vars.$color-text-light-0;
       background: vars.$color-level-info-active;
+      .die--d-6,
+      .die--d-10 {
+        color: vars.$color-text-light-0;
+      }
     }
   }
 

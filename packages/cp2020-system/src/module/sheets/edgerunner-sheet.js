@@ -16,6 +16,7 @@ import {
 import {
   registerItemDeleteClick,
   registerItemEditClick,
+  registerItemEquipClick,
   registerAddLifepathRowClick,
   registerAddSiblingClick,
   registerFormFieldChange,
@@ -227,6 +228,16 @@ export class EdgerunnerSheet extends ActorSheet {
     html.find('[data-selector="item-delete"]')
       .click(
         registerItemDeleteClick(this)
+      )
+    // Equip Inventory Item
+    html.find('[data-selector="item-equip"]')
+      .click(
+        registerItemEquipClick(this)
+      )
+    // Stash Inventory Item
+    html.find('[data-selector="item-stash"]')
+      .click(
+        registerItemEquipClick(this, false)
       )
 
     // Render the detailed sheet for non-inline viewing/editing.

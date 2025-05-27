@@ -1,15 +1,71 @@
 @use '../../item-placeholders' as *;
+@use '../../../partials/placeholders' as *;
+@use '../../../partials/variables' as vars;
 // weapon item partial used in Edgrunner sheets
-
+$icon-size: 1.3rem;
 // TODO: Organize these better
 .weapon-item{
+  .field-box--inner {
+    display: grid;
+    grid-template-rows: 3.2fr 1fr;
+  }
+  &__summary {
+    cursor: pointer;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 1fr 4fr;
+    padding-left: 0.3rem;
+  }
   &__img {
     @extend %item-image;
+    align-self: anchor-center;
   }
   &__stats {
-    svg {
-      height: 1.3rem;
-      width: 1.3rem;
+    @extend %unstyled-list;
+    align-content: space-evenly;
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    justify-items: flex-end;
+
+    > li {
+      padding-right: calc($icon-size + 1rem);
+      position: relative;
     }
+  }
+  &__stat {
+    transition: color 0.5s ease-out, fill-opacity 0.5s ease-out;
+    color: vars.$color-text-light-3;
+    &:hover {
+      color: vars.$color-text-light-0;
+      svg {
+        fill-opacity: 1;
+      }
+    }
+  }
+  &__stat--icon {
+    position: absolute;
+    right: 0.5rem;
+    top: 0;
+    svg {
+      fill: vars.$color-text-light-7;
+      fill-opacity: 0.5;
+      stroke: none;
+      height: $icon-size;
+      width: $icon-size;
+    }
+  }
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0.5rem;
+    > * {
+      margin-left: 0.3rem;
+    }
+  }
+  &__name {
+    color: vars.$color-text-light-0;
+    flex: 1;
   }
 }

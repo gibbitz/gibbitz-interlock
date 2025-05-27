@@ -1,116 +1,143 @@
 {{systemLog ' WEAPON | ' this}}
 {{#cp2020-fieldBox class=(concat 'weapon-item weapon__ammo--level-' scaleValue)}}
-  <a
+  <article
+  class="weapon-item__summary"
     data-selector="item-edit"
     data-uuid="{{_id}}"
     title="edit"
   >
     <img class="weapon-item__img" src="{{img}}" title="{{name}}" />
+    <ul class="weapon-item__stats">
+      <li
+        class="weapon-item__stat weapon-item__stat--type"
+        aria-label="{{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.type.long')}}"
+        title="{{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.type.long')}}"
+      >
+        {{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.types.' system.type '.long')}}
+        <span class="weapon-item__stat--icon">
+          {{{constants.ICONS.WEAPON_TYPE}}}
+        </span>
+      </li>
+      <li
+        class="weapon-item__stat weapon-item__stat--accuracy"
+        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.accuracy.long')}}
+        title={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.accuracy.long')}}
+      >
+        {{system.accuracy}}
+        <span class="weapon-item__stat--icon">
+          {{{constants.ICONS.ACCURACY}}}
+        </span>
+      </li>
+      <li
+        class="weapon-item__stat weapon-item__stat--cartridge"
+        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.cartridge.long')}}
+        title={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.cartridge.long')}}
+      >
+        {{system.cartridge}}
+        <span class="weapon-item__stat--icon">
+          {{{constants.ICONS.CARTRIDGE}}}
+        </span>
+      </li>
+      <li
+        class="weapon-item__stat weapon-item__stat--magazine"
+        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.magazine.long')}}
+        title={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.magazine.long')}}
+      >
+        {{system.magazine}}
+        <span class="weapon-item__stat--icon">
+          {{{constants.ICONS.MAGAZINE}}}
+        </span>
+      </li>
+      <li
+        class="weapon-item__stat weapon-item__stat--damage"
+        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.damage.long')}}
+        title={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.damage.long')}}
+      >
+        {{system.damage}}
+        <span class="weapon-item__stat--icon">
+          {{{constants.ICONS.DAMAGE}}}
+        </span>
+      </li>
+      <li
+        class="weapon-item__stat weapon-item__stat--rof"
+        aria-label="{{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.rateOfFire.long')}}"
+        title="{{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.rateOfFire.long')}}"
+      >
+        {{system.prettyRateOfFire}}
+        <span class="weapon-item__stat--icon">
+          {{{constants.ICONS.RATE_OF_FIRE}}}
+        </span>
+      </li>
+      <li
+        class="weapon-item__stat weapon-item__stat--concealability"
+        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.conceal.long')}}
+        title={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.conceal.long')}}
+      >
+        {{system.concealability}}
+        <span class="weapon-item__stat--icon">
+          {{{constants.ICONS.CONCEALABILITY}}}
+        </span>
+      </li>
+      <li
+        class="weapon-item__stat weapon-item__stat--range"
+        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.range')}}
+        title={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.range')}}
+      >
+        {{system.range}}
+        <span class="weapon-item__stat--icon">
+          {{{constants.ICONS.RANGE}}}
+        </span>
+      </li>
+      <li
+        class="weapon-item__stat weapon-item__stat--reliability"
+        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.reliability.long')}}
+        title={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.reliability.long')}}
+      >
+        {{system.reliability}}
+        <span class="weapon-item__stat--icon">
+          {{{constants.ICONS.RELIABILITY}}}
+        </span>
+      </li>
+      <li
+        class="weapon-item__stat weapon-item__stat--cost"
+        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.cost')}}
+        title={{localize (concat @root.constants.SYSTEM_NAME '.items.cost')}}
+      >
+        {{system.cost.euroDollars}}
+        <span class="weapon-item__stat--icon">
+          {{{constants.ICONS.COST}}}
+        </span>
+      </li>
+    </ul>
+  </article>
+  <div class="weapon-item__actions">
     <p class="weapon-item__name">
       {{name}}
     </p>
-  </a>
-  <ul class="weapon-item__stats">
-    <li class="weapon-item__stat--type">
-      {{system.type}}
-      <span
-        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.type.long')}}
-        title={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.type.long')}}
-        class="weapon-item__stat--icon"
-      >
-        {{{constants.ICONS.WEAPON_TYPE}}}
-      </span>
-    <li class="weapon-item__stat--range">
-      {{system.range}}
-      <span
-        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.range')}}
-        title={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.range')}}
-        class="weapon-item__stat--icon"
-      >
-        {{{constants.ICONS.RANGE}}}
-      </span>
-    <li class="weapon-item__stat--magazine">
-      {{system.magazine}}
-      <span
-        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.magazine.long')}}
-        title={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.magazine.long')}}
-        class="weapon-item__stat--icon"
-      >
-        {{{constants.ICONS.MAGAZINE}}}
-      </span>
-    <li class="weapon-item__stat--rof">
-      {{system.prettyRateOfFire}}
-      <span
-        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.rateOfFire.long')}}
-        title={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.rateOfFire.long')}}
-        class="weapon-item__stat--icon"
-      >
-        {{{constants.ICONS.RATE_OF_FIRE}}}
-      </span>
-    <li class="weapon-item__stat--accuracy">
-      {{system.accuracy}}
-      <span
-        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.accuracy.long')}}
-        title={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.accuracy.long')}}
-        class="weapon-item__stat--icon"
-      >
-        {{{constants.ICONS.ACCURACY}}}
-      </span>
-    <li class="weapon-item__stat--damage">
-      {{system.damage}}
-      <span
-        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.damage.long')}}
-        title={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.damage.long')}}
-        class="weapon-item__stat--icon"
-      >
-        {{{constants.ICONS.DAMAGE}}}
-      </span>
-    <li class="weapon-item__stat--concealability">
-      {{system.concealability}}
-      <span
-        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.conceal.long')}}
-        title={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.conceal.long')}}
-        class="weapon-item__stat--icon"
-      >
-        {{{constants.ICONS.CONCEALABILITY}}}
-      </span>
-    <li class="weapon-item__stat--reliability">
-      {{system.reliability}}
-      <span
-        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.reliability.long')}}
-        title={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.reliability.long')}}
-        class="weapon-item__stat--icon"
-      >
-        {{{constants.ICONS.RELIABILITY}}}
-      </span>
-    <li class="weapon-item__stat--cost">
-      {{system.cost.euroDollars}}
-      <span
-        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.cost')}}
-        title={{localize (concat @root.constants.SYSTEM_NAME '.items.cost')}}
-        class="weapon-item__stat--icon"
-      >
-        {{{constants.ICONS.COST}}}
-      </span>
-    <li class="weapon-item__stat--cartridge">
-      {{system.cartridge}}
-      <span
-        aria-label={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.cartridge.long')}}
-        title={{localize (concat @root.constants.SYSTEM_NAME '.items.weapon.cartridge.long')}}
-        class="weapon-item__stat--icon"
-      >
-        {{{constants.ICONS.CARTRIDGE}}}
-      </span>
-  </ul>
-  {{cp2020-button
-    class="weapon__roll"
-    uuid=_id
-    roll=true
-    label='fire'
-  }}
-  {{cp2020-button
-    uuid=_id
-    label='delete'
-    selector='item-delete'
-  }}
+    {{#if system.equipped}}
+      {{cp2020-button
+        class="weapon__roll"
+        uuid=_id
+        roll=true
+        sides=10
+        label='fire'
+      }}
+      {{cp2020-button
+        uuid=_id
+        label='stash'
+        selector='item-stash'
+      }}
+    {{else}}
+      {{cp2020-button
+        uuid=_id
+        label='equip'
+        selector='item-equip'
+      }}
+      {{cp2020-button
+        uuid=_id
+        label='drop'
+        selector='item-delete'
+      }}
+    {{/if}}
+  </div>
 {{/cp2020-fieldBox}}

@@ -12,5 +12,11 @@
     {{#if type}}type="{{type}}"{{/if}}
   >
     {{localize label}}
+    {{#if (eq sides 6)}}
+      <span class="die--d-6"></span>
+    {{/if}}
+    {{#if (eq sides 10)}}
+      <span class="die--d-10"></span>
+    {{/if}}
   </button>
 </span>
