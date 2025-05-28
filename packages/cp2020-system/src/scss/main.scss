@@ -9,14 +9,6 @@
 @use 'partials/layout';
 @use 'partials/effects';
 @use 'sheets/outfit/armorSheet';
-@use 'sheets/edgerunner/parts/portrait';
-@use 'sheets/edgerunner/parts/stats';
-@use 'sheets/edgerunner/parts/siblings';
-@use 'sheets/edgerunner/parts/identity';
-@use 'sheets/edgerunner/parts/health';
-@use 'sheets/edgerunner/parts/lifepath';
-@use 'sheets/edgerunner/layoutParts/background';
-@use 'sheets/edgerunner/layoutParts/combat';
 @use 'sheets/edgerunner/edgerunner';
 
 .system-cp2020-system {

@@ -106,7 +106,8 @@ export const skillSchema = () => ({
   ipMultiplier: new NumberField(requiredInitialOne),
   roles: new ArrayField(new StringField()),
   specialAbility: new StringField(),
-  stat: new StringField()
+  stat: new StringField(),
+  levelUp: new NumberField()
 })
 
 export const vehicleSchema = () => ({

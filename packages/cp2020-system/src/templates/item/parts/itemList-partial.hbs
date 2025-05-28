@@ -6,6 +6,8 @@
       <li class="item item--{{this.type}}" data-item-id="{{this._id}}" data-item-name="{{this.name}}">
       {{#if (eq this.type 'Weapon')}}
         {{weapon this}}
+      {{else if (eq this.type 'Skill')}}
+        {{skill this}}
       {{else}}
         {{outfit this}}
       {{/if}}

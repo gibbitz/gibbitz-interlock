@@ -1,0 +1,43 @@
+@use '../../../partials/variables' as vars;
+
+@forward '../parts/skill';
+
+#{vars.$system-name} {
+
+  [data-tab="tasks"] {
+    container-type: inline-size;
+    container-name: tasks;
+  }
+
+  .edgerunner-sheet{
+    &__task-grid {
+      display: grid;
+      grid-gap: 0.4rem;
+    }
+  }
+
+  @container tasks (max-width: 2770px) {
+    .edgerunner-sheet {
+      &__task-grid {
+        grid-template-columns: minmax(8rem, 10rem) 1fr;
+
+        .edgerunner-sheet__stats {
+          grid-column: 1;
+        }
+
+        &__skills {
+          grid-column: 2;
+        }
+      }
+    }
+  }
+
+  @container tasks (max-width: 770px) {
+    .edgerunner-sheet {
+      &__task-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+      }
+    }
+  }
+}

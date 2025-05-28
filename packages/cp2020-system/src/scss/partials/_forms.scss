@@ -13,6 +13,15 @@
   textarea {
     @extend %input;
   }
+  input[type="checkbox"],
+  input[type="radio"] {
+    @extend %checkbox;
+  }
+  input[type="radio"] {
+    &::before, &::after {
+      border-radius: 50%;
+    }
+  }
 
   textarea {
     font-family: vars.$font-primary;
@@ -89,11 +98,12 @@
 
   .field-box {
     @extend %box;
-    background-color: vars.$color-field-bg;
+    background-color: vars.$color-bg-clear;
 
     &:hover,
     &:focus-within {
-      background-color: vars.$color-field-bg-focus;
+      background-color: vars.$color-field-bg;
+      // background-color: vars.$color-field-bg-focus;
     }
 
     &--inner {

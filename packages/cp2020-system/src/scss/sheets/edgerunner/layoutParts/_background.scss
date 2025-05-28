@@ -1,4 +1,9 @@
 @use '../../../partials/variables' as vars;
+
+@forward '../parts/siblings';
+@forward '../parts/identity';
+@forward '../parts/lifepath';
+
 #{vars.$system-name} {
 
   [data-tab="background"] {

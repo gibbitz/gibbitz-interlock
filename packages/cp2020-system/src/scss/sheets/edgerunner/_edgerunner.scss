@@ -1,5 +1,10 @@
 @use '../../partials/variables' as vars;
-@forward './parts/armor';
+
+@forward './parts/portrait';
+@forward './parts/stats';
+@forward './layoutParts/background';
+@forward './layoutParts/combat';
+@forward './layoutParts/tasks';
 
 $col-width: minmax(15rem, 1fr);
 

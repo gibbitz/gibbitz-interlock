@@ -1,0 +1,75 @@
+@use '../../item-placeholders' as *;
+@use '../../../partials/placeholders' as *;
+@use '../../../partials/variables' as vars;
+
+%flex-line {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.skill-item {
+  &__wrapper {
+    padding-left: 1.5rem;
+    position: relative;
+    &::before {
+      content: '';
+      border-right: 1px solid vars.$color-text-light-7;
+      border-top: 1px solid vars.$color-text-light-7;
+      display: block;
+      height: .5rem;
+      left: .3rem;
+      position: absolute;
+      top: 1.1rem;
+      transform: rotate(45deg);
+      transition: transform 0.3s ease-out;
+      width: .5rem;
+    }
+    &:open::before{
+      transform:rotate(135deg);
+    }
+  }
+  &__summary {
+    @extend %flex-line;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  &__name {
+    color: vars.$color-text-light-3;
+    flex: 1;
+    font-size: 1.2rem;
+  }
+  &__stats {
+    @extend %flex-line;
+    align-items: center;
+    flex: 0 1 auto;
+
+    & > * {
+      margin-left: 0.4rem;
+      max-width: 4rem;
+    }
+  }
+  &__actions {
+    @extend %flex-line;
+    justify-content: end;
+    padding-top: 0.5rem;
+    > * {
+      margin-left: 0.3rem;
+    }
+  }
+  &__level-up-value {
+    color: vars.$color-text-light-3;
+    display: block;
+    font-size: 1.1rem;
+  }
+  &__chipped {
+    align-items: anchor-center;
+    display: flex;
+    justify-content: space-between;
+    width: 5.6rem;
+  }
+  &__chipped-icon {
+    height: 2rem;
+    width: 2rem;
+    fill: vars.$color-text-light-7;
+  }
+}

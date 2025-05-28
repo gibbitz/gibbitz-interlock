@@ -47,7 +47,8 @@ const actorPartials = [
 const actorLayoutPartials = [
   'background',
   'combat',
-  'inventory'
+  'inventory',
+  'tasks'
 ]
 
 const generateGlobalPartialPath = (partialName) =>

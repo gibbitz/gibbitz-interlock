@@ -35,8 +35,10 @@
           {{weapon actor.itemTypes.Weapon}} --}}
         </article>
         <article class="tab" data-tab="tasks">
-          {{stat taskStats}}
-          {{skill actor.itemTypes.Skill}}
+          {{tasks
+            stats=taskStats
+            skills=sortedSkills
+          }}
         </article>
         <article class="tab" data-tab="inventory">
           {{inventory

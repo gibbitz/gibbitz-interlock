@@ -1,0 +1,12 @@
+<div class="edgerunner-sheet__task-grid">
+  {{stat stats}}
+  {{#cp2020-sectionBox title='Skills' class="tasks-wrapper"}}
+    {{#each skills}}
+      {{itemList
+        items=this
+        class=(concat 'task-grid__skills task-grid__skills--' @key)
+        title=@key
+      }}
+    {{/each}}
+  {{/cp2020-sectionBox}}
+</div>

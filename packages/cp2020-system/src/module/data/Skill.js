@@ -14,6 +14,8 @@ export class Skill extends foundry.abstract.TypeDataModel {
   }
   prepareDerivedData() {
     systemLog(' SKILL prepareDerivedData | ', this)
+    // TODO: Consider auto-leveling
+    this.levelUp = (this.level * (this.ipMultiplier || 1) * 10) - this.ip
     const rollFormula = `1d10x + @stats.${this.stat?.toLowerCase()}.total + ${this.level}`
     // TODO:
     // detect combat sense and other modifier skills
