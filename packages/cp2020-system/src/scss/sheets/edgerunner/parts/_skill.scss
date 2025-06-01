@@ -9,7 +9,7 @@
 
 .skill-item {
   &__wrapper {
-    padding-left: 1.5rem;
+    padding: 0.2rem 0.4rem 0.1rem 1.5rem;
     position: relative;
     &::before {
       content: '';
@@ -19,7 +19,7 @@
       height: .5rem;
       left: .3rem;
       position: absolute;
-      top: 1.1rem;
+      top: 0.9rem;
       transform: rotate(45deg);
       transition: transform 0.3s ease-out;
       width: .5rem;
@@ -30,22 +30,48 @@
   }
   &__summary {
     @extend %flex-line;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
+    padding-left: 1.5rem;
+    position: relative;
+    right: 1.5rem;
+    width: calc(100% + 1.5rem);
   }
   &__name {
+    align-items: center;
     color: vars.$color-text-light-3;
+    display: flex;
     flex: 1;
     font-size: 1.2rem;
+
+    > * {
+      margin-left: 0.4rem;
+    }
   }
-  &__stats {
+  &__summary-stats {
     @extend %flex-line;
     align-items: center;
     flex: 0 1 auto;
 
     & > * {
       margin-left: 0.4rem;
-      max-width: 4rem;
+    }
+  }
+  &__description {
+    font-size: 1rem;
+    line-height: 1.3
+    margin-bottom 1.3rem;
+  }
+  &__detail-stats {
+    @extend %flex-line;
+    align-items: center;
+    gap: 0.2rem;
+    justify-content: flex-end;
+    margin: 0.5rem 0 1rem;
+
+    & > * {
+      margin-left: 0.4rem;
+      max-width: 5rem;
     }
   }
   &__actions {
@@ -54,6 +80,15 @@
     padding-top: 0.5rem;
     > * {
       margin-left: 0.3rem;
+    }
+  }
+  &__level {
+    color: vars.$color-text-light-3;
+    font-size: 1.4rem;
+
+    &--total {
+      font-size: 1.1rem;
+      color: vars.$color-text-light-7;
     }
   }
   &__level-up-value {

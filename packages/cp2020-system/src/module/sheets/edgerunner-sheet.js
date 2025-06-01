@@ -170,8 +170,12 @@ export class EdgerunnerSheet extends ActorSheet {
 
     // create graphic svg string for armor/health diplay based on Gender
     const graphic = fetchMannequinGraphic(system.identity.gender)
+    const skillPool = [...this.actor.itemTypes.Chipware, ...this.actor.itemTypes.Skill]
+    const sortedSkills = skillPool.reduce((skills, skill) => {
+      // side effect to reduce O
+      skill.system.total = this.actor.system.stats[skill.system.stat?.toLowerCase()].total
+        + skill.system.level
 
-    const sortedSkills = this.actor.itemTypes.Skill.reduce((skills, skill) => {
       if(skills[skill.system.stat]) {
         skills[skill.system.stat].push(skill)
       } else {

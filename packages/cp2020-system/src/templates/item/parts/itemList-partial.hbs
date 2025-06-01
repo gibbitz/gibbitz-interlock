@@ -8,6 +8,8 @@
         {{weapon this}}
       {{else if (eq this.type 'Skill')}}
         {{skill this}}
+      {{else if (eq this.type 'Chipware')}}
+        {{skill this}}
       {{else}}
         {{outfit this}}
       {{/if}}

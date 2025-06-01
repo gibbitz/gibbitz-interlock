@@ -6,6 +6,7 @@ export const ACTOR_DOCUMENT_TYPES = {
 }
 export const ITEM_DOCUMENT_TYPES = {
   ARMOR: 'Armor',
+  CHIPWARE: 'Chipware',
   CYBERDECK: 'Cyberdeck',
   CYBERWARE: 'Cyberware',
   MAGAZINE: 'Magazine',

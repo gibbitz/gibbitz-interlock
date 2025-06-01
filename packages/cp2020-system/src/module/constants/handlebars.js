@@ -31,6 +31,9 @@ const itemPartials = [
   'vehicle',
   'weapon'
 ]
+const itemTemplatePartials = [
+  'skillsheet'
+]
 const actorPartials = [
   'family',
   'health',
@@ -55,6 +58,8 @@ const generateGlobalPartialPath = (partialName) =>
   `${BASE_TEMPLATE_PATH}/partials/${partialName}-partial.hbs`
 const generateItemPartialPath = (partialName) =>
   `${BASE_TEMPLATE_PATH}/item/parts/${partialName}-partial.hbs`
+const generateItemTemplatePartialPath = (partialName) =>
+  `${BASE_TEMPLATE_PATH}/item/partials/${partialName}-partial.hbs`
 const generateActorPartialPath = (partialName) =>
   `${BASE_TEMPLATE_PATH}/actor/parts/${partialName}-partial.hbs`
 const generateActorLayoutPartialPath = (partialName) =>
@@ -64,12 +69,14 @@ export const HBS_TEMPLATES = [
   ...actorPartials.map(generateActorPartialPath),
   ...actorLayoutPartials.map(generateActorLayoutPartialPath),
   ...itemPartials.map(generateItemPartialPath),
+  ...itemTemplatePartials.map(generateItemTemplatePartialPath),
   ...globalPartials.map(generateGlobalPartialPath)
 ]
 export const HBS_TEMPLATE_HELPER_PARAMS = [
   ...actorPartials.map((partialName) => [partialName, generateActorPartialPath(partialName)]),
   ...actorLayoutPartials.map((partialName) => [partialName, generateActorLayoutPartialPath(partialName)]),
   ...itemPartials.map((partialName) => [partialName, generateItemPartialPath(partialName)]),
+  ...itemTemplatePartials.map((partialName) => [partialName, generateItemTemplatePartialPath(partialName)]),
   ...globalPartials.map((partialName) => [partialName, generateGlobalPartialPath(partialName)])
 ]
 

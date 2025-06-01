@@ -154,6 +154,7 @@
         "weight": "Weight",
         "equipped": "Equipped",
         "level": "Level",
+        "total": "Level + Stat",
         "levelUp": "Level Up",
         "chipLevel": "Chip Level",
         "isChipped": "Chipped",
@@ -206,6 +207,11 @@
             "short": "DEL"
           }
         }
+      },
+      "chipware": {
+        "label": "Chipware",
+        "labelPlural": "Chipware",
+        "equipped": "chippedIn"
       },
       "cyberware": {
         "label": "Cyberware",

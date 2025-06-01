@@ -101,13 +101,13 @@ export const armorSchema = () => ({
 
 export const skillSchema = () => ({
   level: new NumberField(requiredUninitialized),
-  chipLevel: new NumberField(requiredUninitialized),
   ip: new NumberField(requiredUninitialized),
   ipMultiplier: new NumberField(requiredInitialOne),
   roles: new ArrayField(new StringField()),
   specialAbility: new StringField(),
   stat: new StringField(),
-  levelUp: new NumberField()
+  levelUp: new NumberField(),
+  total: new NumberField()
 })
 
 export const vehicleSchema = () => ({

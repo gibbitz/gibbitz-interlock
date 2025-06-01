@@ -14,6 +14,7 @@ import { Cp2020Actor, Cp2020Item } from '@documents';
 // data model classes
 import {
   Edgerunner,
+  Chipware,
   Cyberdeck,
   Cyberware,
   Outfit,
@@ -83,6 +84,7 @@ Hooks.on('init', function () {
   }
   CONFIG.Item.documentClass = Cp2020Item;
   CONFIG.Item.dataModels = {
+    Chipware,
     Cyberdeck,
     Cyberware,
     Outfit,

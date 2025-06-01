@@ -2,6 +2,7 @@
 export * from "./Edgerunner";
 
 // Export Items
+export * from './Chipware'
 export * from './Cyberdeck'
 export * from './Cyberware'
 export * from './Outfit'

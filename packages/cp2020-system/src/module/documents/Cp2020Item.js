@@ -19,6 +19,7 @@ export class Cp2020Item extends Item {
     let gadget
     switch (type) {
       case ITEM_DOCUMENT_TYPES.SKILL:
+      case ITEM_DOCUMENT_TYPES.CHIPWARE:
         gadget = new Skill(...args)
         break
       case ITEM_DOCUMENT_TYPES.WEAPON:

@@ -6,48 +6,36 @@
       <summary class="skill-item__summary">
         <div class="skill-item__name">
           {{name}}
-        </div>
-        <div class="skill-item__stats">
-          {{cp2020-input
-            label=(concat @root.constants.SYSTEM_NAME '.items.skill.level')
-            selector='actor.item'
-            uuid=_id
-            key='system.level'
-            type='number'
-            value=this.system.level
-          }}
-          {{#if system.chipLevel}}
-            <div class="skill-item__chipped-icon">
+          {{#if system.isChipped}}
+            <div
+              class="skill-item__chipped-icon"
+              data-selector="item-edit"
+              data-uuid="{{_id}}"
+              title="{{localize (concat @root.constants.SYSTEM_NAME '.items.skill.isChipped')}}"
+            >
               {{{constants.ICONS.CHIPPED}}}
-            </div>
-          {{else}}
-            {{cp2020-input
-              label=(concat @root.constants.SYSTEM_NAME '.items.skill.ip')
-              selector='actor.item'
-              uuid=_id
-              key='system.ip'
-              render='true'
-              type='number'
-              value=this.system.ip
-            }}
-            <div class="skill-item__level-up">
-              <value class="skill-item__level-up-value">
-                {{system.levelUp}}
-              </value>
-              <label>{{localize (concat @root.constants.SYSTEM_NAME '.items.skill.levelUp')}}</label>
             </div>
           {{/if}}
         </div>
+        <div class="skill-item__summary-stats">
+          <div
+            class="skill-item__level"
+            title="{{localize (concat @root.constants.SYSTEM_NAME '.items.skill.level')}}"
+          >{{system.level}}<span
+            class="skill-item__level--total"
+            title="{{localize (concat @root.constants.SYSTEM_NAME '.items.skill.total')}}"
+          >({{system.total}})</span>
+          </div>
+          {{cp2020-button
+            flavor="{{this.system.flavor}}"
+            roll=true
+            sides=10
+            uuid=_id
+            class="skill-item__roll"
+            label="Roll"
+          }}
+        </div>
       </summary>
-      {{cp2020-checkbox
-        class="skill-item__chipped"
-        label=(concat @root.constants.SYSTEM_NAME '.items.skill.isChipped')
-        selector='actor.item'
-        uuid=_id
-        key='system.chipLevel'
-        render='true'
-        value=this.system.chipLevel
-      }}
       <div class="skill-item__details">
         <div class="skill-item__description">
           {{{system.description}}}
@@ -61,21 +49,39 @@
           value=this.system.notes
         }}
       </div>
+      <div class="skill-item__detail-stats">
+        {{cp2020-input
+          label=(concat @root.constants.SYSTEM_NAME '.items.skill.level')
+          selector='actor.item'
+          uuid=_id
+          key='system.level'
+          type='number'
+          value=this.system.level
+        }}
+        {{#unless system.isChipped}}
+          {{cp2020-input
+            label=(concat @root.constants.SYSTEM_NAME '.items.skill.ip')
+            selector='actor.item'
+            uuid=_id
+            key='system.ip'
+            render='true'
+            type='number'
+            value=this.system.ip
+          }}
+          <div class="skill-item__level-up">
+            <value class="skill-item__level-up-value">
+              {{system.levelUp}}
+            </value>
+            <label>{{localize (concat @root.constants.SYSTEM_NAME '.items.skill.levelUp')}}</label>
+          </div>
+          {{cp2020-button
+            class="skill-item__delete"
+            uuid=_id
+            label='Remove'
+            selector='item-delete'
+          }}
+        {{/unless}}
+      </div>
     </details>
-    <div class="skill-item__actions">
-      {{cp2020-button
-        flavor="{{this.system.flavor}}"
-        roll=true
-        sides=10
-        uuid=_id
-        class="skill-item__roll"
-        label="Roll"
-      }}
-      {{cp2020-button
-        class="skill-item__delete"
-        uuid=_id
-        label='Remove'
-        selector='item-delete'
-      }}
-    </div>
+
 {{/cp2020-fieldBox}}
