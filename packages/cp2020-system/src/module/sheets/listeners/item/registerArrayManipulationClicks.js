@@ -1,4 +1,4 @@
-import { accessByPathString } from '@utils'
+import { getValueByPath, setValueByPath } from '@utils'
 
 // TODO: complete this documentation
 
@@ -50,18 +50,20 @@ export const registerArrayManipulationClicks = (sheet, html) => {
   const getItem = (uuid) => sheet.actor?.items?.get(uuid) || sheet.item
   const add = async (event) => {
     const { uuid, meta: name } = event.target.dataset
-    const targetArray = accessByPathString(getItem(uuid), name)
+    const item = getItem(uuid)
     const valueToAdd = html
       .find(`[data-selector="new-row"][data-uuid="${uuid}"]`)
       ?.[0].value
-    targetArray.push(valueToAdd)
-    sheet.render(true)
+    const targetArray = getValueByPath(item, name)
+    setValueByPath(item, name, [...targetArray, valueToAdd])
+    await sheet.render(true)
   }
   const remove = async (event) => {
     const { uuid, key, meta: name } = event.target.dataset
-    const targetArray = accessByPathString(getItem(uuid), name)
+    const targetArray = [...getValueByPath(getItem(uuid), name)]
     targetArray.splice(key, 1)
-    sheet.render(true)
+    setValueByPath(getItem(uuid), name, targetArray)
+    await sheet.render(true)
   }
   return ({
     add,

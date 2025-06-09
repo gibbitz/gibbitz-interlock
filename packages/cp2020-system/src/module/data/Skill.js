@@ -5,7 +5,6 @@ import { SYSTEM_NAME } from '@constants'
 export class Skill extends foundry.abstract.TypeDataModel {
 // extend ItemMeta
   static defineSchema() {
-    const { NumberField, ArrayField } = foundry.data.fields;
     return {
       ...metaSchema(),
       // add skill schema

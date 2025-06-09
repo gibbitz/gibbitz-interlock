@@ -103,11 +103,15 @@ export const skillSchema = () => ({
   level: new NumberField(requiredUninitialized),
   ip: new NumberField(requiredUninitialized),
   ipMultiplier: new NumberField(requiredInitialOne),
-  roles: new ArrayField(new StringField()),
   specialAbility: new StringField(),
   stat: new StringField(),
   levelUp: new NumberField(),
   total: new NumberField()
+})
+
+export const roleSchema = () => ({
+  skills: new ArrayField(new StringField(optionalBlank)),
+  description: new HTMLField(optionalBlank)
 })
 
 export const vehicleSchema = () => ({

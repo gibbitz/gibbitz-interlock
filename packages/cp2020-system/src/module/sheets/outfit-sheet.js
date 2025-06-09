@@ -55,8 +55,16 @@ export class OutfitSheet extends ItemSheet {
     // Prepare active effects for easier access
     const effects = prepareActiveEffectCategories(this.item.effects);
 
+    const roles = game.items.reduce((roleNames, item) => {
+      if (item.type === 'Role') {
+        roleNames.push(item.name)
+      }
+      return roleNames
+    }, [''])
+
     return appendSystemConstants({
       ...context,
+      roles,
       rollData,
       system,
       flags,

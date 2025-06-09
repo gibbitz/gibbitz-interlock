@@ -1,36 +1,42 @@
 {{systemLog ' ARRAY EDITOR | ' this}}
 <span class="field-box {{#if class}}{{class}}{{/if}}">
   <span class="field-box--inner">
-    <label>
-      <details>
-        <summary>{{#each values}}[{{this}}] {{/each}}</summary>
+    <label class="array-field">
+      <ul
+        class="array-field__list{{#if inline}} array-field__list--horizontal{{else}} array-field__list--vertical{{/if}}"
+      >
         {{#each values}}
-          {{cp2020-input
-            name=(concat @root.name '.' @index)
-            value=this
-            type=@root.type
-            label=@root.childLabel
-          }}
-          {{cp2020-button
-            label=@root.deleteLabel
-            action='delete-row'
-            uuid=@root.uuid
-            key=@index
-            meta=@root.name
-          }}
+          <li class="array-field__item">
+            {{cp2020-input
+              label=@root.childLabel
+              name=(concat @root.name '.' @index)
+              type=@root.type
+              value=this
+            }}
+            {{cp2020-button
+              label=(localize (concat @root.constants.SYSTEM_NAME '.arrayEditor.remove'))
+              action='delete-row'
+              uuid=@root.uuid
+              key=@index
+              meta=@root.name
+            }}
+          </li>
         {{/each}}
+      </ul>
+      <div class="array-field__new">
         {{cp2020-input
-          type=type
+          label=addLabel
           selector='new-row'
+          type=type
           uuid=uuid
         }}
         {{cp2020-button
-          label=addLabel
           action='add-row'
+          label=(localize (concat @root.constants.SYSTEM_NAME '.arrayEditor.new'))
           meta=name
           uuid=uuid
         }}
-      </details>
+      </div>
       <small>{{localize label}}</small>
     </label>
   </span>

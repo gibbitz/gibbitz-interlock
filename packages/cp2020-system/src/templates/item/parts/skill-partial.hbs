@@ -75,6 +75,12 @@
             <label>{{localize (concat @root.constants.SYSTEM_NAME '.items.skill.levelUp')}}</label>
           </div>
           {{cp2020-button
+            class="skill-item__edit"
+            uuid=_id
+            label='Edit'
+            selector="item-edit"
+          }}
+          {{cp2020-button
             class="skill-item__delete"
             uuid=_id
             label='Remove'

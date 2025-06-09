@@ -5,9 +5,16 @@
   type='text'
   value=item.name
 }}
-<img class="item-details__image" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+{{#unless ignoreImage}}
+  <img
+    class="item-details__image"
+    src="{{item.img}}"
+    data-edit="img"
+    title="{{item.name}}"
+  />
+{{/unless}}
 {{cp2020-editor
-  this
+  content=system.description
   class="item-details__description"
   target="system.description"
   engine="prosemirror"

@@ -95,6 +95,45 @@
       color: vars.$color-text-light-0;
     }
   }
+  %array-field-flex {
+    display: flex;
+    flex-wrap: wrap;
+    // gap: 0.2rem;
+    > * {
+      margin: var(--box-spacing);
+    }
+    button {
+      height: 100%;
+    }
+  }
+  .array-field {
+
+    &__list {
+      @extend %array-field-flex;
+      margin: 0;
+      padding: 0;
+      &--horizontal {
+        > * {
+          flex: 0;
+        }
+      }
+      &--vertical {
+        > * {
+          flex: 1;
+          flex-wrap: nowrap;
+          min-width: 100%;
+        }
+      }
+    }
+    &__item {
+      @extend %array-field-flex;
+    }
+    &__new {
+      @extend %array-field-flex;
+      flex-wrap: nowrap;
+      margin-bottom: var(--box-spacing);
+    }
+  }
 
   .field-box {
     @extend %box;

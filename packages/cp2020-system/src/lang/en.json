@@ -160,8 +160,20 @@
         "isChipped": "Chipped",
         "ip": "IP",
         "ipMultiplier": "IP Multiplier",
+        "specialAbility": "Special Ability Role",
         "stat": "Stat",
-        "flavor": "Skill Check"
+        "flavor": "Skill Check",
+        "formula": "Roll Formula"
+      },
+      "role": {
+        "label": "Role",
+        "skills": {
+          "long": "Career Skills",
+          "short": "SKILLS",
+          "singular": "Career Skill",
+          "newRow": "Add Career Skill",
+          "deleteRow": "Delete"
+        }
       },
       "armor": {
         "label": "Armor",
@@ -797,6 +809,10 @@
         "veryDifficult": "Very Difficult",
         "nearlyImpossible": "Nearly Impossible"
       }
+    },
+    "arrayEditor": {
+      "new": "Add",
+      "remove": "Delete"
     },
     "sidebar":{
       "imports": {

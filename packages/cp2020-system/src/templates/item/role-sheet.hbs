@@ -1,0 +1,22 @@
+{{systemLog ' Role | ' this}}
+<form
+  class="system-{{@root.constants.SYSTEM_NAME}}-role-sheet {{cssClass}}"
+  autocomplete="off"
+>
+  {{cp2020-outfitHeader
+    name=item.name
+    label=(concat @root.constants.SYSTEM_NAME '.items.role.label')
+  }}
+  {{itemDetails this ignoreImage="true"}}
+  {{cp2020-arrayEditor
+    name='system.skills'
+    type='text'
+    uuid=item._id
+    label=(concat @root.constants.SYSTEM_NAME '.items.role.skills.long')
+    childLabel=(concat @root.constants.SYSTEM_NAME '.items.role.skills.singular')
+    addLabel=(concat @root.constants.SYSTEM_NAME '.items.role.skills.newRow')
+    deleteLabel=(concat @root.constants.SYSTEM_NAME '.items.role.skills.deleteRow')
+    values=item.system.skills
+  }}
+
+</form>

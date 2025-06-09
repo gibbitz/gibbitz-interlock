@@ -1,4 +1,4 @@
-export * from './accessByPathString'
+export * from './accessValueByPath'
 export * from './appendSystemConstants'
 export * from './buildSelectOptions'
 export * from './createFormDialog'

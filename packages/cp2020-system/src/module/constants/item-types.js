@@ -5,19 +5,20 @@ export const ACTOR_DOCUMENT_TYPES = {
   NPC: 'NPC',
 }
 export const ITEM_DOCUMENT_TYPES = {
+  AMMUNITION: 'Ammunition',
   ARMOR: 'Armor',
   CHIPWARE: 'Chipware',
+  CURRENCY: 'Currency',
   CYBERDECK: 'Cyberdeck',
   CYBERWARE: 'Cyberware',
   MAGAZINE: 'Magazine',
   OUTFIT: 'Outfit',
   PROGRAM: 'Program',
+  ROLE: 'Role',
   SKILL: 'Skill',
   UPGRADE: 'Upgrade',
   VEHICLE: 'Vehicle',
-  WEAPON: 'Weapon',
-  AMMUNITION: 'Ammunition',
-  CURRENCY: 'Currency'
+  WEAPON: 'Weapon'
 }
 export const DOCUMENT_TYPES = {
   ...ACTOR_DOCUMENT_TYPES,
